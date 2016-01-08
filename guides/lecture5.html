@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>
+      Lecture 5
+    </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
+  </head>
+  <body>
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#" class='brand-logo'>Lecture 5</a>
+      </div>
+    </nav>
+    <div class='container'>
+      <div class='row'>
+        <div class='col s6 offset-s3'>
+          <p>This should be offset by 3.</p>
+        </div>
+      </div>
+      <div class='row'>
+        <div class='col s6 change-me'>
+          Left div:
+        </div>
+        <div class='col s6 change-me'>
+          Right div:
+        </div>
+      </div>
+    </div>
+    <div class='container'>
+      <div class='row'>
+        <div class='col s6 change-me'
+           id='changer1'>
+        </div>
+        <div class='col s6 change-me'
+           id='changer2'>
+        </div>
+      </div>
+    </div>
+    <footer class='page-footer'>
+      <div class='container'>
+        <div class='row'>
+          <div class='col s12 center'>
+            If you were to concatinate every change to a single string instead of changing the div out, it would read:<br><span id='total-concat-string'></span>
+          </div>
+        </div>
+      </div>
+      <div class='footer-copyright'>
+        <div class='container center'>
+          The elements have been changed a total of <span id='total-changes'>0</span> times
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<script>
+var concatString = "";
+var numLeftChanges = 0;
+var numRightChanges = 0;
+
+// Getting elements
+var div1 = document.getElementById("changer1");
+var div2 = document.getElementById("changer2");
+
+// Getting number elements
+var stringSpan = document.getElementById("total-concat-string");
+var leftChanges = document.getElementById('changes-to-1');
+var rightChanges = document.getElementById('changes-to-2');
+var totalChanges = document.getElementById('total-changes');
+
+function change1(str) {
+  concatString += str;
+  numLeftChanges++;
+  div1.innerHTML= str;
+  stringSpan.innerHTML= concatString;
+  totalChanges.innerHTML = numLeftChanges + numRightChanges;
+  console.log("The left div has been changed " + numLeftChanges + " time(s).");
+}
+
+function change2(str) {
+  concatString += str;
+  numRightChanges++;
+  div2.innerHTML = str;
+  stringSpan.innerHTML = concatString;
+  totalChanges.innerHTML = numLeftChanges + numRightChanges;
+  console.log("The right div has been changed " + numRightChanges + " time(s). And just for fun, here's a random number between 0 and 100: " + Math.round(Math.random() * 100));
+}
+</script>

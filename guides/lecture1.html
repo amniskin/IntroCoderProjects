@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>
+      Lecture 1: HTML Basics
+    </title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="/style/style.css">
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <nav class='navbar navbar-default navbar-fixed-top'>
+      <div class='container-fluid'>
+        <div class='navbar-header'>
+          <button type='button' class='navbar-toggle collapsed' data-toggle='collapse' data-target='#navbar-collapse-1' aria-expanded='false'>
+            <span class='sr-only'>Toggle navigation</span>
+            <span class='icon-bar'></span>
+            <span class='icon-bar'></span>
+            <span class='icon-bar'></span>
+          </button>
+          <a class='navbar-brand' href='#home'>L6: Odds or Evens</a>
+        </div>
+        <div class='collapse navbar-collapse' id='navbar-collapse-1'>
+          <ul class='nav navbar-nav'>
+            <li class='active'><a href='#prereqs'>Prereqs<span class='sr-only'>(current)</span></a></li><li><a href="#">Link</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a href="#" 
+                 class="dropdown-toggle" 
+                 data-toggle="dropdown" 
+                 role="button" 
+                 aria-haspopup="true" 
+                 aria-expanded="false">Lectures<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="/assessments/lecture1.html">Lecture 1</a></li>
+                <li><a href="/assessments/lecture2.html">Lecture 2</a></li>
+                <li><a href="/assessments/lecture3.html">Lecture 3</a></li>
+                <li><a href="/assessments/lecture4.html">Lecture 4</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="/assessments/lecture5.html">Lecture 5</a></li>
+                <li><a href="/assessments/lecture6.html">Lecture 6</a></li>
+                <li><a href="/assessments/lecture7.html">Lecture 7</a></li>
+                <li><a href="/assessments/lecture8.html">Lecture 8</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="/assessments/lecture9.html">Lecture 9</a></li>
+                <li><a href="/assessments/lecture10.html">Lecture 10</a></li>
+                <li><a href="/assessments/lecture11.html">Lecture 11</a></li>
+                <li><a href="/assessments/lecture12.html">Lecture 12</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+    <div class='container'
+         id='home'>
+      <div class='row'>
+        <div class='col-sm-12 text-center'>
+          <h2>Let's make a webpage!</h2>
+          <h4>Written by: Aaron Niskin</h4>
+        </div>
+      </div>
+      <div class='section'
+           id='intro'>
+        <div class='row'>
+          <div class='col-xs-12 col-sm-8 col-sm-offset-2'>
+            <p>In this project we will be making a HelloWorld style webpage. Our goal is to familiarize ourselves with the basics of HTML and the basics of the HTML evaluation model.</p>
+          </div>
+        </div>
+      </div>
+      <div class='section'
+           id='prereqs'>
+        <div class='row'>
+          <div class='col-xs-12 col-sm-8 col-sm-offset-2'>
+            <h3>Prerequisites:</h3>
+            <ul>
+              <li>A computer to use for a bit.</li>
+              <li>Desire to learn web development</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class='section'
+           id='learning'>
+        <div class='row'>
+          <div class='col-xs-12 col-sm-8 col-sm-offset-2'>
+            <h3>Learning Objectives:</h3>
+            <ul>
+              <li>Basic HTML evaluation model</li>
+              <li>HTML Tags like:
+                <ul>
+                  <li>Anchor</li>
+                  <li>h1, h2, ... </li>
+                  <li>Paragraphs</li>
+                  <li>Ordered and unordered lists</li>
+                  <li>Image</li>
+                  <li>Emphasis, bold, and underline text</li>
+                  <li>Line breaks</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class='section'
+           id='step1'>
+        <div class='row'>
+          <div class='col-sm-8 col-sm-offset-2'>
+            <h3>Step 1: Create an empty HTML file</h3>
+            <p>To start with, we're going to need a file to write to. Let's
+            create a folder in our favorite directory for all the files we'll
+            be writing throughout this course. Let's call that folder something
+            memorable and identifyable like
+            "Files_for_the_greatest_web_development_course_since_the_dawn_of_time",
+            or "web-dev" or something, your choice.</p>
+
+            <p>Great! Once you've got a folder in place, let's make an HTML
+            file! Go into your favorite editor (i.e. vim, brackets,
+            sublimetext, etc) and start editing a new file called "index.html".
+            Let's save that file. Guess what. We've just created our first HTML
+            file! Just to check things out, double click the index.html file.
+            Your browser of choice (if it's not Google Chrome yet, you might
+            want to change it; if you were using Safari, you should ponder the
+            errors of your ways; if you were using Internet Explorer or it's
+            step-child Edge, put yourself in timeout and think about what
+            you've done) should open. Why isn't there anything there, you ask?
+            We haven't put anything there yet!</p>
+
+          </div>
+        </div>
+      </div>
+      <div class='section'
+           id='step2'>
+        <div class='row'>
+          <div class='col-sm-8 col-sm-offset-2'>
+            <h3>Step 2: Let's prep our page</h3>
+            <p>First we need to specify that the document type is HTML. This is
+            mainly for backward compatibility reasons, but it's good practice
+            to put this in every page you write. So, on the top of your newly
+            created html file, let's write</p>
+            <pre>&#60;!DOCTYPE html></pre>
+            <p>Now, we probably want to start writing some HTML in there. To do
+            that, we need to open an HTML tag, and put our HTML code inside of
+            it. While we're doing that, we're going to want a body to put the
+            stuff we want to display on the screen in. Let's get to it!</p>
+<pre>&#60;!DOCTYPE html>
+
+&#60;html>
+  &#60;body>&#60;/body>
+&#60;/html>
+</pre>
+            <p>You may have noticed that HTML tags tend to be within &#60; and
+            > symbols, and that generally, when we open a tag (as in
+            <code>&#60;html></code>), we generally close it after (as in
+            <code>&#60;/html></code>). This is the general way that HTML is
+            written. Let's move on.</p>
+            <p>Now, you may have noticed that still nothing is showing up on
+            the page. That's because we've still not given it anything to
+            show!</p>
+          </div>
+        </div>
+      </div>
+      <div class='section'
+           id='step3'>
+        <div class='row'>
+          <div class='col-sm-8 col-sm-offset-2'>
+            <h3>Step 3: Let's put some headers on it</h3>
+            <p>Let's create a headline for our page. It should probably say
+            something like "This is the Lecture 1 assessment", because doesn't
+            everybody write that on their pages? So at this point, your code
+            should look like this:</p>
+<pre>&#60;!DOCTYPE html>
+
+&#60;html>
+  &#60;body>
+    &#60;h1>This is the Lecture 1 assessment&#60;/h1>
+  &#60;/body>
+&#60;/html>
+</pre>
+            <p>Let's also add a section header, subsection header, and a
+            subsubsection header too. Can you figure out how to add those on
+            your own?</p>
+            <p>Hint: <span class='hint blur'>the text size gets smaller with
+            increasing number. Try using <code>h2</code>, <code>h3</code> and
+            <code>h4</code>.</span></p>
+            <br/>
+<pre class='hint blur'>&#60;!DOCTYPE html>
+
+&#60;html>
+  &#60;body>
+    &#60;h1>This is the Lecture 1 assessment&#60;/h1>
+    &#60;h2>This text is not as large&#60;/h2>
+    &#60;h3>This is even smaller&#60;/h3>
+    &#60;h4>Even smaller yet&#60;/h4>
+  &#60;/body>
+&#60;/html>
+</pre>
+          </div>
+        </div>
+      </div>
+      <div class='section'
+           id='step4'>
+        <div class='row'>
+          <div class='col-sm-8 col-sm-offset-2'>
+            <h3>Step 4: Let's put some paragraph text on it</h3>
+            <p>Now that we know how to put headers and whatnot, what about just regular ol' paragraphs? Well, let's add a paragraph or two. The tag for a paragraph is simply <code>p</code>. Inside your paragraph, you're probably going to want to have a few words in <b>bold</b> and a few emphasised in <em>italics</em>. The tag for <b>bold</b> text is <code>b</code> and the tag for <em>emphasis</em> (italics) is <code>em</code>. Go ahead and add a couple of paragraphs to your page complete with some bold text and some italics text right now. Don't worry, I'll just wait here.</p>
+<pre class='hint blur'>&#60;!DOCTYPE html>
+
+&#60;html>
+  &#60;body>
+    &#60;h1>This is the Lecture 1 assessment&#60;/h1>
+    &#60;h2>This text is not as large&#60;/h2>
+    &#60;h3>This is even smaller&#60;/h3>
+    &#60;h4>Even smaller yet&#60;/h4>
+
+    &#60;p>This is a paragraph complete with &#60;b>bold text&#60;/b> and &#60;em>everything&#60;/em>! I can't believe how long this paragraph is! OMGosh, this thing goes on forever. Does this guy just like hearing himself... type? Well, anyway, now that we're all here...&#60;/p>
+    &#60;p>We can get started on the &#60;em>second&#60;/em> paragraph! "Everything good requires effort" - The Illustrious Aaron Niskin. I think we're going to need a bigger quote.&#60;/p>
+  &#60;/body>
+&#60;/html>
+</pre>
+          </div>
+        </div>
+      </div>
+      <div class='section'
+           id='step5'>
+        <div class='row'>
+          <div class='col-sm-8 col-sm-offset-2'>
+            <h3>Step 5: Care for a list?</h3>
+            <p>In HTML there are two types of lists: ordered and unordered. Ordered lists index the list items and display that index before each item, while unordered lists only print a standard symbol for each list item. The tag for an unordered list is <code>ul</code> and the tag for ordered list is, you guessed it, <code>ol</code>. Inside of lists, we generally have list items. Luckily the tag for a list item is <code>li</code> regardless of whether the list is ordered or unordered. To test it out, let's write a couple lists. List one should be an unordered list with three list items, and the second should be an ordered list of three more items.</p>
+<pre class='hint blur'>&#60;!DOCTYPE html>
+
+&#60;html>
+  &#60;body>
+    &#60;h1>This is the Lecture 1 assessment&#60;/h1>
+    &#60;h2>This text is not as large&#60;/h2>
+    &#60;h3>This is even smaller&#60;/h3>
+    &#60;h4>Even smaller yet&#60;/h4>
+
+    &#60;p>This is a paragraph complete with &#60;b>bold text&#60;/b> and &#60;em>everything&#60;/em>! I can't believe how long this paragraph is! OMGosh, this thing goes on forever. Does this guy just like hearing himself... type? Well, anyway, now that we're all here...&#60;/p>
+    &#60;p>We can get started on the &#60;em>second&#60;/em> paragraph! "Everything good requires effort" - The Illustrious Aaron Niskin. I think we're going to need a bigger quote.&#60;/p>
+    &#60;ul>
+      &#60;li>First unordered list item&#60;/li>
+      &#60;li>Second unordered list item&#60;/li>
+      &#60;li>Third unordered list item&#60;/li>
+    &#60;/ul>
+    &#60;ol>
+      &#60;li>First ordered list item&#60;/li>
+      &#60;li>Second ordered list item&#60;/li>
+      &#60;li>Third ordered list item&#60;/li>
+    &#60;/ol>
+  &#60;/body>
+&#60;/html>
+</pre>
+            <p>Great! Now let's take it a step further... Let's add a sublist to both of our lists! You already know everything you need to know in order to complete this step, so let's get to it!</p>
+            <p>Hint: <span class='hint blur'>Remember than any HTML object can be a list item. That includes other lists!</span></p>
+<pre class='hint blur'>&#60;!DOCTYPE html>
+
+&#60;html>
+  &#60;body>
+    &#60;h1>This is the Lecture 1 assessment&#60;/h1>
+    &#60;h2>This text is not as large&#60;/h2>
+    &#60;h3>This is even smaller&#60;/h3>
+    &#60;h4>Even smaller yet&#60;/h4>
+
+    &#60;p>This is a paragraph complete with &#60;b>bold text&#60;/b> and &#60;em>everything&#60;/em>! I can't believe how long this paragraph is! OMGosh, this thing goes on forever. Does this guy just like hearing himself... type? Well, anyway, now that we're all here...&#60;/p>
+    &#60;p>We can get started on the &#60;em>second&#60;/em> paragraph! "Everything good requires effort" - The Illustrious Aaron Niskin. I think we're going to need a bigger quote.&#60;/p>
+    &#60;ul>
+      &#60;li>First unordered list item&#60;/li>
+      &#60;li>Second unordered list item&#60;/li>
+      &#60;li>Third unordered list item&#60;/li>
+      &#60;li>
+        &#60;ul>
+          &#60;li>First unordered sublist item&#60;/li>
+          &#60;li>Second unordered sublist item&#60;/li>
+          &#60;li>Third unordered sublist item&#60;/li>
+        &#60;/ul>
+      &#60;/li>
+    &#60;/ul>
+    &#60;ol>
+      &#60;li>First ordered list item&#60;/li>
+      &#60;li>Second ordered list item&#60;/li>
+      &#60;li>Third ordered list item&#60;/li>
+      &#60;li>
+        &#60;ol>
+          &#60;li>First ordered sublist item&#60;/li>
+          &#60;li>Second ordered sublist item&#60;/li>
+          &#60;li>Third ordered sublist item&#60;/li>
+        &#60;/ol>
+      &#60;/li>
+    &#60;/ol>
+  &#60;/body>
+&#60;/html>
+</pre>
+          </div>
+        </div>
+      </div>
+      <div class='section'
+           id='step6'>
+        <div class='row'>
+          <div class='col-sm-8 col-sm-offset-2'>
+            <h3>Step 6: Attributes and links</h3>
+            <p>Just because we can, let's add a link to our page! Where should this link go if not to the most amazing website in all the land, <a href='http://aaron.niskin.org'>aaron.niskin.org</a>? Back in the 90's it was super cool to do stuff like <a href='http://aaron.niskin.org'>reddit.com</a>. Go ahead. Click the link. You know you want to. Not funny? You'll get it later. For now let's figure out what happened there.</p>
+            <p>To start with, the tag for links is called an "anchor tag" and it's simply <code>a</code>. The content inside the anchor tag is the text you see. Let's try it out. Put an anchor tag on your page that displays your favorite website (cat videos only, please).</p>
+<pre class='hint blur'>&#60;!DOCTYPE html>
+
+&#60;html>
+  &#60;body>
+    &#60;h1>This is the Lecture 1 assessment&#60;/h1>
+    &#60;h2>This text is not as large&#60;/h2>
+    &#60;h3>This is even smaller&#60;/h3>
+    &#60;h4>Even smaller yet&#60;/h4>
+
+    &#60;p>This is a paragraph complete with &#60;b>bold text&#60;/b> and &#60;em>everything&#60;/em>! I can't believe how long this paragraph is! OMGosh, this thing goes on forever. Does this guy just like hearing himself... type? Well, anyway, now that we're all here...&#60;/p>
+    &#60;p>We can get started on the &#60;em>second&#60;/em> paragraph! "Everything good requires effort" - The Illustrious Aaron Niskin. I think we're going to need a bigger quote.&#60;/p>
+    &#60;ul>
+      &#60;li>First unordered list item&#60;/li>
+      &#60;li>Second unordered list item&#60;/li>
+      &#60;li>Third unordered list item&#60;/li>
+      &#60;li>
+        &#60;ul>
+          &#60;li>First unordered sublist item&#60;/li>
+          &#60;li>Second unordered sublist item&#60;/li>
+          &#60;li>Third unordered sublist item&#60;/li>
+        &#60;/ul>
+      &#60;/li>
+    &#60;/ul>
+    &#60;ol>
+      &#60;li>First ordered list item&#60;/li>
+      &#60;li>Second ordered list item&#60;/li>
+      &#60;li>Third ordered list item&#60;/li>
+      &#60;li>
+        &#60;ol>
+          &#60;li>First ordered sublist item&#60;/li>
+          &#60;li>Second ordered sublist item&#60;/li>
+          &#60;li>Third ordered sublist item&#60;/li>
+        &#60;/ol>
+      &#60;/li>
+    &#60;/ol>
+    &#60;a>aaron.niskin.org&#60;/a>
+  &#60;/body>
+&#60;/html>
+</pre>
+            <p>But this link doesn't go anywhere! That's because as we saw with the <a href='http://aaron.niskin.org'>reddit.com</a> example, the address of the link is not set by the displayed text. They don't even have to be related at all. This is most commonly used to do things like <a href='aaron.niskin.org'>this</a>. So how do we set the link address? Using what is called an "attribute". In HTML, there are two major things one should always keep in mind and those are the attributes and children. We won't however be getting too much into that in this project. For now, just know that attributes are set like this:</p>
+            <pre>&#60;tag attr1='val1' attr2='val2' ... >content of the tag&#60;/tag></pre>
+            <p>With anchor tags, the attribute that controls where the link sends a person to is called "href". So in our case, we want to set the href attribute to be aaron.niskin.org, of course. So if we wanted to create something like <a href='aaron.niskin.org'>MY AWESOME SITE</a>, our code will look something like</p>
+            <pre>&#60;a href='aaron.niskin.org'>MY AWESOME SITE&#60;/a></pre>
+            <p>Now use this to write a few links on your page. One link should have italics text, one should be in a list and another should be a title.</p>
+<pre class='hint blur'>&#60;!DOCTYPE html>
+
+&#60;html>
+  &#60;body>
+    &#60;h1>This is the Lecture 1 assessment&#60;/h1>
+    &#60;h2>This text is not as large&#60;/h2>
+    &#60;h3>This is even smaller&#60;/h3>
+    &#60;h4>Even smaller yet&#60;/h4>
+
+    &#60;p>This is a paragraph complete with &#60;b>bold text&#60;/b> and &#60;em>everything&#60;/em>! I can't believe how long this paragraph is! OMGosh, this thing goes on forever. Does this guy just like hearing himself... type? Well, anyway, now that we're all here...&#60;/p>
+    &#60;p>We can get started on the &#60;em>second&#60;/em> paragraph! "Everything good requires effort" - The Illustrious Aaron Niskin. I think we're going to need a bigger quote.&#60;/p>
+    &#60;ul>
+      &#60;li>First unordered list item&#60;/li>
+      &#60;li>Second unordered list item&#60;/li>
+      &#60;li>Third unordered list item&#60;/li>
+      &#60;li>
+        &#60;ul>
+          &#60;li>First unordered sublist item&#60;/li>
+          &#60;li>Second unordered sublist item&#60;/li>
+          &#60;li>Third unordered sublist item&#60;/li>
+        &#60;/ul>
+      &#60;/li>
+    &#60;/ul>
+    &#60;ol>
+      &#60;li>First ordered list item&#60;/li>
+      &#60;li>Second ordered list item&#60;/li>
+      &#60;li>Third ordered list item&#60;/li>
+      &#60;li>
+        &#60;ol>
+          &#60;li>First ordered sublist item&#60;/li>
+          &#60;li>Second ordered sublist item&#60;/li>
+          &#60;li>&#60;a href='aaron.niskin.org'>Third ordered sublist item&#60;/a>&#60;/li>
+        &#60;/ol>
+      &#60;/li>
+    &#60;/ol>
+    &#60;a href='aaron.niskin.org'>&#60;em>aaron&#60;/em>.niskin.org&#60;/a>
+    &#60;h2>&#60;a href='aaron.niskin.org'>aaron.niskin.org&#60;/a>&#60;/h2>
+  &#60;/body>
+&#60;/html>
+</pre>
+          </div>
+        </div>
+      </div>
+      <div class='section'
+           id='step7'>
+        <div class='row'>
+          <div class='col-sm-8 col-sm-offset-2'>
+            <h3>Step 7: Images</h3>
+            <p>Let's get an image up there and we're done! Much like anchor tags, image tags also require an attribute. The attribute required by the image tag (which, by the way, is <code>img</code>) tells the program where to find the image file. The attribute is called <code>src</code>, and its value should be the path to the file. For more assistance on file paths, check out <a href='http://webdesign.about.com/od/beginningtutorials/a/aa040502a.htm'>this</a> site. If you're still not too confident in your understanding, this is a perfect time to practice your googlefoo! Search on, brother or sister!</p>
+            <p>The strangest thing about this tag is that there is no closing tag. In fact, this tag has no children. So an entire <code>img</code> tag would look something like this:</p>
+            <pre>&#60;img attr1='val1' attr2='val2' ...></pre>
+            <p>Once you've gotten that down, go ahead and download your favorite picture. Let's also make a folder (inside the folder we made for our website) called "img". So our folder should have one file named "index.html", and a folder called "img" so far. Let's move that picture to our new favorite folder (img). Now let's display that image on our website! Note: To do this, you will either have to start a localhost server, which we will not be covering here, or specifiy the location of the picture using a relative path. The reason for this is that the computer thinks "/" is the computer's root directory, not the website's. Beware before you code!</p>
+<pre class='hint blur'>&#60;!DOCTYPE html>
+
+&#60;html>
+  &#60;body>
+    &#60;h1>This is the Lecture 1 assessment&#60;/h1>
+    &#60;h2>This text is not as large&#60;/h2>
+    &#60;h3>This is even smaller&#60;/h3>
+    &#60;h4>Even smaller yet&#60;/h4>
+
+    &#60;p>This is a paragraph complete with &#60;b>bold text&#60;/b> and &#60;em>everything&#60;/em>! I can't believe how long this paragraph is! OMGosh, this thing goes on forever. Does this guy just like hearing himself... type? Well, anyway, now that we're all here...&#60;/p>
+    &#60;p>We can get started on the &#60;em>second&#60;/em> paragraph! "Everything good requires effort" - The Illustrious Aaron Niskin. I think we're going to need a bigger quote.&#60;/p>
+    &#60;ul>
+      &#60;li>First unordered list item&#60;/li>
+      &#60;li>Second unordered list item&#60;/li>
+      &#60;li>Third unordered list item&#60;/li>
+      &#60;li>
+        &#60;ul>
+          &#60;li>First unordered sublist item&#60;/li>
+          &#60;li>Second unordered sublist item&#60;/li>
+          &#60;li>Third unordered sublist item&#60;/li>
+        &#60;/ul>
+      &#60;/li>
+    &#60;/ul>
+    &#60;ol>
+      &#60;li>First ordered list item&#60;/li>
+      &#60;li>Second ordered list item&#60;/li>
+      &#60;li>Third ordered list item&#60;/li>
+      &#60;li>
+        &#60;ol>
+          &#60;li>First ordered sublist item&#60;/li>
+          &#60;li>Second ordered sublist item&#60;/li>
+          &#60;li>&#60;a href='aaron.niskin.org'>Third ordered sublist item&#60;/a>&#60;/li>
+        &#60;/ol>
+      &#60;/li>
+    &#60;/ol>
+    &#60;a href='aaron.niskin.org'>&#60;em>aaron&#60;/em>.niskin.org&#60;/a>
+    &#60;h2>&#60;a href='aaron.niskin.org'>aaron.niskin.org&#60;/a>&#60;/h2>
+    &#60;img src='img/mycoolimg.jpg'>
+  &#60;/body>
+&#60;/html>
+</pre>
+          </div>
+        </div>
+      </div>
+      <div class='section'
+           id='step8'>
+        <div class='row'>
+          <div class='col-sm-8 col-sm-offset-2'>
+            <h3>Step 7: Let's show it off!</h3>
+            <p>You're done. Go away. Go outside. Play some basketball. 
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+<!--<script>
+$(document).ready(function() {
+  $('.hint').on('click', function() {
+    if($(this).hasClass('blur')) {
+      $(this).removeClass('blur');
+    } else {
+      $(this).addClass('blur');
+    }
+  });
+});
+
+</script>-->
+<script src="/js/coder.js"></script>
