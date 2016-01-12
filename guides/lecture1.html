@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="/style/style.css">
     <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="/js/coder.js"></script>
   </head>
   <body>
     <nav class='navbar navbar-default navbar-fixed-top'>
@@ -400,10 +401,13 @@
           <div class='col-sm-8 col-sm-offset-2'>
             <h3>Step 7: Images</h3>
             <p>Let's get an image up there and we're done! Much like anchor tags, image tags also require an attribute. The attribute required by the image tag (which, by the way, is <code>img</code>) tells the program where to find the image file. The attribute is called <code>src</code>, and its value should be the path to the file. For more assistance on file paths, check out <a href='http://webdesign.about.com/od/beginningtutorials/a/aa040502a.htm'>this</a> site. If you're still not too confident in your understanding, this is a perfect time to practice your googlefoo! Search on, brother or sister!</p>
-            <p>The strangest thing about this tag is that there is no closing tag. In fact, this tag has no children. So an entire <code>img</code> tag would look something like this:</p>
+            <p>The strangest thing about this tag is that there is no closing tag. In fact, this tag has no children. So as of right now an entire <code>img</code> tag would look something like this:</p>
             <pre>&#60;img attr1='val1' attr2='val2' ...></pre>
+            <p>One more thing we have to learn before we start adding images is what to do if the image doesn't load. We still want our users to know roughly what's missing, right? For this we can use the <code>alt</code> tag. We set the <code>alt</code> tag value to be whatever text we want to show if the image fails to load. For instance,</p>
+            <pre>&#60;img attr1='val1' attr2='val2'... alt='This is the alternate text!'></pre>
+            <p>would show "This is the alternate text!" if the image does not load.</p>
             <p>Once you've gotten that down, go ahead and download your favorite picture. Let's also make a folder (inside the folder we made for our website) called "img". So our folder should have one file named "index.html", and a folder called "img" so far. Let's move that picture to our new favorite folder (img). Now let's display that image on our website! Note: To do this, you will either have to start a localhost server, which we will not be covering here, or specifiy the location of the picture using a relative path. The reason for this is that the computer thinks "/" is the computer's root directory, not the website's. Beware before you code!</p>
-<pre class='hint blur'>&#60;!DOCTYPE html>
+            <pre class='hint blur'>&#60;!DOCTYPE html>
 
 &#60;html>
   &#60;body>
@@ -440,10 +444,9 @@
     &#60;/ol>
     &#60;a href='aaron.niskin.org'>&#60;em>aaron&#60;/em>.niskin.org&#60;/a>
     &#60;h2>&#60;a href='aaron.niskin.org'>aaron.niskin.org&#60;/a>&#60;/h2>
-    &#60;img src='img/mycoolimg.jpg'>
+    &#60;img src='img/mycoolimg.jpg' alt='this is the coolest image in the whole wide internet!'>
   &#60;/body>
-&#60;/html>
-</pre>
+&#60;/html></pre>
           </div>
         </div>
       </div>
@@ -451,7 +454,60 @@
            id='step8'>
         <div class='row'>
           <div class='col-sm-8 col-sm-offset-2'>
-            <h3>Step 7: Let's show it off!</h3>
+            <h3>Step 8: Let's title it!</h3>
+            <p>So far everything we've done has been to put things on the screen in some sort of way. Well, sometimes there are things that we need the document to know about without them being displayed. For example, the title text (on the tab just above the address bar). This title text is not displayed in the actual web page, and yet we need the webpage to have that data. For these things, we use a <code>head</code> tag. The standard convention is to put the <code>head</code> tag as the first child of the <code>html</code> tag. So go ahead and create a <code>head</code> tag just before the <code>body</code> tag opens. Now the <code>html</code> tag has two children, the <code>head</code> and the <code>body</code>.</p>
+            <p>We still haven't changed the title text of our webpage yet, however. What if we wanted it to say "Check out my awesome site!"? Well, for that we need to put a <code>title</code> tag inside the <code>head</code>. Whatever text you put inside the title tag is what will show up in the tab text there above the address bar. Go ahead and try it out. Put some text inside of a <code>title</code> tag and then place that inside of the <code>head</code> tag. Check out your handiwork.</p>
+            <pre class='hint blur'>&#60;!DOCTYPE html>
+
+&#60;html>
+  &#60;head>
+    &#60;title>Lecture 1 Final&#60;/title>
+  &#60;/head>
+  &#60;body>
+    &#60;h1>This is the Lecture 1 assessment&#60;/h1>
+    &#60;h2>This text is not as large&#60;/h2>
+    &#60;h3>This is even smaller&#60;/h3>
+    &#60;h4>Even smaller yet&#60;/h4>
+
+    &#60;p>This is a paragraph complete with &#60;b>bold text&#60;/b> and &#60;em>everything&#60;/em>! I can't believe how long this paragraph is! OMGosh, this thing goes on forever. Does this guy just like hearing himself... type? Well, anyway, now that we're all here...&#60;/p>
+    &#60;p>We can get started on the &#60;em>second&#60;/em> paragraph! "Everything good requires effort" - The Illustrious Aaron Niskin. I think we're going to need a bigger quote.&#60;/p>
+    &#60;ul>
+      &#60;li>First unordered list item&#60;/li>
+      &#60;li>Second unordered list item&#60;/li>
+      &#60;li>Third unordered list item&#60;/li>
+      &#60;li>
+        &#60;ul>
+          &#60;li>First unordered sublist item&#60;/li>
+          &#60;li>Second unordered sublist item&#60;/li>
+          &#60;li>Third unordered sublist item&#60;/li>
+        &#60;/ul>
+      &#60;/li>
+    &#60;/ul>
+    &#60;ol>
+      &#60;li>First ordered list item&#60;/li>
+      &#60;li>Second ordered list item&#60;/li>
+      &#60;li>Third ordered list item&#60;/li>
+      &#60;li>
+        &#60;ol>
+          &#60;li>First ordered sublist item&#60;/li>
+          &#60;li>Second ordered sublist item&#60;/li>
+          &#60;li>&#60;a href='aaron.niskin.org'>Third ordered sublist item&#60;/a>&#60;/li>
+        &#60;/ol>
+      &#60;/li>
+    &#60;/ol>
+    &#60;a href='aaron.niskin.org'>&#60;em>aaron&#60;/em>.niskin.org&#60;/a>
+    &#60;h2>&#60;a href='aaron.niskin.org'>aaron.niskin.org&#60;/a>&#60;/h2>
+    &#60;img src='img/mycoolimg.jpg' alt='this is the coolest image in the whole wide internet!'>
+  &#60;/body>
+&#60;/html></pre>
+          </div>
+        </div>
+      </div>
+      <div class='section'
+           id='step9'>
+        <div class='row'>
+          <div class='col-sm-8 col-sm-offset-2'>
+            <h3>Step 9: Let's show it off!</h3>
             <p>You're done. Go away. Go outside. Play some basketball. 
           </div>
         </div>
@@ -471,4 +527,3 @@ $(document).ready(function() {
 });
 
 </script>-->
-<script src="/js/coder.js"></script>

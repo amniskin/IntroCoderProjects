@@ -71,7 +71,7 @@
            id='intro'>
         <div class='row'>
           <div class='col-xs-12 col-sm-8 col-sm-offset-2'>
-            <p>In this project, we will study a bit of CSS by making some boxes with certain properties. To see what the final version should look like, check out the finished product.</p>
+            <p>In this project, we will study CSS by making some boxes with certain properties. To see what the final version should look like, check out the finished product.</p>
           </div>
         </div>
       </div>
@@ -81,9 +81,9 @@
           <div class='col-xs-12 col-sm-8 col-sm-offset-2'>
             <h3>Prerequisites:</h3>
             <ul>
-              <li>A computer to use for a bit</li>
+              <li>A computer to use for a bit.</li>
+              <li>Desire to learn web development</li>
               <li>Basic familiarity with html</li>
-              <li>Desire to add custom style to a website</li>
             </ul>
           </div>
         </div>
@@ -105,7 +105,7 @@
         <div class='row'>
           <div class='col-sm-8 col-sm-offset-2'>
             <h3>Step 1: an HTML file</h3>
-            <p>Let's set up an HTML file complete with a <code>head</code> and a <code>body</code>. You should already know how to do this, so this step should be very easy. If you are unsure of how to go about this, I suggest you try out the HTML basics code project.</p>
+            <p>You should already know how to do this, so this step should be very easy. If you are unsure of how to go about this, I suggest you try out the HTML basics code project.</p>
 <pre class='hint blur'>&#60;!DOCTYPE html>
 
 &#60;html>
@@ -113,7 +113,8 @@
   &#60;/head>
   &#60;body>
   &#60;/body>
-&#60;/html></pre>
+&#60;/html>
+</pre>
 
           </div>
         </div>
@@ -132,7 +133,7 @@
   &#60;/head>
   &#60;body>
   &#60;/body>
-&#60;/html></pre>
+&#60;/html>
           </div>
         </div>
       </div>
@@ -146,15 +147,18 @@
   property1: value1;
   property2: tag2;
   ...
-}</pre>
+}
+            </pre>
             <p>So, to set the <code>background-color</code> property of our body, our code should look like:</p>
             <pre>body {
   background-color: color-choice;
-}</pre>
+}
+            </pre>
             <p>In CSS colors can be specified via their color name (if CSS knows about this color), their unicode index, their rgb (red/green/blue) value, or even their rgba (where A denotes the opacity with 1 being fully opaque and 0 being fully transparent). In our case, we want the rgb value to be 40, 40, 40. To do this, we can set the background-color property to <code>rgb(40, 40, 40)</code>. Go ahead and do that now.</p>
             <pre class='hint blur'>body {
   background-color: rgb(40, 40, 40);
-}</pre>
+}
+            </pre>
           </div>
         </div>
       </div>
@@ -162,29 +166,7 @@
            id='step4'>
         <div class='row'>
           <div class='col-sm-8 col-sm-offset-2'>
-            <h3>Step 4: Let's get some squares going on</h3>
-            <p>Firstly, for these squares, we see that we want a repeated style. By that I mean that we want four objects with exactly the same style. This is a good time to use a means of abstraction that CSS has built in that lets us style objects with certain classes. The syntax for this is basically the same as for tags except we start the class name with a period (to specify that we're talking about classes and not something else). For example, to give everything with class class-name prop1 set to attr1, etc, the code would look like:</p>
-            <pre>.class-name {
-  prop1: attr1;
-  prop2: attr2;
-  ...
-}</pre>
-            <p>Being as how we have 4 boxes with much of the same style, we might do well to utilize this tool. So let's get on that! What should we name our class? It should be something descriptive of what it does. How about <code>box</code>? Let's use that. In your HTML code, create four <code>div</code> elements with their <code>class</code> attributes set to <code>"box"</code>.</p>
-            <p>Great! Now we can style by class and save ourselves a lot of time! The first thing we want to specify is a <code>background-color</code> so that we can see our elements at least (in truth there's a better way than that, but that's out of the scope of this project). Let's set the color to an rgb value of 40 red, 200 green, and 60 blue.</p>
-            <pre class='hint blur'>.box {
-  background-color: rgb(40, 200, 60);
-}</pre>
-            <p>Great! We've got the background color set, but we still don't see anything! What the French toast?! Well, we haven't put anything inside the divs yet, so there's noheight to them yet! Luck for us we can set the height property manually with CSS! Inside the style for the box class, let's add a <code>height</code> property, and set it to 100px. This time do not put the value in quotes.</p>
-            <pre class='hint blur'>.box {
-  background-color: rgb(40, 200, 60);
-  height: 100px;
-}</pre>
-            <p>Now we see our divs, but they're far from squares! They seem like one big blob of green! Let's set the width property to be 100px just like the height (so we have squares).</p>
-            <pre class='hint blur'>.box {
-  background-color: rgb(40, 200, 60);
-  height: 100px;
-  width: 100px;
-}</pre>
+            <h3>Step 4: Let's put some paragraph text on it</h3>
           </div>
         </div>
       </div>
@@ -192,22 +174,7 @@
            id='step5'>
         <div class='row'>
           <div class='col-sm-8 col-sm-offset-2'>
-            <h3>Step 5: Display properties</h3>
-            <p>You may have noticed that the divs are now squares, but they're still on top of each other. What's that all about? Well, that's due to something called the <code>display</code> property. <code>div</code> elements have a default display property of <code>block</code>. The block display property, among other things, ensures that the object takes up the entire width of the screen. We don't want that. We want the boxes to take up just the allotted 100 pixels. We want a display property of <code>inline-block</code>. So, set the <code>display</code> property now.</p>
-            <pre class='hint blur'>.box {
-  background-color: rgb(40, 200, 60);
-  height: 100px;
-  width: 100px;
-  display: inline-block;
-}</pre>
-            <p>Things are looking far better! We've got some squares, and they're all side by side. Look at how far we've come! But things can always be better. For instance, notice the light blue border around the boxes in the example page. Let's give ours one like that too! To do this, we need to set three properties: <code>border-width</code> which sets the thickness of the border, <code>border-color</code> which is very clear about what it sets, and <code>border-style</code> which specifies what style of border (dotted, dashed, solid, etc). There is also, however, an easier way of doing this. There is a single command to set all three. That command is simply, <code>border</code>. The border property requires three values separated by spaces: the first of which is the border width, the second is the border style and the third is the border color. Go ahead and set the border width of our boxes to <code>4px</code>, the border style to <code>solid</code>, and the border color to <code>lightblue</code>.</p>
-            <pre class='hint blur'>.box {
-  background-color: rgb(40, 200, 60);
-  height: 100px;
-  width: 100px;
-  display: inline-block;
-  border: 4px solid lightblue;
-}</pre>
+            <h3>Step 5: Care for a list?</h3>
           </div>
         </div>
       </div>
@@ -215,26 +182,7 @@
            id='step6'>
         <div class='row'>
           <div class='col-sm-8 col-sm-offset-2'>
-            <h3>Step 6: The Space Between</h3>
-            <p>The boxes look great, don't get me wrong, but there's just something about them that's not quite right. I think they're just too close together. Let's add a little bit of space between them. This property (space between objects) is called <code>margin</code>. Let's set the <code>margin</code> property to <code>10px</code> now.</p>
-            <pre class='hint blur'>.box {
-  background-color: rgb(40, 200, 60);
-  height: 100px;
-  width: 100px;
-  display: inline-block;
-  border: 4px solid lightblue;
-  margin: 10px;
-}</pre>
-            <p>Okay, that's a little better, but things still feel a bit stuffy, don't you think? How about if we add a little space between the <code>div</code> boundary and the text within it the <code>div</code>? This property (the space within the object before another object can start) is called <code>padding</code>. Let's go ahead and set the <code>padding</code> property of our boxes to <code>20px</code>.</p>
-            <pre class='hint blur'>.box {
-  background-color: rgb(40, 200, 60);
-  height: 100px;
-  width: 100px;
-  display: inline-block;
-  border: 4px solid lightblue;
-  margin: 10px;
-  padding: 20px;
-}</pre>
+            <h3>Step 6: Attributes and links</h3>
           </div>
         </div>
       </div>
@@ -242,12 +190,7 @@
            id='step7'>
         <div class='row'>
           <div class='col-sm-8 col-sm-offset-2'>
-            <h3>Step 7: Final Touches</h3>
-            <p>Our semi-final product looks great. But it's kind of strange the the boxes are so close to the edge of the page, right? Let's go ahead and make sure that there is at least 10 pixels on the top and bottom of the page (in addition to what's already there from the box margin), and 40 pixels on the left and right (in addition to what's already there from the box margins). When you've already done this, go ahead and check out the solution below.</p>
-            <pre class='hint blur'>body {
-  background-color: rgb(40, 40, 40);
-  padding: 10px 40px;
-}</pre>
+            <h3>Step 7: Images</h3>
           </div>
         </div>
       </div>

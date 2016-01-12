@@ -5,13 +5,7 @@
     <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
     <style>
-      .green {
-        height: 225px;
-      }
-      .blue {
-        height: 225px;
-      }
-      .red {
+      .box {
         height: 225px;
       }
     </style>
@@ -20,39 +14,33 @@
     </title>
   </head>
   <body>
-    <div class='section'>
+    <div class='row'>
+      <div class='col s3 blue box'></div>
+      <div class='col s3 green box'></div>
+      <div class='col s3 blue box'></div>
+      <div class='col s3 green box'></div>
+    </div>
+    <div class='container'>
       <div class='row'>
-        <div class='col s3 blue'></div>
-        <div class='col s3 green'></div>
-        <div class='col s3 blue'></div>
-        <div class='col s3 green'></div>
-      </div>
-    </div>
-    <div class='container'>
-      <div class='section'>
-        <div class='row'>
-          <div class='col s4 green'></div>
-          <div class='col s4 blue'></div>
-          <div class='col s4 green'></div>
-        </div>
-      </div>
-    </div>
-    <div class='container'>
-      <div class='section'>
-        <div class='row'>
-          <div class='col s6 green'></div>
-          <div class='col s6 blue'></div>
-        </div>
-        <div class='row'>
-          <div class='col s6 blue'></div>
-          <div class='col s6 green'></div>
-          <div class='col s6 green'></div>
-          <div class='col s6 blue'></div>
-        </div>
+        <div class='col s4 green box'></div>
+        <div class='col s4 blue box'></div>
+        <div class='col s4 green box'></div>
       </div>
       <div class='section'>
         <div class='row'>
-          <div class='col s12 m6 blue'></div>
+          <div class='col s6 green box'></div>
+          <div class='col s6 blue box'></div>
+        </div>
+        <div class='row'>
+          <div class='col s6 blue box'></div>
+          <div class='col s6 green box'></div>
+          <div class='col s6 green box'></div>
+          <div class='col s6 blue box'></div>
+        </div>
+      </div>
+      <!--div class='section'>
+        <div class='row'>
+          <div class='col s12 m6 blue box'></div>
           <form class='col s12 m6'>
             <div class='row'>
               <div class='col s6 input-field'>
@@ -90,7 +78,7 @@
             </div>
           </form>
         </div>
-      </div>
+      </div-->
     </div>
   </body>
 </html>
