@@ -178,12 +178,13 @@
             <p>Let's check out what this code does and then we'll analyze it. Firstly, you should notice that each of these elements is about 225 pixels high. That's because they all have the <code>box</code> class. Furthermore, you probably noticed that the box with class <code>blue</code> is blue, and the box with class <code>green</code> is green. There's not too much to say about that.</p>
             <p>You should notice that there are four columns of equal width on the screen. This is because they all have the classes <code>col</code> and <code>s3</code>. Since 3*4=12, we know that four columns of 3 will be the entire width of the page. Hence, these are all 1/4 of the page each.</p>
             <p>Now you might have noticed that we put a div with class <code>row</code> as the parent of all of our columns. This is actually important for our rows to act properly. The moral of the story, make sure you have all of your rows in side of a div with class <code>row</code>.</p>
-            <p>Now you try it out... Make a row of three equal width columns (that fills up the screen). To do this, you have to figure out how many columns each element has to take up to make the total equal to 12.</p>
+            <p>Now you try it out... Make a row of four equal width columns (that fills up the width of the screen). To do this, you have to figure out how many columns each element has to take up to make the total equal to 12.</p>
             <p>Hint: <span class='hint blur'>4 * 3 = 12, so if we want 3 columns, each has to have a width of 4.</span></p>
             <pre class='hint blur'>&#60;div class='row'>
-  &#60;div class='col s4 green box'>&#60;/div>
-  &#60;div class='col s4 blue box'>&#60;/div>
-  &#60;div class='col s4 green box'>&#60;/div>
+  &#60;div class='col s3 blue box'>&#60;/div>
+  &#60;div class='col s3 green box'>&#60;/div>
+  &#60;div class='col s3 blue box'>&#60;/div>
+  &#60;div class='col s3 green box'>&#60;/div>
 &#60;/div></pre>
           </div>
         </div>
@@ -193,7 +194,7 @@
         <div class='row'>
           <div class='col-sm-8 col-sm-offset-2'>
             <h3>Step 6: Contain yourself, bROW!</h3>
-            <p>Sometimes you don't really want page to be full width, but rather you want it to have some sort of a gutter on the sides. These frameworks generally make it pretty easy to do that from within the grid system! All you have to do is have your row (the div with class <code>row</code>) inside of a div with class <code>container</code>. Let's go ahead and put our latest row (the one with three columns in it) inside of a container.</p>
+            <p>Sometimes you don't really want page to be full width, but rather you want it to have some sort of a gutter on the sides. These frameworks generally make it pretty easy to do that from within the grid system! All you have to do is have your row (the div with class <code>row</code>) inside of a div with class <code>container</code>. Let's go ahead and make a row with three equal width columns inside of a container.</p>
             <pre class='hint blur'>&#60;div class='container'>
   &#60;div class='row'>
     &#60;div class='col s4 green box'>&#60;/div>
@@ -209,7 +210,28 @@
            id='step7'>
         <div class='row'>
           <div class='col-sm-8 col-sm-offset-2'>
-            <h3>Step 7: Final Touches</h3>
+            <h3>Step 7: Sections</h3>
+            <p>Sometimes you want to have parts of your website sectioned off. As in, you might have one part dedicated to your company's excellent customer service record and some of the other perks of your company over others, and another section for your pricing. You probably want to have a bit of vertical space between these sections. To achieve this, all you have to do is place each section inside of a div with class <code>section</code>. Easy, right? That's kind of why we use these frameworks.</p>
+            <p>Go ahead and put three more rows in a section. Each row should have a different arrangement of columns. Try to get inventive, but remember, the total number of columns on the screen is 12! What happens if the total inside the <code>row</code> is greater than 12? Less than 12? Figure this out!</p>
+            <pre class='hint blur'>&#60;div class='section'>
+  &#60;div class='row'>
+    &#60;div class='col s3 green box'>&#60;/div>
+    &#60;div class='col s2 blue box'>&#60;/div>
+    &#60;div class='col s3 green box'>&#60;/div>
+    &#60;div class='col s4 blue box'>&#60;/div>
+  &#60;/div>
+  &#60;div class='row'>
+    &#60;div class='col s6 blue box'>&#60;/div>
+    &#60;div class='col s3 green box'>&#60;/div>
+    &#60;div class='col s3 blue box'>&#60;/div>
+  &#60;/div>
+  &#60;div class='row'>
+    &#60;div class='col s5 green box'>&#60;/div>
+    &#60;div class='col s1 blue box'>&#60;/div>
+    &#60;div class='col s2 green box'>&#60;/div>
+    &#60;div class='col s4 blue box'>&#60;/div>
+  &#60;/div>
+&#60;/div></pre>
           </div>
         </div>
       </div>
