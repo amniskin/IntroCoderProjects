@@ -3,7 +3,7 @@
 <html>
   <head>
     <title>
-      Lecture 5
+      Lecture 5: Intro to JS
     </title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
     <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
@@ -12,21 +12,16 @@
   <body>
     <nav>
       <div class="nav-wrapper">
-        <a href="#" class='brand-logo'>Lecture 5</a>
+        <a href="#" class='brand-logo'>Lecture 5: Intro to Javascript</a>
       </div>
     </nav>
     <div class='container'>
       <div class='row'>
-        <div class='col s6 offset-s3'>
-          <p>This should be offset by 3.</p>
+        <div class='col s2 offset-s2 btn' id='left-btn'>
+          Change left
         </div>
-      </div>
-      <div class='row'>
-        <div class='col s6 change-me'>
-          Left div:
-        </div>
-        <div class='col s6 change-me'>
-          Right div:
+        <div class='col s2 offset-s4 btn' id='right-btn'>
+          Change right
         </div>
       </div>
     </div>
@@ -63,6 +58,8 @@ var numLeftChanges = 0;
 var numRightChanges = 0;
 
 // Getting elements
+var btn1 = document.getElementById("left-btn");
+var btn2 = document.getElementById("right-btn");
 var div1 = document.getElementById("changer1");
 var div2 = document.getElementById("changer2");
 
@@ -89,4 +86,17 @@ function change2(str) {
   totalChanges.innerHTML = numLeftChanges + numRightChanges;
   console.log("The right div has been changed " + numRightChanges + " time(s). And just for fun, here's a random number between 0 and 100: " + Math.round(Math.random() * 100));
 }
+
+
+btn1.addEventListener('click', function() {
+  var str = prompt("Please type the string you would like to place in the left side.");
+  change1(str);
+});
+
+
+btn2.addEventListener('click', function() {
+  var str = prompt("Please type the string you would like to place in the right side.");
+  change2(str);
+});
+
 </script>

@@ -3,7 +3,7 @@
 <html>
   <head>
     <title>
-      Lecture 2: Intro to CSS
+      Lecture 5: Intro to Javascript
     </title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -24,7 +24,7 @@
             <span class='icon-bar'></span>
             <span class='icon-bar'></span>
           </button>
-          <a class='navbar-brand' href='#home'>L2: CSS Boxes</a>
+          <a class='navbar-brand' href='#home'>L5: JS Intro</a>
         </div>
         <div class='collapse navbar-collapse' id='navbar-collapse-1'>
           <ul class='nav navbar-nav'>
@@ -63,7 +63,7 @@
          id='home'>
       <div class='row'>
         <div class='col-sm-12 text-center'>
-          <h2>Let's make some boxes!</h2>
+          <h2>Let's make a thing... With Javascript!</h2>
           <h4>Written by: Aaron Niskin</h4>
         </div>
       </div>
@@ -71,7 +71,7 @@
            id='intro'>
         <div class='row'>
           <div class='col-xs-12 col-sm-8 col-sm-offset-2'>
-            <p>In this project, we will study CSS by making some boxes with certain properties. To see what the final version should look like, check out the finished product.</p>
+            <p>In this project, we will hopefully learn a bit of javascript by making a thing. This thing should have two buttons - a right button and a left button. These buttons should, when clicked, propmt the user for some text, then place the text inside the left or right container (depending on which button was clicked). Furthermore, we will have a div in the footer that contains a concatination of all the text that was put in those divs since it started running (regardless of which side the text was placed on). Below that, we will have a counter that shows how many times we've changed these divs. For further information, check out the completed version.</p>
           </div>
         </div>
       </div>
@@ -82,8 +82,10 @@
             <h3>Prerequisites:</h3>
             <ul>
               <li>A computer to use for a bit.</li>
-              <li>Desire to learn web development</li>
-              <li>Basic familiarity with html</li>
+              <li>Desire to learn Javascript</li>
+              <li>Basic familiarity with html (lecture 1)</li>
+              <li>Basic familiarity with CSS (lecture 2)</li>
+              <li>Familiarity with using CSS frameworks (lecture 3)</li>
             </ul>
           </div>
         </div>
@@ -94,8 +96,13 @@
           <div class='col-xs-12 col-sm-8 col-sm-offset-2'>
             <h3>Learning Objectives:</h3>
             <ul>
-              <li>Styling elements via CSS</li>
-              <li>Learn a few CSS properties</li>
+              <li>Declare variables</li>
+              <li>Set variable values</li>
+              <li>Declare and name functions</li>
+              <li>Concatinate strings</li>
+              <li>Attach click handlers</li>
+              <li>Prompt users for input</li>
+              <li>Edit the displayed HTML via Javascript</li>
             </ul>
           </div>
         </div>
@@ -104,12 +111,14 @@
            id='step1'>
         <div class='row'>
           <div class='col-sm-8 col-sm-offset-2'>
-            <h3>Step 1: an HTML file</h3>
-            <p>You should already know how to do this, so this step should be very easy. If you are unsure of how to go about this, I suggest you try out the HTML basics code project.</p>
+            <h3>Step 1: Set up HTML and CSS</h3>
+            <p>You should already know how to do this, so this step should be very easy. If you are unsure of how to go about this, I suggest you try out the HTML basics code project (lecture 1) or the CSS basics code project (lecture 2).</p>
+            <p>The CSS framework we will be using (which is the only CSS you will need for this project unless you decide to add your own custom style) is <a href='http://MaterializeCSS.com'>MaterializeCSS</a>. You can link your CSS <code>link</code> tag directly to their CDN by copying <a href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css'>this</a> link location and setting that as the <code>href</code> value.</p>
 <pre class='hint blur'>&#60;!DOCTYPE html>
 
 &#60;html>
   &#60;head>
+    &#60;link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css" type="text/css" rel="stylesheet">
   &#60;/head>
   &#60;body>
   &#60;/body>
@@ -123,17 +132,7 @@
            id='step2'>
         <div class='row'>
           <div class='col-sm-8 col-sm-offset-2'>
-            <h3>Step 2: Let's make a CSS file</h3>
-            <p>Firstly, we are going to want to create a new file called style.css (it doesn't have to be named style, but that's a good convention, so let's stick with it). Inside this file is where we will put all of our CSS rules. The problem is, how do we tell the HTML file that we're going to be using a style sheet? For this, we have the <code>link</code> tag. </p>
-            <p>In the head of your html file, let's go ahead and put a <code>link</code> tag with three attributes. The first attribute is called <code>type</code> and is used to specify the type of file we're linking. In order to tell our document that we're linking a text css file, we set the value to "text/css". The second attribute is called <code>rel</code> and we set that value to "stylesheet". The third value tells the document where it can find the stylesheet we're linking and is called <code>href</code> with the value being the path to the CSS file. Go ahead and link your CSS file. In the next step, we'll make sure your link is working correctly.</p>
-            <pre class='hint blur'>
-&#60;html>
-  &#60;head>
-    &#60;link type='text/css' rel='stylesheet' href='/css/lecture2.css'>
-  &#60;/head>
-  &#60;body>
-  &#60;/body>
-&#60;/html>
+            <h3>Step 2:</h3>
           </div>
         </div>
       </div>
@@ -141,24 +140,7 @@
            id='step3'>
         <div class='row'>
           <div class='col-sm-8 col-sm-offset-2'>
-            <h3>Step 3: Let's put some headers on it</h3>
-            <p>Since the background color extends over the entire body (regarless of the size of the screen, etc), we want to set the background color of our <code>body</code>. To set the backroung property of an HTML tag, we use this syntax:</p>
-            <pre>tag {
-  property1: value1;
-  property2: tag2;
-  ...
-}
-            </pre>
-            <p>So, to set the <code>background-color</code> property of our body, our code should look like:</p>
-            <pre>body {
-  background-color: color-choice;
-}
-            </pre>
-            <p>In CSS colors can be specified via their color name (if CSS knows about this color), their unicode index, their rgb (red/green/blue) value, or even their rgba (where A denotes the opacity with 1 being fully opaque and 0 being fully transparent). In our case, we want the rgb value to be 40, 40, 40. To do this, we can set the background-color property to <code>rgb(40, 40, 40)</code>. Go ahead and do that now.</p>
-            <pre class='hint blur'>body {
-  background-color: rgb(40, 40, 40);
-}
-            </pre>
+            <h3>Step 3:</h3>
           </div>
         </div>
       </div>
@@ -166,7 +148,7 @@
            id='step4'>
         <div class='row'>
           <div class='col-sm-8 col-sm-offset-2'>
-            <h3>Step 4: Let's put some paragraph text on it</h3>
+            <h3>Step 4:</h3>
           </div>
         </div>
       </div>
@@ -174,7 +156,7 @@
            id='step5'>
         <div class='row'>
           <div class='col-sm-8 col-sm-offset-2'>
-            <h3>Step 5: Care for a list?</h3>
+            <h3>Step 5:</h3>
           </div>
         </div>
       </div>
@@ -182,7 +164,7 @@
            id='step6'>
         <div class='row'>
           <div class='col-sm-8 col-sm-offset-2'>
-            <h3>Step 6: Attributes and links</h3>
+            <h3>Step 6:</h3>
           </div>
         </div>
       </div>
@@ -190,7 +172,7 @@
            id='step7'>
         <div class='row'>
           <div class='col-sm-8 col-sm-offset-2'>
-            <h3>Step 7: Images</h3>
+            <h3>Step 7:</h3>
           </div>
         </div>
       </div>
