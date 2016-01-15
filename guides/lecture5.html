@@ -61,21 +61,21 @@
     </nav>
     <div class='container'
          id='home'>
-      <div class='row'>
-        <div class='col-sm-12 text-center'>
-          <h2>Let's make a thing... With Javascript!</h2>
-          <h4>Written by: Aaron Niskin</h4>
-        </div>
-      </div>
-      <div class='section'
+      <section class='section'
            id='intro'>
+        <div class='row'>
+          <header class='col-sm-12 text-center'>
+            <h2>Let's make a thing... With Javascript!</h2>
+            <h4>Written by: Aaron Niskin</h4>
+          </header>
+        </div>
         <div class='row'>
           <div class='col-xs-12 col-sm-8 col-sm-offset-2'>
             <p>In this project, we will hopefully learn a bit of javascript by making a thing. This thing should have two buttons - a right button and a left button. These buttons should, when clicked, propmt the user for some text, then place the text inside the left or right container (depending on which button was clicked). Furthermore, we will have a div in the footer that contains a concatination of all the text that was put in those divs since it started running (regardless of which side the text was placed on). Below that, we will have a counter that shows how many times we've changed these divs. For further information, check out the completed version.</p>
           </div>
         </div>
-      </div>
-      <div class='section'
+      </section>
+      <section class='section'
            id='prereqs'>
         <div class='row'>
           <div class='col-xs-12 col-sm-8 col-sm-offset-2'>
@@ -89,8 +89,8 @@
             </ul>
           </div>
         </div>
-      </div>
-      <div class='section'
+      </section>
+      <section class='section'
            id='learning'>
         <div class='row'>
           <div class='col-xs-12 col-sm-8 col-sm-offset-2'>
@@ -106,8 +106,8 @@
             </ul>
           </div>
         </div>
-      </div>
-      <div class='section'
+      </section>
+      <section class='section'
            id='step1'>
         <div class='row'>
           <div class='col-sm-8 col-sm-offset-2'>
@@ -127,59 +127,171 @@
 
           </div>
         </div>
-      </div>
-      <div class='section'
+      </section>
+      <section class='section'
            id='step2'>
         <div class='row'>
           <div class='col-sm-8 col-sm-offset-2'>
             <h3>Step 2: Get like me</h3>
-            <p>Being that basic familiarity with HTML, CSS, and using CSS frameworks is a requirement for this lesson, we will not go too far to explain these concepts in this lesson. To exemplify this point, using MaterializeCSS, make your page look like the image below.</p>
+            <p>Being that basic familiarity with HTML, CSS, and using CSS frameworks is a requirement for this lesson, we will not go too far to explain these concepts in this lesson. To exemplify this point, using MaterializeCSS, make your page look like the image below. Note that there are divs underneath each of the two buttons. These two buttons should have IDs to clearly identify them, and so should the two divs below them. The divs below are where we will be putting our user input.</p>
+            <p>There is also a div below the text "If you were to concatinate ... would read:". This div is where we will be placing the concatinated text, and should have an appropriate ID as well.</p>
             <img src='/img/lecture5-layout.png' alt='page layout' class='img-responsive'>
+            <p>In order to make our lives easier down the road, let's put the "0" from the bottom line (where the total number of changes will be displayed) inside of a <code>span</code> with an appropriate ID as well.</p>
+            <p>For the A students, you might want to set the <code>overflow</code> property of our left and right text divs to <code>auto</code>. This makes it so scroll bars appear when needed.</p>
+            <pre class='hint blur'>&#60;!DOCTYPE html>
+
+&#60;html>
+  &#60;head>
+    &#60;title>
+      Lecture 5: Intro to JS
+    &#60;/title>
+    &#60;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+    &#60;style>
+      .changer {
+        height: 100px;
+        border: 2px solid black;
+        overflow: auto;
+      }
+    &#60;/style>
+    &#60;script src="http://code.jquery.com/jquery-2.1.4.min.js">&#60;/script>
+    &#60;script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js">&#60;/script>
+  &#60;/head>
+  &#60;body>
+    &#60;nav>
+      &#60;div class="nav-wrapper">
+        &#60;a href="#" class='brand-logo'>Lecture 5: Intro to Javascript&#60;/a>
+      &#60;/div>
+    &#60;/nav>
+    &#60;div class='container'>
+      &#60;div class='row'>
+        &#60;div class='col s2 offset-s2 btn' id='left-btn'>
+          Change left
+        &#60;/div>
+        &#60;div class='col s2 offset-s4 btn' id='right-btn'>
+          Change right
+        &#60;/div>
+      &#60;/div>
+    &#60;/div>
+    &#60;div class='container'>
+      &#60;div class='row'>
+        &#60;div class='col s6 changer'
+           id='left-div'>
+        &#60;/div>
+        &#60;div class='col s6 changer'
+           id='right-div'>
+        &#60;/div>
+      &#60;/div>
+    &#60;/div>
+    &#60;footer class='page-footer'>
+      &#60;div class='container'>
+        &#60;div class='row'>
+          &#60;div class='col s12 center'>
+            If you were to concatinate every change to a single string instead of changing the div out, it would read:&#60;br>&#60;span id='total-concat-string'>&#60;/span>
+          &#60;/div>
+        &#60;/div>
+      &#60;/div>
+      &#60;div class='footer-copyright'>
+        &#60;div class='container center'>
+          The elements have been changed a total of &#60;span id='total-changes'>0&#60;/span> times
+        &#60;/div>
+      &#60;/div>
+    &#60;/footer>
+  &#60;/body>
+&#60;/html></pre>
+            <p>Note: In the above solution, a <code>script</code> tag was used. In your code, you might want to include a separate CSS file with the style in there instead. It makes the code cleaner and reusable.</p>
           </div>
         </div>
-      </div>
-      <div class='section'
+      </section>
+      <section class='section'
            id='step3'>
         <div class='row'>
           <div class='col-sm-8 col-sm-offset-2'>
-            <h3>Step 3: Get a general outline</h3>
+            <h3>Step 3: Get a general idea</h3>
             <p>It's important to have a general outline of how you want things to be before you start typing away at the keyboard. So let's get on that!</p>
+            <p>What do we want this program to do? Well, we want to make it so that when we click either button, we get a prompt for some text and the corresponding div contents change to that text. Furthermore, we also would like to keep a tracker of all changes made on the bottom in the form of a single concatinated string. Below that we would like to have a counter display how many times we've changed the divs (irrespective of which div was changed). Let's get a list of things we will need, then tackle them one by one and adjust as needed.</p>
+            <ul>
+              <li>We're going to need event handlers on each of the buttons.</li>
+              <li>When the user clicks a button, the user should be prompted for text input.</li>
+              <li>The corresponding div contents should be replaced by the user's text.</li>
+              <li>The string on the bottom of the screen should be concatinated with the new text input.</li>
+              <li>The counter on the bottom needs to be increased.</li>
+            </ul>
+            <p>That seems about right. Well, let's go ahead and get started!</p>
+            <p>Here is where we want to start our JavaScript code. So, of course, we are going to want to include a <code>script</code> tag to call in our JS file. This script tag should have a <code>src</code> property with the path to the JS file as its value. We also need to place this tag at the end of our HTML file. The reason for this is the HTML execution model.</p>
+            <p>Just to make sure we've done everything correctly, let's have our JS file alert the user and see if we get the alert.</p>
+            <pre class='hint blur'>alert("hey");</pre>
           </div>
         </div>
-      </div>
-      <div class='section'
+      </section>
+      <section class='section'
            id='step4'>
         <div class='row'>
           <div class='col-sm-8 col-sm-offset-2'>
-            <h3>Step 4:</h3>
+            <h3>Step 4: Handling the events promptly</h3>
+            <p>let's go ahead and grab the two button elements and give them variable names (so we can identify them more easily in our code). We can do this by typing:</p>
+            <pre>var leftBtn = document.getElementById("left-btn");</pre>
+            <p>where "left-btn" is the ID of the left button, and leftBtn is the new variable we just created for said button. You may have noticed the camel case in our variable name (lowercase first word, then the first letter of each consecutive word is capitalized). That is the standard naming schema in JavaScript.</p>
+            <p>Let's go ahead and grab both buttons and save them in variables.</p>
+            <pre class='hint blur'>var leftBtn = document.getElementById("left-btn");
+var rightBtn = document.getElementById("right-btn");</pre>
+            <p>Great! We're off to a great start! Now let's go ahead and set an event listener on these two elements. The syntax for setting an event listener on an element is:</p>
+            <pre>element.addEventListener(event, function-you-want-to-run);</pre>
+            <p>In this case, the event we're trying to listen for is a click. So our code should look like:</p>
+            <pre>leftBtn.addEventListener("click", function() {});</pre>
+            <p>Go ahead and add click listeners on both of our buttons.</p>
+            <pre class='hint blur'>leftBtn.addEventListener("click", function() {});
+rightBtn.addEventListener("click", function() {});</pre>
+            <p>So far, it seems as though we have some click handlers, but how can we be sure that they're working correctly? Well, let's have them alert the user on click! Inside the function code (not the parameter list, but rather the code that will be executed), have the function alert the user.</p>
+            <pre class='hint blur'>leftBtn.addEventListener("click", function() {alert("test1");});
+rightBtn.addEventListener("click", function() {alert("test2");});</pre>
+            <p>If everything is working correctly, go ahead and remove those alerts and let's get those prompts working! A <code>prompt</code> is much like an <code>alert</code> in that a popup is displayed with the given text inside. The main difference being that a <code>prompt</code> will also have a text field where a user can input some text, and the <code>prompt</code> function returns that text. So, if we want to keep the user input, we can set a varialbe equal to <code>prompt("give me text!");</code>. In our case, we want to prompt the user for the text they'd like in, say, the left div. So our code should look something like this:</p>
+            <pre>
+leftBtn.addEventListener("click", function() {
+  var str = prompt("What text would you like the left div to show?");
+}); </pre>
+            <p>So, now we should know enough to have both buttons prompt the user for text and specify which div's content this text will be replacing. Go ahead and do that.</p>
+            <pre class='hint blur'>leftBtn.addEventListener("click", function() {
+  var str = prompt("what text would you like the left div to show?");
+});
+rightBtn.addEventListener("click", function() {
+  var str = prompt("What text would you like the right div to show?);
+});</pre>
           </div>
         </div>
-      </div>
-      <div class='section'
+      </section>
+      <section class='section'
            id='step5'>
         <div class='row'>
           <div class='col-sm-8 col-sm-offset-2'>
-            <h3>Step 5:</h3>
+            <h3>Step 5: Let's get our divs changed!</h3>
+            <p>To change the contents of an HTML element using JavaScript, we can use the method <code>innerHTML</code>. For example, at the time this article was written, if you went to <a href='http://google.com'>Google.com</a>, enter the JavaScript console and typed <code>document.getElementById("lga").innerHTML = "hey"</code>, the Google icon would be replaced by the text, "hey". Go ahead. Try this out on your own for a while. Once you're comfortable with that, try and add some HTML to the text (as in, instead of "hey", have it be <code>"&#60;a href='aaron.niskin.org'>hey&#60;/a>"</code> and see what happens then).</p>
+            <p>Once we understand how <code>innerHTML</code> works, let's go for change! Just after we store the user input in a variable, let's set the corresponding div's inner HTML to that input. Now, since we might be dealing with that div quite a lot, let's go ahead and save that element in a variable too. Once you've stored them, we can change the inner HTML by typing:</p>
+            <pre>leftDiv.innerHTML = str;</pre>
+            <p>This is assuming you named the variable "leftDiv" and the string you wanted to place inside the div was stored in a variable named "str". Now that we know how to do it, let's make it so that our event handler puts the text in the corresponding div.</p>
           </div>
         </div>
-      </div>
-      <div class='section'
+      </section>
+      <section class='section'
            id='step6'>
         <div class='row'>
           <div class='col-sm-8 col-sm-offset-2'>
-            <h3>Step 6:</h3>
+            <h3>Step 6: Let's talk functions!</h3>
+            <p>This code will be a lot more legible if we use functions to perform the different tasks we plan on doing. For instance, let's write a function that takes one string argument and changes the left div to that argument string.</p>
+            <pre>function changeLeft(stringArg) {
+  leftDiv.innerHTML = stringArg;
+}</pre>
           </div>
         </div>
-      </div>
-      <div class='section'
+      </section>
+      <section class='section'
            id='step7'>
         <div class='row'>
           <div class='col-sm-8 col-sm-offset-2'>
             <h3>Step 7:</h3>
           </div>
         </div>
-      </div>
-      <div class='section'
+      </section>
+      <section class='section'
            id='step8'>
         <div class='row'>
           <div class='col-sm-8 col-sm-offset-2'>
@@ -187,7 +299,7 @@
             <p>You're done. Go away. Go outside. Play some basketball. 
           </div>
         </div>
-      </div>
+      </section>
     </div>
   </body>
 </html>

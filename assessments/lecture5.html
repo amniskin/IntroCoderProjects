@@ -6,8 +6,13 @@
       Lecture 5: Intro to JS
     </title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
-    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
+    <style>
+      .changer {
+        height: 100px;
+        border: 2px solid black;
+        overflow: auto;
+      }
+    </style>
   </head>
   <body>
     <nav>
@@ -27,11 +32,11 @@
     </div>
     <div class='container'>
       <div class='row'>
-        <div class='col s6 change-me'
-           id='changer1'>
+        <div class='col s6 changer'
+           id='left-div'>
         </div>
-        <div class='col s6 change-me'
-           id='changer2'>
+        <div class='col s6 changer'
+           id='right-div'>
         </div>
       </div>
     </div>
@@ -54,49 +59,44 @@
 
 <script>
 var concatString = "";
-var numLeftChanges = 0;
-var numRightChanges = 0;
+var numChanges = 0;
 
 // Getting elements
-var btn1 = document.getElementById("left-btn");
-var btn2 = document.getElementById("right-btn");
-var div1 = document.getElementById("changer1");
-var div2 = document.getElementById("changer2");
+var leftBtn  = document.getElementById("left-btn");
+var rightBtn = document.getElementById("right-btn");
+var leftDiv  = document.getElementById("left-div");
+var rightDiv = document.getElementById("right-div");
 
 // Getting number elements
 var stringSpan = document.getElementById("total-concat-string");
-var leftChanges = document.getElementById('changes-to-1');
-var rightChanges = document.getElementById('changes-to-2');
 var totalChanges = document.getElementById('total-changes');
 
-function change1(str) {
-  concatString += str;
-  numLeftChanges++;
-  div1.innerHTML= str;
-  stringSpan.innerHTML= concatString;
-  totalChanges.innerHTML = numLeftChanges + numRightChanges;
-  console.log("The left div has been changed " + numLeftChanges + " time(s).");
+function changeLeft(str) {
+  newChange(str);
+  leftDiv.innerHTML= str;
 }
 
-function change2(str) {
+function changeRight(str) {
+  newChange(str);
+  rightDiv.innerHTML = str;
+}
+
+function newChange(str) {
   concatString += str;
-  numRightChanges++;
-  div2.innerHTML = str;
   stringSpan.innerHTML = concatString;
-  totalChanges.innerHTML = numLeftChanges + numRightChanges;
-  console.log("The right div has been changed " + numRightChanges + " time(s). And just for fun, here's a random number between 0 and 100: " + Math.round(Math.random() * 100));
+  numChanges ++;
+  totalChanges.innerHTML = numChanges;
 }
 
-
-btn1.addEventListener('click', function() {
+leftBtn.addEventListener('click', function() {
   var str = prompt("Please type the string you would like to place in the left side.");
-  change1(str);
+  changeLeft(str);
 });
 
 
-btn2.addEventListener('click', function() {
+rightBtn.addEventListener('click', function() {
   var str = prompt("Please type the string you would like to place in the right side.");
-  change2(str);
+  changeRight(str);
 });
 
 </script>
