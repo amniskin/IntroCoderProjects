@@ -73,7 +73,7 @@
         </div>
         <div class='row'>
           <div class='col-xs-12 col-sm-8 col-sm-offset-2'>
-            <p>In this project, we will hopefully learn a bit of javascript by making a thing. This thing should have two buttons - a right button and a left button. These buttons should, when clicked, propmt the user for some text, then place the text inside the left or right container (depending on which button was clicked). Furthermore, we will have a div in the footer that contains a concatination of all the text that was put in those divs since it started running (regardless of which side the text was placed on). Below that, we will have a counter that shows how many times we've changed these divs. For further information, check out the completed version.</p>
+            <p>In this project, we will hopefully learn a bit of javascript by making a thing. This thing should have two buttons - a right button and a left button. These buttons should, when clicked, propmt the user for some text, then place the text inside the left or right container (depending on which button was clicked). Furthermore, we will have a div in the footer that contains a concatenation of all the text that was put in those divs since it started running (regardless of which side the text was placed on). Below that, we will have a counter that shows how many times we've changed these divs. For further information, check out the completed version.</p>
           </div>
         </div>
       </section>
@@ -101,7 +101,7 @@
               <li>Declare variables</li>
               <li>Set variable values</li>
               <li>Declare and name functions</li>
-              <li>Concatinate strings</li>
+              <li>Concatenate strings</li>
               <li>Attach click handlers</li>
               <li>Prompt users for input</li>
               <li>Edit the displayed HTML via JavaScript</li>
@@ -136,7 +136,7 @@
           <div class='col-sm-8 col-sm-offset-2'>
             <h3>Step 2: Get like me</h3>
             <p>Being that basic familiarity with HTML, CSS, and using CSS frameworks is a requirement for this lesson, we will not go too far to explain these concepts in this lesson. To exemplify this point, using MaterializeCSS, make your page look like the image below. Note that there are divs underneath each of the two buttons. These two buttons should have IDs to clearly identify them, and so should the two divs below them. The divs below are where we will be putting our user input.</p>
-            <p>There is also a div below the text "If you were to concatinate ... would read:". This div is where we will be placing the concatinated text, and should have an appropriate ID as well.</p>
+            <p>There is also a div below the text "If you were to concatenate ... would read:". This div is where we will be placing the concatenated text, and should have an appropriate ID as well.</p>
             <img src='/img/lecture5-layout.png' alt='page layout' class='img-responsive'>
             <p>In order to make our lives easier down the road, let's put the "0" from the bottom line (where the total number of changes will be displayed) inside of a <code>span</code> with an appropriate ID as well.</p>
             <p>For the A students, you might want to set the <code>overflow</code> property of our left and right text divs to <code>auto</code>. This makes it so scroll bars appear when needed.</p>
@@ -188,7 +188,7 @@
       &#60;div class='container'>
         &#60;div class='row'>
           &#60;div class='col s12 center'>
-            If you were to concatinate every change to a single string instead of changing the div out, it would read:&#60;br>&#60;span id='total-concat-string'>&#60;/span>
+            If you were to concatenate every change to a single string instead of changing the div out, it would read:&#60;br>&#60;span id='total-concat-string'>&#60;/span>
           &#60;/div>
         &#60;/div>
       &#60;/div>
@@ -210,12 +210,12 @@
           <div class='col-sm-8 col-sm-offset-2'>
             <h3>Step 3: Get a general idea</h3>
             <p>It's important to have a general outline of how you want things to be before you start typing away at the keyboard. So let's get on that!</p>
-            <p>What do we want this program to do? Well, we want to make it so that when we click either button, we get a prompt for some text and the corresponding div contents change to that text. Furthermore, we also would like to keep a tracker of all changes made on the bottom in the form of a single concatinated string. Below that we would like to have a counter display how many times we've changed the divs (irrespective of which div was changed). Let's get a list of things we will need, then tackle them one by one and adjust as needed.</p>
+            <p>What do we want this program to do? Well, we want to make it so that when we click either button, we get a prompt for some text and the corresponding div contents change to that text. Furthermore, we also would like to keep a tracker of all changes made on the bottom in the form of a single concatenated string. Below that we would like to have a counter display how many times we've changed the divs (irrespective of which div was changed). Let's get a list of things we will need, then tackle them one by one and adjust as needed.</p>
             <ul>
               <li>We're going to need event handlers on each of the buttons.</li>
               <li>When the user clicks a button, the user should be prompted for text input.</li>
               <li>The corresponding div contents should be replaced by the user's text.</li>
-              <li>The string on the bottom of the screen should be concatinated with the new text input.</li>
+              <li>The string on the bottom of the screen should be concatenated with the new text input.</li>
               <li>The counter on the bottom needs to be increased.</li>
             </ul>
             <p>That seems about right. Well, let's go ahead and get started!</p>
@@ -243,9 +243,9 @@ var rightBtn = document.getElementById("right-btn");</pre>
             <p>Go ahead and add click listeners on both of our buttons.</p>
             <pre class='hint blur'>leftBtn.addEventListener("click", function() {});
 rightBtn.addEventListener("click", function() {});</pre>
-            <p>So far, it seems as though we have some click handlers, but how can we be sure that they're working correctly? Well, let's have them alert the user on click! Inside the function code (not the parameter list, but rather the code that will be executed), have the function alert the user.</p>
-            <pre class='hint blur'>leftBtn.addEventListener("click", function() {alert("test1");});
-rightBtn.addEventListener("click", function() {alert("test2");});</pre>
+            <p>So far, it seems as though we have some click handlers, but how can we be sure that they're working correctly? Well, let's have them display a confirmation message to the user on click! Inside the function code (not the parameter list, but rather the code that will be executed), have the function alert the user.</p>
+            <pre class='hint blur'>leftBtn.addEventListener("click", function() {confirm("test1");});
+rightBtn.addEventListener("click", function() {confirm("test2");});</pre>
             <p>If everything is working correctly, go ahead and remove those alerts and let's get those prompts working! A <code>prompt</code> is much like an <code>alert</code> in that a popup is displayed with the given text inside. The main difference being that a <code>prompt</code> will also have a text field where a user can input some text, and the <code>prompt</code> function returns that text. So, if we want to keep the user input, we can set a varialbe equal to <code>prompt("give me text!");</code>. In our case, we want to prompt the user for the text they'd like in, say, the left div. So our code should look something like this:</p>
             <pre>
 leftBtn.addEventListener("click", function() {
@@ -278,10 +278,27 @@ rightBtn.addEventListener("click", function() {
         <div class='row'>
           <div class='col-sm-8 col-sm-offset-2'>
             <h3>Step 6: Let's talk functions!</h3>
-            <p>This code will be a lot more legible if we use functions to perform the different tasks we plan on doing. For instance, let's write a function that takes one string argument and changes the left div to that argument string.</p>
-            <pre>function changeLeft(stringArg) {
-  leftDiv.innerHTML = stringArg;
+            <p>Functions are a major part of JavaScript. As a matter of fact, JavaScript is what's called a "functional programming language". We won't be getting too far into what that means, exactly, in this project, but just know that functions are very powerful tools and we should get comfortable using them. A function (in general terms) is exactly what you might think it is: it takes some arguments, and performs some procedure with them. For example,</p>
+            <pre>function alerter(str) {
+  alert(str);
 }</pre>
+            <p>is a function that takes a string as its argument, and then alerts the user with that string. For example, <code>alerter("hey there, buddy!");</code> would raise an alert box with "Hey there, buddy!" as the alert text.</p>
+            <p>One of the benefits that will be most apparent in using functions is the reduction in redundant code. Not only do we have to type less, but our code becomes clearer to understand and hence maintain later on down the road once you've forgotten what the code does, and if you want to change something, you only have to change it in one place. So, let's get started. Write a pair of functions that each take a string argument. One should set the inner HTML of the left div to the given string, and the other should do the same but with the right div.</p>
+            <pre class='hint blur'>function changeLeft(stringArg) {
+  leftDiv.innerHTML = stringArg;
+}
+function changeRight(stringArg) {
+  RightDiv.innerHTML = stringArg;
+}</pre>
+            <p>Let's go ahead and bind this function to our left and right side button click handlers. Once we've done that, let's test them out to make sure they work.</p>
+            <pre class='hint blur'>leftBtn.addEventListener("click", function() {
+  var str = prompt("what text would you like the left div to show?");
+  changeLeft(str);
+});
+rightBtn.addEventListener("click", function() {
+  var str = prompt("What text would you like the right div to show?);
+  changeRight(str);
+});</pre>
           </div>
         </div>
       </section>
@@ -289,7 +306,33 @@ rightBtn.addEventListener("click", function() {
            id='step7'>
         <div class='row'>
           <div class='col-sm-8 col-sm-offset-2'>
-            <h3>Step 7:</h3>
+            <h3>Step 7: What's the same?</h3>
+            <p>Remember that one of the reasons we use functions is to reduce the amount of redundant code. So, with that in mind, let's think about what things are common between the left and right sides of this program (whether the left or right button is clicked). For instance, regardless of which button is clicked, the counter on the bottom should be incremented and the string on the bottom should be concatenated with the new one. Let's write a function that does all of this.</p>
+            <p>Let's start with the counter on the bottom. To do this, we're probably going to want to store the value of the counter in a variable. So go ahead and define a counter variable, which should be initially set to 0.</p>
+            <pre class='hint blur'>var numChanges = 0;</pre>
+            <p>Then let's write a function that does two things: increments the counter, and displays the correct count on the screen (in the counter span).</p>
+            <pre class='hint blur'>function newChange() {
+  numChanges++;
+  totalChanges.innerHTML = counter;
+}</pre>
+            <p>Since this should be done every time either div is changed, let's include this in our <code>changeLeft</code> and <code>changeRight</code> functions.</p>
+            <pre class='hint blur'>function changeLeft(stringArg) {
+  leftDiv.innerHTML = stringArg;
+  newChange();
+}
+function changeRight(stringArg) {
+  RightDiv.innerHTML = stringArg;
+  newChange();
+}</pre>
+            <p>This is working really well, except for the fact that one feature is missing: the string concatenation on the bottom! Let's get on it! Since this is again something that we want to happen the same way regardless of which side was clicked, we should add it to our <code>newChange</code> function. This means that we are going to need a new variable to store the concatinated string, and we will need to have <code>newChange</code> take a string argument now (the string the user gave).</p>
+            <p>Before we do that, we need to understand how to concatenate strings in JavaScript. As it turns out, <code>+</code> is a function that accepts not only numbers, but also strings. <code>"qwer" + "asdf"</code> will be <code>"qwerasdf"</code>. Basically, the <code>+</code> operator will concatenate strings in JavaScript. With that in mind, define a variable <code>concatString</code> that is equal to the entire concatenated string (it should proabaly start at <code>""</code>. Then let's add the functionality we need to the <code>newChange</code> function we wrote earlier.</p>
+            <pre class='hint blur'>function newChange(str) {
+  numChanges++;
+  totalChanges.innerHTML = counter;
+  concatString += str;
+  stringSpan.innerHTML = concatString;
+}</pre>
+            <p>Guess what?! We're done! Go ahead and clean up your code though. Organize it and make it more legible. Other than that, we're finished! Congratulations! You've made a thing!</p>
           </div>
         </div>
       </section>
