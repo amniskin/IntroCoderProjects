@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>
+			Aaron's FVI Page
+		</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"                integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-               0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <style>
+      canvas {
+        position: absolute;
+        top:0;
+        left:0;
+        z-index: -1;
+      }
+    </style>
+	</head>
+	<body>
+    <h1 class='hidden'>Code Projects</h1>
+    <canvas id='bg-canvas'></canvas>
+		<!--nav class='navbar navbar-default'>
+      <h1 class='hidden'>Main Nav</h1>
+			<div class='container-fluid'>
+				<div class='navbar-header'>
+					<button type='button'
+									class='navbar-toggle collapsed'
+									data-toggle='collapse'
+									data-target='#'
+									aria-axpanded='false'>
+						<span class='sr-only'>Toggle navigation</span>
+						<span class='icon-bar'></span>
+						<span class='icon-bar'></span>
+						<span class='icon-bar'></span>
+					</button>
+					<a class='navbar-brand' href='#home'>&#923;aron Niskin @ FVI</a>
+				</div>
+				<div class='collapse navbar-collapse' id='bs-collapse-1'>
+					<ul class='nav navbar-nav'>
+					</ul>
+				</div>
+			</div>
+		</nav-->
+    <section class='section'>
+      <div class='row'>
+        <header class='col-xs-12'>
+          <h1>
+            You've reached Aaron's FVI website.
+          </h1>
+          <h3>Nobody's here right now. If you'd like, you can try to leave a message. Otherwise, feel free to check out <a href='http://aaron.niskin.org'>my other site</a>
+          </h3>
+        </header>
+      </div>
+    </section>
+    <section class='section'>
+      <div class='row'>
+        <div class='col-xs-12'>
+          <h3>
+            The code projects:
+          </h3>
+          <ul>
+              <li><a href="guides/lecture1.html">Lecture 1: Intro to HTML</a></li> 
+              <li><a href="guides/lecture2.html">Lecture 2: Intro to CSS</a></li>
+              <li><a href='guides/lecture3.html'>Lecture 3: Intro to CSS Frameworks (using MaterializeCSS)</a></li>
+              <li><a href='guides/lecture5.html'>Lecture 5: Javascript Basics</a></li>
+              <li><a href='guides/lecture6.html'>Lecture 6: Javascript Odds or Evens Exercise</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+	</body>
+</html>
+
+<script id='background'>
+var fviColor = "#028DEA";
+var fillColor = "#FFFFFF";
+init();
+function init() {
+  var c   = document.getElementById("bg-canvas"),
+      ctx = c.getContext('2d'),
+      w   = c.width = window.innerWidth,
+      h   = c.height = window.innerHeight,
+      area = w * h,
+      leftBase = [0,h],
+      midBase = [w/2, 0],
+      rightBase = [w, h];
+  function drawTriangle(left, mid, right, color) {
+    ctx.fillStyle = color;
+    ctx.beginPath()
+    ctx.moveTo(left[0], left[1]);
+    ctx.lineTo(mid[0], mid[1]);
+    ctx.lineTo(right[0], right[1]);
+    ctx.closePath();
+    ctx.fill();
+  }
+  function iterDraw(left, mid, right, numLeft) {
+    if (numLeft > 0) {
+      var lx = left[0],
+          ly = left[1],
+          mx = mid[0],
+          my = mid[1],
+          rx = right[0],
+          ry = right[1],
+          ax = (lx+mx)/2,
+          ay = (ly+my)/2,
+          a  = [ax, ay],
+          bx = (mx+rx)/2,
+          by = (my+ry)/2,
+          b  = [bx, by],
+          cx = (rx+lx)/2,
+          cy = (ry+ly)/2,
+          c  = [cx, cy];
+      drawTriangle(a, b, c, fillColor);
+      numLeft--;
+      iterDraw(left, a, c, numLeft);
+      iterDraw(a, mid, b, numLeft);
+      iterDraw(c, b, right, numLeft);
+    } else return;
+  }
+  function drawSierpinski(points, count) {
+    drawTriangle(points[0], points[1], points[2], fviColor);
+    iterDraw(points[0], points[1], points[2], count);
+  }
+
+  function animateIter(maxCount){
+    function iterBase(iter, next, time){
+      return function(func, points, count) {
+        func(points, count);
+        setTimeout(function() {
+          iter(func, points, next(count));
+        }, time);
+      }
+    }
+    function inc(count) {return count + 1;}
+    function dec(count) {return count -1;}
+    function iterUp(func, points, count) {
+      if (count > maxCount) {
+        iterBase(iterDown, dec, 300)(func, points, count);
+      } else {
+        iterBase(iterUp, inc, 300)(func, points, count);
+      }
+    }
+    function iterDown(func, points, count) {
+      if (count < 0) {
+        iterBase(iterUp, inc, 300)(func, points, count);
+      } else {
+        iterBase(iterDown, dec, 300)(func, points, count);
+      }
+    }
+    return function(func, startPoints) {
+      iterUp(func, startPoints, 0);
+    }
+  }
+
+  animateIter(9)(drawSierpinski, [leftBase, midBase, rightBase]);
+}
+window.onresize = init;
+</script>
