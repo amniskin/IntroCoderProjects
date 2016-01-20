@@ -1,209 +1,159 @@
 <!DOCTYPE html>
+
 <html>
-  <head>
-    <title>My First HTML5 Canvas</title>
-    <link href='https://fonts.googleapis.com/css?family=Ubuntu:400,700' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:600' rel='stylesheet' type='text/css'>
+	<head>
+		<title>
+			Aaron's FVI Page
+		</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"                integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-               0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <style>
-*{
-  color:white;
-  font-family: 'Open Sans', sans-serif;
-  font-size:1em;
-  text-align: center;
-}
-            body{
-              overflow-x:hidden;
-            }
-            canvas{
-              position:absolute;
-              top:0;
-              left:0;
-              z-index: -5;
-            }
-            #main-title, h2{
-              color:white;
-              font-family: 'Ubuntu', sans-serif;
-              text-align: center;
-              font-size: 4em;
-            }
-            h2{
-              font-size: 2em;
-            }
-            #main-content{
-              background-color: rgba(44,44,44,0.6);
-              max-width: 800px;
-              margin: 0 auto;
-            }
-            .quadrant{
-              box-sizing:border-box;
-              width:50%;
-              float:left;
-              height:280px;
-              padding: 15px;
-              overflow:hidden;
-              position:relative;
-            }
-            @media screen and (max-width: 768px){
-              .quadrant{
-                width: 100%;
-              }
-            }
-            #grid-container::after{
-              clear:both;
-              content:"";
-              display:block;
-            }
-            .padded-p{
-              padding:10px;
-            }
-            .fadein-element{
-              position:absolute;
-              top:50%;
-              left:50%;
-              transform:translate(-50%,-50%);
-              -webkit-transform:translate(-50%,-50%);
-              -moz-transform:translate(-50%,-50%);
-            }
-            .quadrant > *{
-              transition: opacity 0.5s linear;
-            }
-            .faded{
-              opacity: 0;
-            }
+      canvas {
+        position: absolute;
+        top:0;
+        left:0;
+        z-index: -1;
+      }
     </style>
-  </head>
-  <body>
-    <canvas id="canvas"></canvas>
-    <div id="main-content">
-      <h1 id="main-title">Welcome to the Coder's Corner</h1>
-      <p class="padded-p">Welcome to FVI's coder corner. In this page, we aim to compile resources to help
-      the world learn to code. We want to bring coding to the masses because we believe
-      it's not only for mega genius nerds. In fact, we believe that if you <strong>don't</strong> learn
-      to code, <em>our code will take your job</em> and you will find yourself in the position
-      of a horseshoe maker in the 1930s.</p>
-      <div id="grid-container">
-        <div class="quadrant">
-          <h2>Free intro Class</h2>
-          <p>
-          We use project-based learning, lectures and written explanations to take
-          you through the basics of HTML, CSS and JS programming, including sending
-          AJAX requests.
-          </p>
-          <p class="fadein-element faded">
-          <a href="http://www.fvi-grad.com">
-            Go to site</a></p>
-        </div>
-
-        <div class="quadrant" data-hover-content="">
-          <h2>Drill Sergeant App</h2>
-          <p><em>In Beta Testing.</em> This app is designed to allow students to drill
-          Javascript Syntax until it becomes second nature. We believe that most online
-          resources focus too much on explanation and not enough on practice.</p>
-          <div class="fadein-element faded">
-            <a href="http://www.fvi.edu/coders_corner/practice">
-              Practice now!
-            </a>
-          </div>
-        </div>
-        <div class="quadrant" data-hover-content="">
-          <h2>Student Projects</h2>
-          <p>See some of the coolest stuff our students are making. #careerhack your
-          way to success by filling your portfolio with awesome works like these.</p>
-          <div class="fadein-element faded">
-            <a href="http://www.fvi-grad.com/chat">
-              Firebase web Chat Client
-            </a>
-          </div>
-        </div>
-
-        <div class="quadrant" data-hover-content="">
-          <h2>FVI on other platforms</h2>
-          <p>Check us out
-          on YouTube for all kinds of coding gains. In particular, check out our
-
-          Codecademy.com walkthrough and our <a href="">
-            mini projects series</a>.</p>
-          <p>Follow our head instructor at codewars.com
-          if you want to get more serious with your Javascript.</p>
-          <div class="fadein-element faded">
-            <a href="https://www.youtube.com/channel/UCPbWkXshrZghR5W7kF7s0mg">
-              YouTube Coding Channel
-            </a><br>
-            <a href="https://www.youtube.com/watch?v=wVBjwO3JdyU&list=PLkOcUOQbE6gaJpEanJNBQaATre7Ea3shN">
-              Codecademy.com Walkthrough
-            </a><br>
-            <a href="http://www.codewars.com/users/Swolebrain">
-              Codewars.com Page
-            </a>
-
-          </div>
+	</head>
+	<body>
+    <h1 class='hidden'>Code Projects</h1>
+    <canvas id='bg-canvas'></canvas>
+		<!--nav class='navbar navbar-default'>
+      <h1 class='hidden'>Main Nav</h1>
+			<div class='container-fluid'>
+				<div class='navbar-header'>
+					<button type='button'
+									class='navbar-toggle collapsed'
+									data-toggle='collapse'
+									data-target='#'
+									aria-axpanded='false'>
+						<span class='sr-only'>Toggle navigation</span>
+						<span class='icon-bar'></span>
+						<span class='icon-bar'></span>
+						<span class='icon-bar'></span>
+					</button>
+					<a class='navbar-brand' href='#home'>&#923;aron Niskin @ FVI</a>
+				</div>
+				<div class='collapse navbar-collapse' id='bs-collapse-1'>
+					<ul class='nav navbar-nav'>
+					</ul>
+				</div>
+			</div>
+		</nav-->
+    <section class='section'>
+      <div class='row'>
+        <header class='col-xs-12'>
+          <h1>
+            You've reached Aaron's FVI website.
+          </h1>
+          <h3>Nobody's here right now. If you'd like, you can try to leave a message. Otherwise, feel free to check out <a href='http://aaron.niskin.org'>my other site</a>
+          </h3>
+        </header>
+      </div>
+    </section>
+    <section class='section'>
+      <div class='row'>
+        <div class='col-xs-12'>
+          <h3>
+            The code projects:
+          </h3>
+          <ul>
+              <li><a href="guides/lecture1.html">Lecture 1: Intro to HTML</a></li> 
+              <li><a href="guides/lecture2.html">Lecture 2: Intro to CSS</a></li>
+              <li><a href='guides/lecture3.html'>Lecture 3: Intro to CSS Frameworks (using MaterializeCSS)</a></li>
+              <li><a href='guides/lecture5.html'>Lecture 5: Javascript Basics</a></li>
+              <li><a href='guides/lecture6.html'>Lecture 6: Javascript Odds or Evens Exercise</a></li>
+          </ul>
         </div>
       </div>
-    </div>
-    <script id="canvas-stuff">
-      init();
-      Math.random()>0.9?animate2():animate();
-      window.onresize = init;
-      function init(){
-        window.WIDTH = window.innerWidth;
-        if (document.body.clientHeight > window.innerHeight){
-          window.HEIGHT = document.body.clientHeight+100;
-        } else  window.HEIGHT = window.innerHeight;
-        window.ctx = document.getElementById("canvas").getContext("2d");
-        ctx.canvas.width = window.WIDTH;
-        ctx.canvas.height = window.HEIGHT;
-        ctx.fillStyle = "#333333";
-        ctx.strokeStyle = "#E0E0E0";
-      }
-      function animate(){
-        ctx.fillRect(0,0,WIDTH,HEIGHT);
-        drawFractal(WIDTH/2,HEIGHT/2,WIDTH*.45);
-      }
-      function animate2(){
-        ctx.fillRect(0,0,WIDTH,HEIGHT);
-        for (var i =0; i < 80; i++){
-          ctx.strokeRect(Math.random()*WIDTH, Math.random()*HEIGHT, Math.random()*100, Math.random()*100);
-        }
-        setTimeout(
-          function(){
-            window.requestAnimationFrame(animate2);
-          }, 
-          100); 
-      }
-      function drawFractal(x,y,r){
-        if (r < 4 ) return;
-        ctx.beginPath();
-        ctx.ellipse(x, y, r, r, 0, 0, 2 * Math.PI, false);
-        ctx.closePath();
-        ctx.stroke();
-        setTimeout(function(){
-          drawFractal(x-r,y,r/2);
-          setTimeout(function(){
-            drawFractal(x+r,y,r/2);
-            setTimeout(function(){
-              drawFractal(x,y+r,r/2);
-              setTimeout(function(){
-                drawFractal(x,y-r,r/2);
-              },5);
-            },5);
-          },5); 
-        },5);
-            //drawFractal(x+r,y,r/2);
-            //drawFractal(x,y+r,r/2);
-            //drawFractal(x,y-r,r/2);  
-      }
-    </script>
-    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <script id="event-attacher">
-      $(".quadrant").on("mouseenter mouseleave", function(e){
-        $(this).children().toggleClass("faded");
-        //$(this).children().not(".sliding-element").addClass("faded");
-        //$(this).find(".sliding-element").removeClass("faded");
-      });
-      /*$(".quadrant").on("mouseleave", function(e){
-        $(this).children().not(".sliding-element").removeClass("faded");
-        $(this).find(".sliding-element").addClass("faded");
-      });*/
-    </script>
-  </body>
+    </section>
+	</body>
 </html>
+
+<script id='background'>
+var fviColor = "#028DEA";
+var fillColor = "#FFFFFF";
+init();
+function init() {
+  var c   = document.getElementById("bg-canvas"),
+      ctx = c.getContext('2d'),
+      w   = c.width = window.innerWidth,
+      h   = c.height = window.innerHeight,
+      area = w * h,
+      leftBase = [0,h],
+      midBase = [w/2, 0],
+      rightBase = [w, h];
+  function drawTriangle(left, mid, right, color) {
+    ctx.fillStyle = color;
+    ctx.beginPath()
+    ctx.moveTo(left[0], left[1]);
+    ctx.lineTo(mid[0], mid[1]);
+    ctx.lineTo(right[0], right[1]);
+    ctx.closePath();
+    ctx.fill();
+  }
+  function iterDraw(left, mid, right, numLeft) {
+    if (numLeft > 0) {
+      var lx = left[0],
+          ly = left[1],
+          mx = mid[0],
+          my = mid[1],
+          rx = right[0],
+          ry = right[1],
+          ax = (lx+mx)/2,
+          ay = (ly+my)/2,
+          a  = [ax, ay],
+          bx = (mx+rx)/2,
+          by = (my+ry)/2,
+          b  = [bx, by],
+          cx = (rx+lx)/2,
+          cy = (ry+ly)/2,
+          c  = [cx, cy];
+      drawTriangle(a, b, c, fillColor);
+      numLeft--;
+      iterDraw(left, a, c, numLeft);
+      iterDraw(a, mid, b, numLeft);
+      iterDraw(c, b, right, numLeft);
+    } else return;
+  }
+  function drawSierpinski(points, count) {
+    drawTriangle(points[0], points[1], points[2], fviColor);
+    iterDraw(points[0], points[1], points[2], count);
+  }
+
+  function animateIter(maxCount){
+    function iterBase(iter, next, time){
+      return function(func, points, count) {
+        func(points, count);
+        setTimeout(function() {
+          iter(func, points, next(count));
+        }, time);
+      }
+    }
+    function inc(count) {return count + 1;}
+    function dec(count) {return count -1;}
+    function iterUp(func, points, count) {
+      if (count > maxCount) {
+        iterBase(iterDown, dec, 300)(func, points, count);
+      } else {
+        iterBase(iterUp, inc, 300)(func, points, count);
+      }
+    }
+    function iterDown(func, points, count) {
+      if (count < 0) {
+        iterBase(iterUp, inc, 300)(func, points, count);
+      } else {
+        iterBase(iterDown, dec, 300)(func, points, count);
+      }
+    }
+    return function(func, startPoints) {
+      iterUp(func, startPoints, 0);
+    }
+  }
+
+  animateIter(9)(drawSierpinski, [leftBase, midBase, rightBase]);
+}
+window.onresize = init;
+</script>
