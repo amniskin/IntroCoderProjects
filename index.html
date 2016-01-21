@@ -72,88 +72,9 @@
 	</body>
 </html>
 
-<script id='background'>
-var fviColor = "#028DEA";
-var fillColor = "#FFFFFF";
+<script src='/js/fractals.js' id='background'>
+</script>
+<script>
 init();
-function init() {
-  var c   = document.getElementById("bg-canvas"),
-      ctx = c.getContext('2d'),
-      w   = c.width = window.innerWidth,
-      h   = c.height = window.innerHeight,
-      area = w * h,
-      leftBase = [0,h],
-      midBase = [w/2, 0],
-      rightBase = [w, h];
-  function drawTriangle(left, mid, right, color) {
-    ctx.fillStyle = color;
-    ctx.beginPath()
-    ctx.moveTo(left[0], left[1]);
-    ctx.lineTo(mid[0], mid[1]);
-    ctx.lineTo(right[0], right[1]);
-    ctx.closePath();
-    ctx.fill();
-  }
-  function iterDraw(left, mid, right, numLeft) {
-    if (numLeft > 0) {
-      var lx = left[0],
-          ly = left[1],
-          mx = mid[0],
-          my = mid[1],
-          rx = right[0],
-          ry = right[1],
-          ax = (lx+mx)/2,
-          ay = (ly+my)/2,
-          a  = [ax, ay],
-          bx = (mx+rx)/2,
-          by = (my+ry)/2,
-          b  = [bx, by],
-          cx = (rx+lx)/2,
-          cy = (ry+ly)/2,
-          c  = [cx, cy];
-      drawTriangle(a, b, c, fillColor);
-      numLeft--;
-      iterDraw(left, a, c, numLeft);
-      iterDraw(a, mid, b, numLeft);
-      iterDraw(c, b, right, numLeft);
-    } else return;
-  }
-  function drawSierpinski(points, count) {
-    drawTriangle(points[0], points[1], points[2], fviColor);
-    iterDraw(points[0], points[1], points[2], count);
-  }
-
-  function animateIter(maxCount){
-    function iterBase(iter, next, time){
-      return function(func, points, count) {
-        func(points, count);
-        setTimeout(function() {
-          iter(func, points, next(count));
-        }, time);
-      }
-    }
-    function inc(count) {return count + 1;}
-    function dec(count) {return count -1;}
-    function iterUp(func, points, count) {
-      if (count > maxCount) {
-        iterBase(iterDown, dec, 300)(func, points, count);
-      } else {
-        iterBase(iterUp, inc, 300)(func, points, count);
-      }
-    }
-    function iterDown(func, points, count) {
-      if (count < 0) {
-        iterBase(iterUp, inc, 300)(func, points, count);
-      } else {
-        iterBase(iterDown, dec, 300)(func, points, count);
-      }
-    }
-    return function(func, startPoints) {
-      iterUp(func, startPoints, 0);
-    }
-  }
-
-  animateIter(9)(drawSierpinski, [leftBase, midBase, rightBase]);
-}
 window.onresize = init;
 </script>
