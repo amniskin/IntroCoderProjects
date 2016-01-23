@@ -11,270 +11,69 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <style>
+.jumbotron {
+  background-color: lightblue;
+}
+    </style>
   </head>
   <body>
-    <nav class='navbar navbar-default navbar-fixed-top'>
-      <div class='container-fluid'>
-        <div class='navbar-header'>
-          <button type='button' class='navbar-toggle collapsed' data-toggle='collapse' data-target='#navbar-collapse-1' aria-expanded='false'>
-            <span class='sr-only'>Toggle navigation</span>
-            <span class='icon-bar'></span>
-            <span class='icon-bar'></span>
-            <span class='icon-bar'></span>
-          </button>
-          <a class='navbar-brand' href='#home'>L6: Odds or Evens</a>
-        </div>
-        <div class='collapse navbar-collapse' id='navbar-collapse-1'>
-          <ul class='nav navbar-nav'>
-            <li class='active'><a href='#prereqs'>Prereqs<span class='sr-only'>(current)</span></a></li><li><a href="#">Link</a></li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li class="dropdown">
-              <a href="#" 
-                 class="dropdown-toggle" 
-                 data-toggle="dropdown" 
-                 role="button" 
-                 aria-haspopup="true" 
-                 aria-expanded="false">Lectures<span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="/assessments/lecture1.html">Lecture 1</a></li>
-                <li><a href="/assessments/lecture2.html">Lecture 2</a></li>
-                <li><a href="/assessments/lecture3.html">Lecture 3</a></li>
-                <li><a href="/assessments/lecture4.html">Lecture 4</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="/assessments/lecture5.html">Lecture 5</a></li>
-                <li><a href="/assessments/lecture6.html">Lecture 6</a></li>
-                <li><a href="/assessments/lecture7.html">Lecture 7</a></li>
-                <li><a href="/assessments/lecture8.html">Lecture 8</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="/assessments/lecture9.html">Lecture 9</a></li>
-                <li><a href="/assessments/lecture10.html">Lecture 10</a></li>
-                <li><a href="/assessments/lecture11.html">Lecture 11</a></li>
-                <li><a href="/assessments/lecture12.html">Lecture 12</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
-    </nav>
-    <div class='container'
-         id='home'>
+    <div class='jumbotron'>
+      <div class='container'>
+        <h1>Welcome to this awesome site!</h1>
+        <p>We sell awesome things. Do awesome things for money. General awesomeness available... For money.</p>
+        <p><a class="btn btn-primary btn-lg" href="#" role="button">Pay me?</a></p>
+      </div>
+    </div>
+    <div class='container'>
       <div class='row'>
-        <div class='col-sm-12 text-center'>
-          <h2>Let's make odds-or-evens!</h2>
-          <h4>Written by: Aaron Niskin</h4>
+        <div class='col-xs-8 col-xs-offset-2'>
+          <h2>Sign up for a free account, BRO!</h2>
+          <p>Do you even CODE, bro?!</p>
         </div>
       </div>
-      <div class='section'
-           id='intro'>
-        <div class='row'>
-          <div class='col-xs-12 col-sm-8 col-sm-offset-2'>
-            <p>In this code project, we will be making the classic decision
-            game, "odds and evens". If you're unfamiliar with this game, crawl
-            out from that rock you've been living under and check out the <a
-            href='https://en.wikipedia.org/wiki/Odds_and_evens'>wikipedia</a>
-            article and come back. Before we continue, however, we should also
-            make sure that we have all the supplies we'll need. We have a
-            picture of someone holding out <a href='https://upload.wikimedia.org/wikipedia/commons/0/04/Wrinkly_Fingers_001.JPG'>one finger</a>, <a href='http://previews.123rf.com/images/bloodua/bloodua1207/bloodua120700156/14472283-hand-with-two-fingers-up-in-the-peace-or-victory-symbol-also-the-sign-for-the-letter-v-in-sign-langu.jpg'>two fingers</a>, and for the A students, we have a picture of a <a href='https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Hands-Fingers-Crossed.jpg/352px-Hands-Fingers-Crossed.jpg'>cheating</a>.</p>
+      <form id='user-form' action=''>
+        <div class="form-group">
+          <label for="fname">First Name</label>
+          <input type="text" class="form-control" id="fname" placeholder="First Name" name='fname'>
+        </div>
+        <div class="form-group">
+          <label for="lname">Last Name</label>
+          <input type="text" class="form-control" id="lname" placeholder="Last Name" name='lname'>
+        </div>
+        <div class="form-group">
+          <label for="email1">Email address</label>
+          <input type="email" class="form-control" id="email1" placeholder="Email" name='email'>
+        </div>
+        <div class="form-group">
+          <label for="supaSet1">Super set preference</label>
+          <input type="text" class="form-control" id="supaSet1" placeholder="Super set with me?" name='supa'>
+        </div>
+        <div class='col-xs-6'>
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" name='checker'> Check me out
+            </label>
           </div>
         </div>
-      </div>
-      <div class='section'
-           id='prereqs'>
-        <div class='row'>
-          <div class='col-xs-12 col-sm-8 col-sm-offset-2'>
-            <h3>Prerequisites:</h3>
-            <ul>
-              <li>Basic HTML and CSS skills</li>
-              <li>We're going to be using MaterializeCSS</li>
-              <li>Javascript requirements:
-                <ul>
-                  <li>Select elements by ID</li>
-                  <li>Replace the inner HTML of an element</li>
-                  <li>Obtain a random number between 0 and 1</li>
-                  <li>Arithmetic operations</li>
-                  <li>Create functions</li>
-                  <li>If statements</li>
-                  <li>Naming variables</li>
-                </ul>
-            </ul>
+        <div class='col-xs-6'>
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" name='lifter'> Do you even lift, bro?
+            </label>
           </div>
         </div>
-      </div>
-      <div class='section'
-           id='learning'>
-        <div class='row'>
-          <div class='col-xs-12 col-sm-8 col-sm-offset-2'>
-            <h3>Learning Objectives:</h3>
-            <ul>
-              <li>Input and output in Javascript</li>
-              <li>How to attach a Javascript event handler</li>
-              <li>Modularity in program design</li>
-              <li>Practice with Javascript basics</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class='section'
-           id='step1'>
-        <div class='row'>
-          <div class='col-sm-8 col-sm-offset-2'>
-            <h3>Step 1: Set up some basic HTML</h3>
-            <p>We don't want to get too fancy with it -- we don't even have a working program yet. Let's leave the serious styling for later once it's functional. For now, let's just make:</p>
-            <ul>
-              <li>A spot to announce the number of wins</li>
-              <li>A span inside the 'wins' area with a special id (this will be where we keep the number of wins)</li>
-              <li>A similar thing for losses</li>
-              <li>A spot for us to show the user's choice (one finger or two)</li>
-              <li>A spot for us to show the computer's choice</li>
-              <li>A button at the top to initiate our gameplay (remember to give it a unique ID)</li>
-            </ul>
-          </div>
-        </div>
-        <div class='row'>
-          <div class='col-sm-8 col-sm-offset-2'>
-            Your code for the wins should look something like this (wrapped inside of a div):
-            <pre class='hint blur'>&lt;div&gt;<br>  &lt;p&gt;You've won &lt;span id='wins'&gt;0&lt;/span&gt; time(s).&lt;/p&gt;<br>&lt;/div&gt;</pre>
-          </div>
-        </div>
-      </div>
-      <div class='section'
-           id='step2'>
-        <div class='row'>
-          <div class='col-sm-8 col-sm-offset-2'>
-            <h3>Step 2: Identify the needed variables.</h3>
-            <p>Here is where we try to identify what variables we're going to need for our project. Don't worry too much about missing one. Programs are rarely ever written the first time through. So, we're probably going to want variables for:</p>
-            <ul>
-              <li>the number of wins</li>
-              <li>the number of losses</li>
-            </ul>
-            <p>And we're probably going to want to define some constants like:</p>
-            <ul>
-              <li>The two (or three) pictures (including the <code>img</code> tags) as strings</li>
-              <li>The two objects to put the user/computer choices in (from step 1)</li>
-              <li>The two objects to put the user wins/losses in (also from step 1)</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class='section'
-           id='step3'>
-        <div class='row'>
-          <div class='col-sm-8 col-sm-offset-2'>
-            <h3>Step 3: Getting user input!</h3>
-            <p>Now we're about ready to make some functions!</p>
-            <p>We're going to need a way to collect the data. By that we mean that we'll need to find out if the user has chosen odds or evens, one finger or two finger. We'll need to "find out" how many fingers the computer chooses to throw down.</p>
-            <p>Let's start with getting the user's input. Here is where we introduce the functions <code>alert</code> and <code>prompt</code>. <code>alert</code> is a function that takes one argument and makes a popup window with that same string. Go ahead and test it out by typing <code>alert("this is a test");</code> into the javascript console. Continue testing it with other strings, string concatination and variables, etc. until you feel comfortable enough to move on.</p>
-            <p>Once you're familiar with how <code>alert</code> works <code>prompt</code> should be a breeze. <code>prompt</code> is also a function that takes one string argument and makes a popup box displaying that string, but this time it also has an input box and the function returns whatever the user types in that input box. To test this out, go ahead and type <code>var str = prompt("this is the prompt text");</code>, type <kbd>hey there</kbd> into the input field and press OK. Once you've done that, check out the value of <code>str</code> (it should be <code>"hey there"</code>). Mess around with this function a little bit to familiarize yourself with it because we'll be using that in this section.</p>
-            <p>Now we're ready to get started making our functions! We're going to need a function to get the user's parity choice. To do this, let's make a function that takes no arguments and returns whatever the user's parity choice is.</p>
-            <p class='hint blur'>Hint: you may want to limit the user's input options in the <code>prompt</code> message. A good way to do this is to have your code read <code>prompt("Please enter 1 for odd and 0 or even");</code> or something to that effect.</p>
-            <p>While we're at it, let's get a function to <code>prompt</code> the user for his or her choice of one or two fingers with the string <code>"How many fingers would you like to throw down? Enter either 1 or 2."</code></p>.
-            <pre class='hint blur'>function getParity() {<br>  return prompt("What parity do you choose? Enter 0 for even and 1 for odd.");<br>}<br>function getNumFingers() {<br>  return prompt("How many fingers would you like to throw down? Enter either 1 or 2.");<br>}</pre>
-          </div>
-        </div>
-      </div>
-      <div class='section'
-           id='step4'>
-        <div class='row'>
-          <div class='col-sm-8 col-sm-offset-2'>
-            <h3>Step 4: Getting the computer's choice!</h3>
-            <p>We're also going to need a function that generates the computer's choice. For that we will use a random number generator to generate a random number between 0 and 1. To get a random parity out of this, we need only to notice that the probability of our random number generator generating a number greater than or equal to 0.5 is roughly the same as it generating one less than 0.5. So if we simply round the number that the random number generator gives us, it should be a random choice between 0 and 1. If we add one to that, we can have the computer randomly throw out 1 or 2 fingers!</p>
-            <p>Make a function called <code>compChoice</code> that takes no arguments and returns either 1 or 2 (chosen at random).</p>
-            <pre class='hint blur'>function compChoice() {<br>  var randInt = Math.round(Math.random());<br>  return randInt+1;<br>}</pre>
-          </div>
-        </div>
-      </div>
-      <div class='section'
-           id='step5'>
-        <div class='row'>
-          <div class='col-sm-8 col-sm-offset-2'>
-            <h3>Step 5: Who won?!</h3>
-            <p>We're going to need a function to determine whether or not the user won, of course, so let's make that one right now. This function needs to know which parity the user chose, how many fingers the user used and how many fingers the computer used. The function should then take those values and see if the total number of fingers thrown is odd or even, and check that against the user's parity choice.</p>
-            <p>Define a function <code>userWon</code> that takes 3 arguments, <code>user</code>, <code>comp</code>, and <code>parity</code>. This function should add <code>user</code> and <code>comp</code> together, find out if the sum is odd or even (think about using <code>% 2</code>), then return <code>true</code> if the sum is the same parity as the variable <code>parity</code> and <code>false</code> otherwise.</p>
-            <pre class='hint blur'>function userWon(user, comp, parity) {<br>  var sum = user + comp;<br>  var sumParity = sum % 2;<br>  return sumParity == parity;<br>}</pre>
-          </div>
-        </div>
-      </div>
-      <div class='section'
-           id='step6'>
-        <div class='row'>
-          <div class='col-sm-8 col-sm-offset-2'>
-            <h3>Step 6: Let's show our hands!</h3>
-            <p>So now we've got everything we need to make this program work, except we haven't shown the choices yet. It would be nice if the user could have a little visual of who chose how many fingers, wouldn't it? Let's get on that!</p>
-            <p>To make our lives easier, though, we're first going to figure out how to show one person's hands, then we'll worry about showing both. Make a function called <code>showPlayerHand</code> that takes two arguments as input. The first argument should be the html object where you want the hands to show (either of the two spots we made in step one to show the user's and computer's choices), and the second argument should be the number of fingers to show. The function should then change the inner html of the first argument to be the constant from step two that represents the number of fingers from the second argument. For example, if you named the two img constants (from step 2) <code>one</code> and <code>two</code>, and you named the two object constants <code>userHand</code> and <code>compHand</code>, then the function should be such that <code>showPlayerHand(userHand, 2)</code> replaces the inner HTML of <code>userHand</code> with <code>two</code>. To do this, you might need an <code>if</code> statement.</p>
-            <pre class='hint blur'>function showPlayerHand(player, numHands) {<br>  if(numHands == 1) {<br>    player.innerHTML = one;<br>  } else {<br>    player.innerHTML = two;<br>  }<br>}</pre>
-            <p>Now that we've got a function to show one player's hand, let's make one called <code>showHands</code> to show both players' hands. This function should take two arguments (the number of fingers the user is throwing in and the number that the computer is throwing in), and show each player's respective hands.</p>
-            <pre class='hint blur'>showHands(user, comp) {<br>  showPlayerHand(userHand, user);<br>  showPlayerHand(compHand, comp);<br>}</pre>
-          </div>
-        </div>
-      </div>
-      <div class='section'
-           id='step7'>
-        <div class='row'>
-          <div class='col-sm-8 col-sm-offset-2'>
-            <h3>Step 7: Bringing it all together!</h3>
-            <p>So now we've got functions to get the user's parity choice, the user's choice of how many fingers to throw in, generate the computer's choice, find out who won, and show everybody's choices. All that's left to do is bring it together.</p>
-            <p>Let's make a function called <code>playGame</code> that takes no arguments. When this function is called, it collects the user's parity choice and choice of number of fingers and saves them as variables. It then get's the computer's choice and saves that as a variable too. Once it's done that, it shows the two choices in their respective HTML objects. Then, it determines who won and if the user won, the <code>playGame</code> should:</p>
-            <ul>
-              <li>increment the wins variable</li>
-              <li>replace the inner HTML of the wins object with the current number of wins</li>
-              <li><code>alert</code> and congratulate the user of his or her win</li>
-            </ul>
-            <p>If the user lost, on the other hand, the function should do a similar thing but with losses instead of wins.</p>
-            <pre class='hint blur'>function playGame() {<br>  var user = getNumFingers();<br>  var parity = getParity();<br>  var comp = compChoice();<br>  var winningUser = userWon(user, comp, parity);<br>  showHands(user, comp)<br>  if(winningUser) {<br>    numWins++;<br>    wins.innerHTML = numWins;<br>    alert("Congratulations! You've won! Play again?");<br>  }<br>}</pre>
-          </div>
-        </div>
-      </div>
-      <div class='section'
-           id='step8'>
-        <div class='row'>
-          <div class='col-sm-8 col-sm-offset-2'>
-            <h3>Step 8: Let's make that button work!</h3>
-            <p>It would be nice if the user didn't have to go into the console to get things working, wouldn't it? So let's make that happen with an event listener! Now, event listeners can listen for many types of events (mouse enter, mouseleave, mousedown, keydown, keyup, etc.) but we're going to only deal with the 'click' event here. The way you would add a general event listener would be to take your element and append <code>.addEventListener(event, functionToRun)</code> to it. So for instance, in our case adding a click handler would look like:</p>
-            <pre>element.addEventListener('click', functionToRun);</pre>
-            <p>Go ahead and grab that button element we created in step 1, and let's walk through attaching an event handler to it. Let's say your button ID is <code>play</code>, then we can attach a click handler to that button by writing</p>
-            <pre>var playBtn = document.getElementById('play');<br>playBrn.addEventListener('click', functionToRun);</pre>
-            <p>Since the function we want to run is our <code>playGame</code> function, let's go ahead and have the event listener do that function when clicked. It's important to note that we are not calling the function inside the event handler so we don't have the parenthesis you would normally use with functions.
-            <pre class='hint blur'>var btn = document.getElementById('play');<br>btn.addEvenetListener('click', playGame);</pre>
-          </div>
-        </div>
-      </div>
-      <div class='section'
-           id='step9'>
-        <div class='row'>
-          <div class='col-sm-8 col-sm-offset-2'>
-            <h3>Step 9: Let's take it for a test drive!</h3>
-            <p>Here is where you test your function completely. Now, you should have been testing each piece along the way, but it's always good to test the final product as well. Things you're looking for are:</p>
-            <ul>
-              <li>Do the correct choices show for the user and the computer?</li>
-              <li>Do the correct results show? (e.g. if you won, does it show that you won?, etc)</li>
-              <li>Are the counters correct? (Wins and losses)</li>
-              <li>Are there any typos in any of the alerts, etc?</li>
-              <li>Does the distribution of computer choices seem to be random? By that one we really mean that if you try ten in a row and you still have not gotten both choices, the odds are that something has gone wrong with the computer choice function.</li>
-          </div>
-        </div>
-      </div>
-      <div class='section'
-           id='step10'>
-        <div class='row'>
-          <div class='col-sm-8 col-sm-offset-2'>
-            <h3>Step 10: Let's make it look pretty.</h3>
-            <p>Once we've got the functionality down, all there is left to do is get the styling down. Here is where we leave it up to you, but try to use the grid system and some nice colors maybe. Make sure the pictures aren't too large to be seen side by side. Use your best judgement.</p>
-          </div>
-        </div>
-      </div>
+        <button type='submit' class="btn btn-default" id='form-btn'>Let's go!</button>
+      </form>
     </div>
   </body>
 </html>
+
 <script>
 $(document).ready(function() {
-  $('.hint').on('click', function() {
-    if($(this).hasClass('blur')) {
-      $(this).removeClass('blur');
-    } else {
-      $(this).addClass('blur');
-    }
+  $('#user-form').on('submit', function(event) {
+    event.preventDefault();
+    console.log( $( this ).serialize() );
   });
 });
-
 </script>
