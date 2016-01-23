@@ -32,7 +32,7 @@
           <p>Do you even CODE, bro?!</p>
         </div>
       </div>
-      <form id='user-form' action=''>
+      <form id='user-form' action='http://fvi-grad.com:1234'>
         <div class="form-group">
           <label for="fname">First Name</label>
           <input type="text" class="form-control" id="fname" placeholder="First Name" name='fname'>
@@ -47,7 +47,12 @@
         </div>
         <div class="form-group">
           <label for="supaSet1">Super set preference</label>
-          <input type="text" class="form-control" id="supaSet1" placeholder="Super set with me?" name='supa'>
+          <select class='form-control' name='supa'>
+            <option value="">Select one</option>
+            <option value='bench'>Bench press</option>
+            <option value='curls'>Curls</option>
+            <option value='bench'>Other Bench presses</option>
+          </select>
         </div>
         <div class='col-xs-6'>
           <div class="checkbox">
@@ -66,14 +71,6 @@
         <button type='submit' class="btn btn-default" id='form-btn'>Let's go!</button>
       </form>
     </div>
+    <div style='height:50px;'></div>
   </body>
 </html>
-
-<script>
-$(document).ready(function() {
-  $('#user-form').on('submit', function(event) {
-    event.preventDefault();
-    console.log( $( this ).serialize() );
-  });
-});
-</script>
