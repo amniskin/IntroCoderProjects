@@ -19,8 +19,7 @@ http.createServer(function(request, response) {
     respString = "Hell yeah, " + dat.fname + "! We're totally going to get swole together doing some " + dat.supa + "!";
   }
   response.writeHead(200, {"Content-Type": "text/plain"});
-  response.write("Hello world (AKA, my gym)\n" + respString + dat);
+  response.write("Hello world (AKA, my gym)\n" + respString);
   response.end();
-  console.log(dat);
 }).listen(port);
 console.log('Server listening on port ' + port);
