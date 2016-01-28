@@ -32,45 +32,92 @@
           <p>Do you even CODE, bro?!</p>
         </div>
       </div>
-      <form id='user-form' action='http://fvi-grad.com:1234'>
-        <div class="form-group">
+      <form id='user-form' action='http://fvi-grad.com:1234' class='row'>
+        <div class="form-group col-xs-10 col-xs-offset-1">
           <label for="fname">First Name</label>
           <input type="text" class="form-control" id="fname" placeholder="First Name" name='fname'>
         </div>
-        <div class="form-group">
+        <div class="form-group col-xs-10 col-xs-offset-1">
           <label for="lname">Last Name</label>
           <input type="text" class="form-control" id="lname" placeholder="Last Name" name='lname'>
         </div>
-        <div class="form-group">
+        <div class="form-group col-xs-10 col-xs-offset-1">
           <label for="email1">Email address</label>
           <input type="email" class="form-control" id="email1" placeholder="Email" name='email'>
         </div>
-        <div class="form-group">
+        <div class="form-group col-xs-10 col-xs-offset-1">
           <label for="supaSet1">Super set preference</label>
           <select class='form-control' name='supa'>
             <option value="">Select one</option>
-            <option value='bench'>Bench press</option>
-            <option value='curls'>Curls</option>
-            <option value='bench'>Other Bench presses</option>
+            <option value='bench'>Bench press with barbell curls</option>
+            <option value='bench'>Incline bench with barbell curls</option>
+            <option value='curls'>Barbell curls with bench press</option>
+            <option value='legs'>You don't lift or something?</option>
           </select>
         </div>
-        <div class='col-xs-6'>
+        <div class='col-xs-5 col-xs-offset-1'>
           <div class="checkbox">
             <label>
               <input type="checkbox" name='checker'> Check me out
             </label>
           </div>
         </div>
-        <div class='col-xs-6'>
+        <div class='col-xs-5 col-xs-offset-1'>
           <div class="checkbox">
             <label>
               <input type="checkbox" name='lifter'> Do you even lift, bro?
             </label>
           </div>
         </div>
-        <button type='submit' class="btn btn-default" id='form-btn'>Let's go!</button>
+        <button type='submit' class="btn btn-default col-xs-2 col-xs-offset-5" id='form-btn'>Let's go!</button>
       </form>
+      <div class='row' id='map-showcase-row'>
+        <div class='col-xs-8 col-xs-offset-2' id='serial-showcase'>
+        </div>
+        <div class='col-xs-8 col-xs-offset-2' id='map-showcase'>
+          <table class='table' id='map-table'>
+            <tr>
+              <td>
+                hey
+              </td>
+              <td>
+                there
+              </td>
+            </tr>
+            <tr>
+              <td>
+                hey
+              </td>
+              <td>
+                there
+              </td>
+            </tr>
+            <tr>
+              <td>
+                hey
+              </td>
+              <td>
+                there
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
     </div>
     <div style='height:50px;'></div>
   </body>
 </html>
+
+<script>
+$(document).ready(function(){
+  $('#form-btn').click(function(event) {
+    event.preventDefault();
+    var serial = $('#user-form').serialize();
+    $('#serial-showcase').html(serial);
+    var obj = {};
+    serial.split('&').map(function(exp) {return exp.split('=');}).map(function(e) {obj[e[0]] = e[1];});
+    $('#map-showcase').html(obj["fname"]);
+    console.log(obj);
+  })
+})
+</script>

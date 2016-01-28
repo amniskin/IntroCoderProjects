@@ -9,65 +9,185 @@
 		<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-               0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <style>
+      .well {
+        background-color: white;
+      }
+      body, html {
+        height: 100%;
+        width: 100%;
+        overflow-x:hidden;
+      }
       canvas {
-        position: absolute;
+        position: fixed;
         top:0;
         left:0;
         z-index: -1;
+      }
+      section {
+        margin: 40px 0;
+      }
+      .faded {
+        opacity: 0;
+      }
+      .project.well {
+        padding: 0px;
+      }
+      .project .description {
+        position:absolute;
+        top:50%;
+        left:50%;
+        transform:translate(-50%,-50%);
+        -webkit-transform:translate(-50%,-50%);
+        -moz-transform:translate(-50%,-50%);
+      }
+      .project * {
+        transition: opacity 0.5s linear;
       }
     </style>
 	</head>
 	<body>
     <h1 class='hidden'>Code Projects</h1>
     <canvas id='bg-canvas'></canvas>
-		<!--nav class='navbar navbar-default'>
-      <h1 class='hidden'>Main Nav</h1>
-			<div class='container-fluid'>
-				<div class='navbar-header'>
-					<button type='button'
-									class='navbar-toggle collapsed'
-									data-toggle='collapse'
-									data-target='#'
-									aria-axpanded='false'>
-						<span class='sr-only'>Toggle navigation</span>
-						<span class='icon-bar'></span>
-						<span class='icon-bar'></span>
-						<span class='icon-bar'></span>
-					</button>
-					<a class='navbar-brand' href='#home'>&#923;aron Niskin @ FVI</a>
-				</div>
-				<div class='collapse navbar-collapse' id='bs-collapse-1'>
-					<ul class='nav navbar-nav'>
-					</ul>
-				</div>
-			</div>
-		</nav-->
     <section class='section'>
       <div class='row'>
-        <header class='col-xs-12'>
-          <h1>
-            You've reached Aaron's FVI website.
-          </h1>
-          <h3>Nobody's here right now. If you'd like, you can try to leave a message. Otherwise, feel free to check out <a href='http://aaron.niskin.org'>my other site</a>
-          </h3>
-        </header>
+        <div class='col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3'>
+          <div class='well project' id='l1'>
+            <img src='/img/l1-banner.png' class='img-responsive'>
+            <div class='description faded'>
+              <h2>Learn some HTML basics.</h2>
+              <div class='row'>
+                <div class='col-xs-12 col-sm-4 col-sm-offset-1'>
+                  <button class='btn btn-default try'>
+                    Try it out
+                  </button>
+                </div>
+                <div class='col-xs-12 col-sm-4 col-sm-offset-2'>
+                  <button class='btn btn-default do'>
+                    Do it yourself
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
     <section class='section'>
       <div class='row'>
-        <div class='col-xs-12 col-sm-8 col-sm-offset-2'>
-          <div class='well'>
-            <h3>
-              The code projects:
-            </h3>
-            <ul>
-              <li><a href="guides/lecture1.html">Lecture 1: Intro to HTML</a></li> 
-              <li><a href="guides/lecture2.html">Lecture 2: Intro to CSS</a></li>
-              <li><a href='guides/lecture3.html'>Lecture 3: Intro to CSS Frameworks (using MaterializeCSS)</a></li>
-              <li><a href='guides/lecture5.html'>Lecture 5: Javascript Basics</a></li>
-              <li><a href='guides/lecture6.html'>Lecture 6: Javascript Odds or Evens Exercise</a></li>
-              <li><a href='guides/lecture7.html'>Lecture 7: Ajax and Serialization</a></li>
-            </ul>
+        <div class='col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3'>
+          <div class='well project' id='l2'>
+            <img src='/img/l2-banner.png' class='img-responsive'>
+            <div class='description faded'>
+              <h2>Learn about CSS styling.</h2>
+              <div class='row'>
+                <div class='col-xs-12 col-sm-4 col-sm-offset-1'>
+                  <button class='btn btn-default try'>
+                    Try it out
+                  </button>
+                </div>
+                <div class='col-xs-12 col-sm-4 col-sm-offset-2'>
+                  <button class='btn btn-default do'>
+                    Do it yourself
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class='section'>
+      <div class='row'>
+        <div class='col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3'>
+          <div class='well project' id='l3'>
+            <img src='/img/l3-banner.png' class='img-responsive'>
+            <div class='description faded'>
+              <h2>Learn to use CSS frameworks.</h2>
+              <div class='row'>
+                <div class='col-xs-12 col-sm-4 col-sm-offset-1'>
+                  <button class='btn btn-default try'>
+                    Try it out
+                  </button>
+                </div>
+                <div class='col-xs-12 col-sm-4 col-sm-offset-2'>
+                  <button class='btn btn-default do'>
+                    Do it yourself
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class='section'>
+      <div class='row'>
+        <div class='col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3'>
+          <div class='well project' id='l4'>
+            <img src='/img/l5-banner.png' class='img-responsive'>
+            <div class='description faded'>
+              <h2>JavaScript basics with a little string concatination program.</h2>
+              <div class='row'>
+                <div class='col-xs-12 col-sm-4 col-sm-offset-1'>
+                  <button class='btn btn-default try'>
+                    Try it out
+                  </button>
+                </div>
+                <div class='col-xs-12 col-sm-4 col-sm-offset-2'>
+                  <button class='btn btn-default do'>
+                    Do it yourself
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class='section'>
+      <div class='row'>
+        <div class='col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3'>
+          <div class='well project' id='l5'>
+            <img src='/img/l6-banner.png' class='img-responsive'>
+            <div class='description faded'>
+              <h2>Learn some more JavaScript with our Odds or Evens game!</h2>
+              <div class='row'>
+                <div class='col-xs-12 col-sm-4 col-sm-offset-1'>
+                  <button class='btn btn-default try'>
+                    Try it out
+                  </button>
+                </div>
+                <div class='col-xs-12 col-sm-4 col-sm-offset-2'>
+                  <button class='btn btn-default do'>
+                    Do it yourself
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class='section'>
+      <div class='row'>
+        <div class='col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3'>
+          <div class='well project' id='l6'>
+            <img src='/img/l7-banner.png' class='img-responsive'>
+            <div class='description faded'>
+              <h2>Make something functional and pretty.</h2>
+              <div class='row'>
+                <div class='col-xs-12 col-sm-4 col-sm-offset-1'>
+                  <button class='btn btn-default try'>
+                    Try it out
+                  </button>
+                </div>
+                <div class='col-xs-12 col-sm-4 col-sm-offset-2'>
+                  <button class='btn btn-default do'>
+                    Do it yourself
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -78,6 +198,10 @@
 <script src='/js/fractals.js' id='background'>
 </script>
 <script>
-init();
-window.onresize = init;
+init('bg-canvas');
+window.onresize = resizeCanvas;
+$('.project').on("mouseenter mouseleave", function() {
+  $(this).children().toggleClass('faded');
+});
+//$('.project').on('click', function(e) {
 </script>

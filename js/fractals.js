@@ -278,7 +278,8 @@ function cantorFillOscillator$(ctx, points, color, bgColor, min, max) {
   fractalAnimator$(ctx, points, color, bgColor, strokeCantor$, oscillator(min, max), 0);
 }
 
-function init() {
+function init(ident) {
+  var id = ident;
   var c   = document.getElementById(id),
       ctx = c.getContext('2d'),
       w   = c.width = window.innerWidth,
@@ -300,4 +301,10 @@ function init() {
       colors = [white, fviColor].sort(function() {return 0.5 - Math.random();});
   anim = animations[0];
   anim[0](ctx, anim[1], colors[0], colors[1], 0, 4);
+}
+
+function resizeCanvas() {
+  canvas = document.getElementById(id);
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
 }
