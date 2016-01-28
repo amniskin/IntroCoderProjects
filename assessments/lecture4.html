@@ -3,19 +3,100 @@
 <html>
   <head>
     <title>
-      Lecture 4
+      Lecture 5: Intro to JS
     </title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
-    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
+    <style>
+      .changer {
+        height: 100px;
+        border: 2px solid black;
+        overflow: auto;
+      }
+    </style>
   </head>
   <body>
     <nav>
-      <div class='nav-wrapper'>
-        <a href='#' class='brand-logo'>Lecture 4</a>
+      <div class="nav-wrapper">
+        <a href="#" class='brand-logo'>Lecture 5: Intro to Javascript</a>
       </div>
     </nav>
     <div class='container'>
+      <div class='row'>
+        <div class='col s2 offset-s2 btn' id='left-btn'>
+          Change left
+        </div>
+        <div class='col s2 offset-s4 btn' id='right-btn'>
+          Change right
+        </div>
+      </div>
     </div>
+    <div class='container'>
+      <div class='row'>
+        <div class='col s6 changer'
+           id='left-div'>
+        </div>
+        <div class='col s6 changer'
+           id='right-div'>
+        </div>
+      </div>
+    </div>
+    <footer class='page-footer'>
+      <div class='container'>
+        <div class='row'>
+          <div class='col s12 center'>
+            If you were to concatinate every change to a single string instead of changing the div out, it would read:<br><span id='total-concat-string'></span>
+          </div>
+        </div>
+      </div>
+      <div class='footer-copyright'>
+        <div class='container center'>
+          The elements have been changed a total of <span id='total-changes'>0</span> times
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
+
+<script>
+var concatString = "";
+var numChanges = 0;
+
+// Getting elements
+var leftBtn  = document.getElementById("left-btn");
+var rightBtn = document.getElementById("right-btn");
+var leftDiv  = document.getElementById("left-div");
+var rightDiv = document.getElementById("right-div");
+
+// Getting number elements
+var stringSpan = document.getElementById("total-concat-string");
+var totalChanges = document.getElementById('total-changes');
+
+function changeLeft(str) {
+  newChange(str);
+  leftDiv.innerHTML= str;
+}
+
+function changeRight(str) {
+  newChange(str);
+  rightDiv.innerHTML = str;
+}
+
+function newChange(str) {
+  concatString += str;
+  stringSpan.innerHTML = concatString;
+  numChanges ++;
+  totalChanges.innerHTML = numChanges;
+}
+
+leftBtn.addEventListener('click', function() {
+  var str = prompt("Please type the string you would like to place in the left side.");
+  changeLeft(str);
+});
+
+
+rightBtn.addEventListener('click', function() {
+  var str = prompt("Please type the string you would like to place in the right side.");
+  changeRight(str);
+});
+
+</script>

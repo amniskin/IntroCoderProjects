@@ -59,7 +59,7 @@
     <section class='section'>
       <div class='row'>
         <div class='col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3'>
-          <div class='well project' id='l1'>
+          <div class='well project' id='lecture1'>
             <img src='/img/l1-banner.png' class='img-responsive'>
             <div class='description faded'>
               <h2>Learn some HTML basics.</h2>
@@ -83,7 +83,7 @@
     <section class='section'>
       <div class='row'>
         <div class='col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3'>
-          <div class='well project' id='l2'>
+          <div class='well project' id='lecture2'>
             <img src='/img/l2-banner.png' class='img-responsive'>
             <div class='description faded'>
               <h2>Learn about CSS styling.</h2>
@@ -107,7 +107,7 @@
     <section class='section'>
       <div class='row'>
         <div class='col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3'>
-          <div class='well project' id='l3'>
+          <div class='well project' id='lecture3'>
             <img src='/img/l3-banner.png' class='img-responsive'>
             <div class='description faded'>
               <h2>Learn to use CSS frameworks.</h2>
@@ -131,8 +131,8 @@
     <section class='section'>
       <div class='row'>
         <div class='col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3'>
-          <div class='well project' id='l4'>
-            <img src='/img/l5-banner.png' class='img-responsive'>
+          <div class='well project' id='lecture4'>
+            <img src='/img/l4-banner.png' class='img-responsive'>
             <div class='description faded'>
               <h2>JavaScript basics with a little string concatination program.</h2>
               <div class='row'>
@@ -155,8 +155,8 @@
     <section class='section'>
       <div class='row'>
         <div class='col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3'>
-          <div class='well project' id='l5'>
-            <img src='/img/l6-banner.png' class='img-responsive'>
+          <div class='well project' id='lecture5'>
+            <img src='/img/l5-banner.png' class='img-responsive'>
             <div class='description faded'>
               <h2>Learn some more JavaScript with our Odds or Evens game!</h2>
               <div class='row'>
@@ -179,8 +179,8 @@
     <section class='section'>
       <div class='row'>
         <div class='col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3'>
-          <div class='well project' id='l6'>
-            <img src='/img/l7-banner.png' class='img-responsive'>
+          <div class='well project' id='lecture6'>
+            <img src='/img/l6-banner.png' class='img-responsive'>
             <div class='description faded'>
               <h2>Make something functional and pretty.</h2>
               <div class='row'>
@@ -211,5 +211,12 @@ window.onresize = resizeCanvas;
 $('.project').on("mouseenter mouseleave", function() {
   $(this).children().toggleClass('faded');
 });
-//$('.project').on('click', function(e) {
+$('.project').on('click', '.try', function() {
+  var id = $(this).closest('.project').attr('id');
+  window.location.href = '/assessments/'+id+'.html';
+})
+$('.project').on('click', '.do', function() {
+  var id = $(this).closest('.project').attr('id');
+  window.location.href = '/guides/'+id+'.html';
+})
 </script>

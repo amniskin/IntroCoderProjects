@@ -3,100 +3,156 @@
 <html>
   <head>
     <title>
-      Lecture 5: Intro to JS
+      Lecture 6
     </title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <script src='http://code.jquery.com/jquery-2.1.4.min.js'></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <style>
-      .changer {
-        height: 100px;
-        border: 2px solid black;
-        overflow: auto;
-      }
     </style>
   </head>
   <body>
-    <nav>
-      <div class="nav-wrapper">
-        <a href="#" class='brand-logo'>Lecture 5: Intro to Javascript</a>
-      </div>
+    <nav class='navbar navbar-default'>
+      <div class='container-fluid'>
+        <div class='navbar-header'>
+          <button type='button' class='navbar-toggle collapsed' data-toggle='collapse' data-target='#' aria-expanded='false'>
+            <span class='sr-only'>Toggle navigation</span>
+            <span class='icon-bar'></span>
+            <span class='icon-bar'></span>
+            <span class='icon-bar'></span>
+          </button>
+          <a class='navbar-brand' href='#home'>L6: Odds or Evens</a>
+        </div>
+        <div class='collapse navbar-collapse' id='bs-collapse-1'>
+          <ul class='nav navbar-nav'>
+            <li class='active'><a href='#prereqs'>Prereqs<span class='sr-only'>(current)</span></a></li><li><a href="#">Link</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a href="#" 
+                 class="dropdown-toggle" 
+                 data-toggle="dropdown" 
+                 role="button" 
+                 aria-haspopup="true" 
+                 aria-expanded="false">Lectures<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="/assessments/lecture1.html">Lecture 1</a></li>
+                <li><a href="/assessments/lecture2.html">Lecture 2</a></li>
+                <li><a href="/assessments/lecture3.html">Lecture 3</a></li>
+                <li><a href="/assessments/lecture4.html">Lecture 4</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="/assessments/lecture5.html">Lecture 5</a></li>
+                <li><a href="/assessments/lecture6.html">Lecture 6</a></li>
+                <li><a href="/assessments/lecture7.html">Lecture 7</a></li>
+                <li><a href="/assessments/lecture8.html">Lecture 8</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="/assessments/lecture9.html">Lecture 9</a></li>
+                <li><a href="/assessments/lecture10.html">Lecture 10</a></li>
+                <li><a href="/assessments/lecture11.html">Lecture 11</a></li>
+                <li><a href="/assessments/lecture12.html">Lecture 12</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
     </nav>
     <div class='container'>
       <div class='row'>
-        <div class='col s2 offset-s2 btn' id='left-btn'>
-          Change left
-        </div>
-        <div class='col s2 offset-s4 btn' id='right-btn'>
-          Change right
+        <div class='col-sm-12 text-center'>
+          <h2>Let's play some odds-or-evens!</h2>
         </div>
       </div>
-    </div>
-    <div class='container'>
-      <div class='row'>
-        <div class='col s6 changer'
-           id='left-div'>
-        </div>
-        <div class='col s6 changer'
-           id='right-div'>
-        </div>
-      </div>
-    </div>
-    <footer class='page-footer'>
-      <div class='container'>
+      <div class='section'>
         <div class='row'>
-          <div class='col s12 center'>
-            If you were to concatinate every change to a single string instead of changing the div out, it would read:<br><span id='total-concat-string'></span>
+          <div class='col-sm-8 col-sm-offset-2 text-center'>
+            <button class='btn' id='play'>Let's play a game!</button>
           </div>
         </div>
       </div>
-      <div class='footer-copyright'>
-        <div class='container center'>
-          The elements have been changed a total of <span id='total-changes'>0</span> times
+      <div class='row'>
+        <div class='col-sm-4'>
+          <p>You've won <span id='wins'>0</span> time(s).</p>
+          <p>You've lost <span id='losses'>0</span> time(s).</p>
+        </div>
+        <div class='col-sm-4'>
+          <p>Your choice:</p>
+          <div class='col-sm-12' id='user-choice'></div>
+        </div>
+        <div class='col-sm-4'>
+          <p>Computer's choice:</p>
+          <div class='col-sm-12' id='comp-choice'></div>
         </div>
       </div>
-    </footer>
+    </div>
   </body>
 </html>
-
 <script>
-var concatString = "";
-var numChanges = 0;
+var numWins = 0;
+var numLosses = 0;
 
-// Getting elements
-var leftBtn  = document.getElementById("left-btn");
-var rightBtn = document.getElementById("right-btn");
-var leftDiv  = document.getElementById("left-div");
-var rightDiv = document.getElementById("right-div");
+var wins = document.getElementById('wins');
+var losses = document.getElementById('losses');
+var userHand = document.getElementById('user-choice');
+var compHand = document.getElementById('comp-choice');
 
-// Getting number elements
-var stringSpan = document.getElementById("total-concat-string");
-var totalChanges = document.getElementById('total-changes');
+var one = "<img class='img-responsive' src='https://upload.wikimedia.org/wikipedia/commons/0/04/Wrinkly_Fingers_001.JPG' alt='one finger'>";
 
-function changeLeft(str) {
-  newChange(str);
-  leftDiv.innerHTML= str;
+var two = "<img class='img-responsive' src='http://previews.123rf.com/images/bloodua/bloodua1207/bloodua120700156/14472283-hand-with-two-fingers-up-in-the-peace-or-victory-symbol-also-the-sign-for-the-letter-v-in-sign-langu.jpg' alt='two fingers'>";
+
+var cheater = "<img class='img-responsive' src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Hands-Fingers-Crossed.jpg/352px-Hands-Fingers-Crossed.jpg' alt='cheating fingers'>";
+
+function getNumFingers() {
+  return prompt('How many fingers would you like to throw down? Enter either 1 or 2.');
 }
 
-function changeRight(str) {
-  newChange(str);
-  rightDiv.innerHTML = str;
+function getParity() {
+  return prompt('What parity do you choose? Enter 0 for even and 1 for odd.');
 }
 
-function newChange(str) {
-  concatString += str;
-  stringSpan.innerHTML = concatString;
-  numChanges ++;
-  totalChanges.innerHTML = numChanges;
+function randChoice() {
+  var randInt = Math.round(Math.random());
+  return randInt + 1;
 }
 
-leftBtn.addEventListener('click', function() {
-  var str = prompt("Please type the string you would like to place in the left side.");
-  changeLeft(str);
-});
+function userWon(user, comp, parity) {
+  var sum = comp + user;
+  var sumParity = sum % 2;
+  return sumParity == parity;
+}
 
+function showPlayerHand(player, numHands) {
+  if (numHands== 1) {
+    player.innerHTML = one;
+  } else if(numHands== 2) {
+    player.innerHTML = two;
+  } else {
+    player.innerHTML = cheater;
+  }
+}
 
-rightBtn.addEventListener('click', function() {
-  var str = prompt("Please type the string you would like to place in the right side.");
-  changeRight(str);
-});
+function showHands(user, comp) {
+  showPlayerHand(userHand, user);
+  showPlayerHand(compHand, comp);
+}
 
+function playGame() {
+  var parity = getParity();
+  var user = getNumFingers();
+  var comp = randChoice();
+  showHands(user, comp);
+  if (userWon(user, comp, parity)) {
+    numWins++;
+    wins.innerHTML = numWins;
+    alert("You've won! Congrats!");
+  } else {
+    numLosses++;
+    losses.innerHTML = numLosses;
+    alert("I'm sorry to say that you've lost. Play again?");
+  }
+}
+
+document.getElementById('play').addEventListener('click', function() {
+  playGame();
+})
 </script>

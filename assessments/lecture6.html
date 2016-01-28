@@ -3,156 +3,121 @@
 <html>
   <head>
     <title>
-      Lecture 6
+      Lecture 7: Ajax and serialization
     </title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-
-    <script src='http://code.jquery.com/jquery-2.1.4.min.js'></script>
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <style>
+.jumbotron {
+  background-color: lightblue;
+}
     </style>
   </head>
   <body>
-    <nav class='navbar navbar-default'>
-      <div class='container-fluid'>
-        <div class='navbar-header'>
-          <button type='button' class='navbar-toggle collapsed' data-toggle='collapse' data-target='#' aria-expanded='false'>
-            <span class='sr-only'>Toggle navigation</span>
-            <span class='icon-bar'></span>
-            <span class='icon-bar'></span>
-            <span class='icon-bar'></span>
-          </button>
-          <a class='navbar-brand' href='#home'>L6: Odds or Evens</a>
-        </div>
-        <div class='collapse navbar-collapse' id='bs-collapse-1'>
-          <ul class='nav navbar-nav'>
-            <li class='active'><a href='#prereqs'>Prereqs<span class='sr-only'>(current)</span></a></li><li><a href="#">Link</a></li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li class="dropdown">
-              <a href="#" 
-                 class="dropdown-toggle" 
-                 data-toggle="dropdown" 
-                 role="button" 
-                 aria-haspopup="true" 
-                 aria-expanded="false">Lectures<span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="/assessments/lecture1.html">Lecture 1</a></li>
-                <li><a href="/assessments/lecture2.html">Lecture 2</a></li>
-                <li><a href="/assessments/lecture3.html">Lecture 3</a></li>
-                <li><a href="/assessments/lecture4.html">Lecture 4</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="/assessments/lecture5.html">Lecture 5</a></li>
-                <li><a href="/assessments/lecture6.html">Lecture 6</a></li>
-                <li><a href="/assessments/lecture7.html">Lecture 7</a></li>
-                <li><a href="/assessments/lecture8.html">Lecture 8</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="/assessments/lecture9.html">Lecture 9</a></li>
-                <li><a href="/assessments/lecture10.html">Lecture 10</a></li>
-                <li><a href="/assessments/lecture11.html">Lecture 11</a></li>
-                <li><a href="/assessments/lecture12.html">Lecture 12</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
-    </nav>
+    <div class='jumbotron'>
+      <div class='container'>
+        <h1>Welcome to this awesome site!</h1>
+        <p>We sell awesome things. Do awesome things for money. General awesomeness available... For money.</p>
+        <p><a class="btn btn-primary btn-lg" href="#" role="button">Pay me?</a></p>
+      </div>
+    </div>
     <div class='container'>
       <div class='row'>
-        <div class='col-sm-12 text-center'>
-          <h2>Let's play some odds-or-evens!</h2>
+        <div class='col-xs-8 col-xs-offset-2'>
+          <h2>Sign up for a free account, BRO!</h2>
+          <p>Do you even CODE, bro?!</p>
         </div>
       </div>
-      <div class='section'>
-        <div class='row'>
-          <div class='col-sm-8 col-sm-offset-2 text-center'>
-            <button class='btn' id='play'>Let's play a game!</button>
+      <form id='user-form' action='http://fvi-grad.com:1234' class='row'>
+        <div class="form-group col-xs-10 col-xs-offset-1">
+          <label for="fname">First Name</label>
+          <input type="text" class="form-control" id="fname" placeholder="First Name" name='fname'>
+        </div>
+        <div class="form-group col-xs-10 col-xs-offset-1">
+          <label for="lname">Last Name</label>
+          <input type="text" class="form-control" id="lname" placeholder="Last Name" name='lname'>
+        </div>
+        <div class="form-group col-xs-10 col-xs-offset-1">
+          <label for="email1">Email address</label>
+          <input type="email" class="form-control" id="email1" placeholder="Email" name='email'>
+        </div>
+        <div class="form-group col-xs-10 col-xs-offset-1">
+          <label for="supaSet1">Super set preference</label>
+          <select class='form-control' name='supa'>
+            <option value="">Select one</option>
+            <option value='bench'>Bench press with barbell curls</option>
+            <option value='bench'>Incline bench with barbell curls</option>
+            <option value='curls'>Barbell curls with bench press</option>
+            <option value='legs'>You don't lift or something?</option>
+          </select>
+        </div>
+        <div class='col-xs-5 col-xs-offset-1'>
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" name='checker'> Check me out
+            </label>
           </div>
         </div>
-      </div>
-      <div class='row'>
-        <div class='col-sm-4'>
-          <p>You've won <span id='wins'>0</span> time(s).</p>
-          <p>You've lost <span id='losses'>0</span> time(s).</p>
+        <div class='col-xs-5 col-xs-offset-1'>
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" name='lifter'> Do you even lift, bro?
+            </label>
+          </div>
         </div>
-        <div class='col-sm-4'>
-          <p>Your choice:</p>
-          <div class='col-sm-12' id='user-choice'></div>
+        <button type='submit' class="btn btn-default col-xs-2 col-xs-offset-5" id='form-btn'>Let's go!</button>
+      </form>
+      <div class='row' id='map-showcase-row'>
+        <div class='col-xs-8 col-xs-offset-2' id='serial-showcase'>
         </div>
-        <div class='col-sm-4'>
-          <p>Computer's choice:</p>
-          <div class='col-sm-12' id='comp-choice'></div>
+        <div class='col-xs-8 col-xs-offset-2' id='map-showcase'>
+          <table class='table' id='map-table'>
+            <tr>
+              <td>
+                hey
+              </td>
+              <td>
+                there
+              </td>
+            </tr>
+            <tr>
+              <td>
+                hey
+              </td>
+              <td>
+                there
+              </td>
+            </tr>
+            <tr>
+              <td>
+                hey
+              </td>
+              <td>
+                there
+              </td>
+            </tr>
+          </table>
         </div>
       </div>
     </div>
+    <div style='height:50px;'></div>
   </body>
 </html>
+
 <script>
-var numWins = 0;
-var numLosses = 0;
-
-var wins = document.getElementById('wins');
-var losses = document.getElementById('losses');
-var userHand = document.getElementById('user-choice');
-var compHand = document.getElementById('comp-choice');
-
-var one = "<img class='img-responsive' src='https://upload.wikimedia.org/wikipedia/commons/0/04/Wrinkly_Fingers_001.JPG' alt='one finger'>";
-
-var two = "<img class='img-responsive' src='http://previews.123rf.com/images/bloodua/bloodua1207/bloodua120700156/14472283-hand-with-two-fingers-up-in-the-peace-or-victory-symbol-also-the-sign-for-the-letter-v-in-sign-langu.jpg' alt='two fingers'>";
-
-var cheater = "<img class='img-responsive' src='https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Hands-Fingers-Crossed.jpg/352px-Hands-Fingers-Crossed.jpg' alt='cheating fingers'>";
-
-function getNumFingers() {
-  return prompt('How many fingers would you like to throw down? Enter either 1 or 2.');
-}
-
-function getParity() {
-  return prompt('What parity do you choose? Enter 0 for even and 1 for odd.');
-}
-
-function randChoice() {
-  var randInt = Math.round(Math.random());
-  return randInt + 1;
-}
-
-function userWon(user, comp, parity) {
-  var sum = comp + user;
-  var sumParity = sum % 2;
-  return sumParity == parity;
-}
-
-function showPlayerHand(player, numHands) {
-  if (numHands== 1) {
-    player.innerHTML = one;
-  } else if(numHands== 2) {
-    player.innerHTML = two;
-  } else {
-    player.innerHTML = cheater;
-  }
-}
-
-function showHands(user, comp) {
-  showPlayerHand(userHand, user);
-  showPlayerHand(compHand, comp);
-}
-
-function playGame() {
-  var parity = getParity();
-  var user = getNumFingers();
-  var comp = randChoice();
-  showHands(user, comp);
-  if (userWon(user, comp, parity)) {
-    numWins++;
-    wins.innerHTML = numWins;
-    alert("You've won! Congrats!");
-  } else {
-    numLosses++;
-    losses.innerHTML = numLosses;
-    alert("I'm sorry to say that you've lost. Play again?");
-  }
-}
-
-document.getElementById('play').addEventListener('click', function() {
-  playGame();
+$(document).ready(function(){
+  $('#form-btn').click(function(event) {
+    event.preventDefault();
+    var serial = $('#user-form').serialize();
+    $('#serial-showcase').html(serial);
+    var obj = {};
+    serial.split('&').map(function(exp) {return exp.split('=');}).map(function(e) {obj[e[0]] = e[1];});
+    $('#map-showcase').html(obj["fname"]);
+    console.log(obj);
+  })
 })
 </script>
