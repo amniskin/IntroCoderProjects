@@ -3,7 +3,7 @@
 <html>
   <head>
     <title>
-      Lecture 7: Ajax and serialization
+      Lecture 6: Ajax and serialization
     </title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -74,34 +74,6 @@
       <div class='row' id='map-showcase-row'>
         <div class='col-xs-8 col-xs-offset-2' id='serial-showcase'>
         </div>
-        <div class='col-xs-8 col-xs-offset-2' id='map-showcase'>
-          <table class='table' id='map-table'>
-            <tr>
-              <td>
-                hey
-              </td>
-              <td>
-                there
-              </td>
-            </tr>
-            <tr>
-              <td>
-                hey
-              </td>
-              <td>
-                there
-              </td>
-            </tr>
-            <tr>
-              <td>
-                hey
-              </td>
-              <td>
-                there
-              </td>
-            </tr>
-          </table>
-        </div>
       </div>
     </div>
     <div style='height:50px;'></div>
@@ -116,7 +88,6 @@ $(document).ready(function(){
     $('#serial-showcase').html(serial);
     var obj = {};
     serial.split('&').map(function(exp) {return exp.split('=');}).map(function(e) {obj[e[0]] = e[1];});
-    $('#map-showcase').html(obj["fname"]);
     console.log(obj);
   })
 })
