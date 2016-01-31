@@ -1,0 +1,134 @@
+<template id='header'>
+  <nav class='navbar navbar-default navbar-fixed-top' id='nav'>
+    <h1 class='hidden'>
+      Main Nav
+    </h1>
+    <div class='container-fluid' id='nav-container'>
+      <div class='navbar-header'>
+        <button type='button'
+          class='navbar-toggle collapsed'
+          data-toggle='collapse'
+          data-target='#navbar-collapse-1'
+          aria-expanded='false'>
+          <span class='sr-only'>Toggle navigation</span>
+          <span class='icon-bar'></span>
+          <span class='icon-bar'></span>
+          <span class='icon-bar'></span>
+        </button>
+        <a class='navbar-brand' href='#home' id='nav-brand'></a>
+      </div>
+      <div class='collapse navbar-collapse' id='navbar-collapse-1'>
+        <ul class='nav navbar-nav' id='nav-list'>
+          <li><a href='#home'>Intro</a></li>
+          <li><a href='#objectives'>Learning Objectives</a></li>
+          <li><a href='#prereqs'>Prerequisites</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Steps<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+            </ul>
+          </li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+  <div class='container' id='home'>
+    <header class='row'>
+      <div class='col-sm-12 text-center'>
+        <h2 class='tag'></h2>
+        <h4 class='author'></h4>
+      </div>
+    </header>
+  </div>
+</template>
+
+
+<template id='basic'>
+  <div class='container'>
+    <section class='section'>
+      <div class='row'>
+        <div class='col-xs-12 col-sm-8 col-sm-offset-2 content'>
+        </div>
+      </div>
+    </section>
+  </div>
+</template>
+
+
+<script src='http://code.jquery.com/jquery-2.2.0.min.js'></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+<script>
+var headerSize = "h3",
+    importDoc  = document.currentScript.ownerDocument,
+    scrollList = [],
+    numSteps   = 0;
+
+
+function addNavStep(e) {
+  $('nav #nav-list .dropdown-menu').append('<li><a href=#' + e[0] + '>' + e[1] + '</a></li>');
+}
+
+
+var projectHeader = Object.create(HTMLElement.prototype);
+projectHeader.createdCallback = function() {
+  var template      = importDoc.getElementById('header'),
+      templateClone = document.importNode(template.content, true);
+  templateClone.querySelector('h2').innerHTML = this.getAttribute('tag');
+  templateClone.querySelector('h4').innerHTML = "Written by: " + this.getAttribute('author');
+  $(templateClone).find('.container').append($(this).children());
+  $(this).html($(templateClone));
+  $('nav #nav-brand').html($(document).find('title').text());
+  $('title').text("FVI Projects - " + $('nav #nav-brand').text());
+}
+document.registerElement('project-header', {prototype: projectHeader});
+
+
+var basic = Object.create(HTMLElement.prototype);
+basic.createdCallback = function() {
+  var template      = importDoc.getElementById('basic'),
+      templateClone = document.importNode(template.content, true);
+  $(templateClone).find('.content').html($(this).children());
+  $(this).html($(templateClone));
+  $(this).addClass('scrolly');
+}
+document.registerElement('project-basic', {prototype: basic});
+
+
+var intro = Object.create(basic);
+intro.createdCallback = function() {
+  $(this).prepend("<" + headerSize + " class='hidden'>Introduction:</" + headerSize + ">");
+  basic.createdCallback.call(this);
+  $(this).attr('id', 'intro');
+}
+document.registerElement('project-intro', {prototype: intro});
+
+
+var objectives = Object.create(basic);
+objectives.createdCallback = function() {
+  $(this).prepend("<" + headerSize + ">Learning Objectives:</" + headerSize + ">");
+  basic.createdCallback.call(this);
+  $(this).attr('id', 'objectives');
+}
+document.registerElement('project-objectives', {prototype: objectives});
+
+
+var prereqs = Object.create(basic);
+prereqs.createdCallback = function() {
+  $(this).prepend("<" + headerSize + ">Prerequisites:</" + headerSize + ">");
+  basic.createdCallback.call(this);
+  $(this).attr('id', 'prereqs');
+}
+document.registerElement('project-prereqs', {prototype: prereqs});
+
+
+var step = Object.create(basic);
+step.createdCallback = function() {
+  numSteps++;
+  var id='step' + numSteps;
+  var text = 'Step ' + numSteps;
+  addNavStep([id, text]);
+  $(this).prepend("<" + headerSize + ">" + text + ": " + $(this).attr("title") + "</" + headerSize + ">");
+  basic.createdCallback.call(this);
+  $(this).attr('id', id);
+}
+document.registerElement('project-step', {prototype: step});
+</script>
