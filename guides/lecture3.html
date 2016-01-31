@@ -3,110 +3,37 @@
 <html>
   <head>
     <title>
-      Lecture 3: Intro to CSS Frameworks
+      Intro to CSS Frameworks
     </title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel='import' id='templates-import' href='/templates.html'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" href="/style/style.css">
-    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <script src="/js/coder.js"></script>
   </head>
-  <body>
-    <nav class='navbar navbar-default navbar-fixed-top'>
-      <div class='container-fluid'>
-        <div class='navbar-header'>
-          <button type='button' class='navbar-toggle collapsed' data-toggle='collapse' data-target='#navbar-collapse-1' aria-expanded='false'>
-            <span class='sr-only'>Toggle navigation</span>
-            <span class='icon-bar'></span>
-            <span class='icon-bar'></span>
-            <span class='icon-bar'></span>
-          </button>
-          <a class='navbar-brand' href='#home'>L3: CSS Frameworks</a>
-        </div>
-        <div class='collapse navbar-collapse' id='navbar-collapse-1'>
-          <ul class='nav navbar-nav'>
-            <li class='active'><a href='#prereqs'>Prereqs<span class='sr-only'>(current)</span></a></li><li><a href="#">Link</a></li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li class="dropdown">
-              <a href="#" 
-                 class="dropdown-toggle" 
-                 data-toggle="dropdown" 
-                 role="button" 
-                 aria-haspopup="true" 
-                 aria-expanded="false">Lectures<span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="/assessments/lecture1.html">Lecture 1</a></li>
-                <li><a href="/assessments/lecture2.html">Lecture 2</a></li>
-                <li><a href="/assessments/lecture3.html">Lecture 3</a></li>
-                <li><a href="/assessments/lecture4.html">Lecture 4</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="/assessments/lecture5.html">Lecture 5</a></li>
-                <li><a href="/assessments/lecture6.html">Lecture 6</a></li>
-                <li><a href="/assessments/lecture7.html">Lecture 7</a></li>
-                <li><a href="/assessments/lecture8.html">Lecture 8</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="/assessments/lecture9.html">Lecture 9</a></li>
-                <li><a href="/assessments/lecture10.html">Lecture 10</a></li>
-                <li><a href="/assessments/lecture11.html">Lecture 11</a></li>
-                <li><a href="/assessments/lecture12.html">Lecture 12</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
-    </nav>
-    <div class='container'
-         id='home'>
-      <div class='row'>
-        <div class='col-sm-12 text-center'>
-          <h2>Let's work with some frameworks!</h2>
-          <h4>Written by: Aaron Niskin</h4>
-        </div>
-      </div>
-      <div class='section'
-           id='intro'>
-        <div class='row'>
-          <div class='col-xs-12 col-sm-8 col-sm-offset-2'>
+  <body data-spy='scroll' data-target='#nav-container'>
+    <project-header tag="Let's work with some frameworks!" author="Aaron Niskin"></project-header>
+    <project-intro>
             <p>In this project, we will get some experience using CSS frameworks by making some boxes with certain properties using <a href='http://materializecss.com'>MaterializeCSS</a>. To see what the final version should look like, check out the finished product.</p>
-          </div>
-        </div>
-      </div>
-      <div class='section'
-           id='prereqs'>
-        <div class='row'>
-          <div class='col-xs-12 col-sm-8 col-sm-offset-2'>
-            <h3>Prerequisites:</h3>
-            <ul>
-              <li>A computer to use for a bit</li>
-              <li>Basic familiarity with html and CSS</li>
-              <li>Desire to add some style to a website using a CSS framework</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class='section'
-           id='learning'>
-        <div class='row'>
-          <div class='col-xs-12 col-sm-8 col-sm-offset-2'>
-            <h3>Learning Objectives:</h3>
-            <ul>
-              <li>Understand some properties generally used by CSS frameworks</li>
-              <li>Learn to use a product's documentation</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class='section'
-           id='step1'>
-        <div class='row'>
-          <div class='col-sm-8 col-sm-offset-2'>
-            <h3>Step 1: an HTML file with a linked CSS file</h3>
-            <p>Let's set up an HTML file complete with a <code>head</code> and a <code>body</code> and a CSS file linked. You should already know how to do this, so this step should be very easy. If you are unsure of how to go about this, I suggest you try out the HTML basics code project or the Intro to CSS code project.</p>
-            <pre class='hint blur'>&#60;!DOCTYPE html>
+    </project-intro>
+    <project-objectives>
+      <ul>
+        <li>Understand some properties generally used by CSS frameworks</li>
+        <li>Learn to use a product's documentation</li>
+      </ul>
+    </project-objectives>
+    <project-prereqs>
+      <ul>
+        <li>A computer to use for a bit</li>
+        <li>Basic familiarity with html and CSS</li>
+        <li>Desire to add some style to a website using a CSS framework</li>
+      </ul>
+    </project-prereqs>
+    <project-step title="Let's link a CSS file">
+      <p>Let's set up an HTML file complete with a <code>head</code> and a <code>body</code> and a CSS file linked. You should already know how to do this, so this step should be very easy. If you are unsure of how to go about this, I suggest you try out the HTML basics code project or the Intro to CSS code project.</p>
+      <pre class='hint blur'>&#60;!DOCTYPE html>
 
 &#60;html>
   &#60;head>
@@ -116,16 +43,10 @@
   &#60;/body>
 &#60;/html></pre>
 
-          </div>
-        </div>
-      </div>
-      <div class='section'
-           id='step2'>
-        <div class='row'>
-          <div class='col-sm-8 col-sm-offset-2'>
-            <h3>Step 2: Let's link the framework</h3>
-            <p>In order for our webiste to know that we're using the framework, we of course need to tell it that we are, right? Where and how do we link CSS stylesheets again? Inside the <code>head</code> tag, let's put a <code>link</code> tag with three attributes: <code>type</code> with a value of <code>"text/css"</code>, <code>rel</code> with a value of <code>"styleshee"</code> and <code>href</code> with a value of the path to the style sheet. This time, however, our style sheet is not located on our own machine, but rather in a Content Delivery Network (CDN). Since we're using MaterializeCSS for this project, we'll use their CDN, which when this was written was <a href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css'>here</a>. You can just copy the link. So, let's go ahead and write that <code>link</code> with that as our <code>href</code> value. Make sure you write the link so that our file is called after the Materialize one. The reason for this is if we decide to overwrite anything in the Materialize CSS file, we can do so in our stylesheet and be assured that our version will persist because, as you recall, HTML is read from the top down.</p>
-            <pre class='hint blur'>&#60;!DOCTYPE html>
+    </project-step>
+    <project-step title="Let's link the framework">
+      <p>In order for our webiste to know that we're using the framework, we of course need to tell it that we are, right? Where and how do we link CSS stylesheets again? Inside the <code>head</code> tag, let's put a <code>link</code> tag with three attributes: <code>type</code> with a value of <code>"text/css"</code>, <code>rel</code> with a value of <code>"styleshee"</code> and <code>href</code> with a value of the path to the style sheet. This time, however, our style sheet is not located on our own machine, but rather in a Content Delivery Network (CDN). Since we're using MaterializeCSS for this project, we'll use their CDN, which when this was written was <a href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css'>here</a>. You can just copy the link. So, let's go ahead and write that <code>link</code> with that as our <code>href</code> value. Make sure you write the link so that our file is called after the Materialize one. The reason for this is if we decide to overwrite anything in the Materialize CSS file, we can do so in our stylesheet and be assured that our version will persist because, as you recall, HTML is read from the top down.</p>
+      <pre class='hint blur'>&#60;!DOCTYPE html>
 
 &#60;html>
   &#60;head>
@@ -135,85 +56,55 @@
   &#60;body>
   &#60;/body>
 &#60;/html></pre>
-          </div>
-        </div>
-      </div>
-      <div class='section'
-           id='step3'>
-        <div class='row'>
-          <div class='col-sm-8 col-sm-offset-2'>
-            <h3>Step 3: Let's set some CSS rules</h3>
-            <p>If you haven't already checked out the final version, please check it out before continuing so you know where things are headed and why we're doing the things we are doing. Being as how we've all seen the final project -- cough cough -- we can see that we have divs of a certain height and background color. Let's go ahead and set a CSS rule that gives all elements whose class property includes <code>box</code> a height of <code>225px</code>.</p>
-            <pre class='hint blur'>.box {
+    </project-step>
+    <project-step title="Let's set some CSS rules">
+      <p>If you haven't already checked out the final version, please check it out before continuing so you know where things are headed and why we're doing the things we are doing. Being as how we've all seen the final project -- cough cough -- we can see that we have divs of a certain height and background color. Let's go ahead and set a CSS rule that gives all elements whose class property includes <code>box</code> a height of <code>225px</code>.</p>
+      <pre class='hint blur'>.box {
   height: 225px;
 }</pre>
-            <p>Okay, so that was only one rule. Did you really want more though?</p>
-          </div>
-        </div>
-      </div>
-      <div class='section'
-           id='step4'>
-        <div class='row'>
-          <div class='col-sm-8 col-sm-offset-2'>
-            <h3>Step 4: Understanding the grid</h3>
-            <p>Whether you're using <a href='http://getbootstrap.com'>Bootstrap</a>, <a href='http://foundation.zurb.com/'>Foundation</a>, or <a href='http://materializecss.com'>Materialize</a> as we are, you are probably going to need to understand the grid. What do we mean when we say "the grid"? Well, if you check out the final version of this project, you'll notice that the boxes stay the same width relative to the screen regardless of how big or small you make the window. Well, in a nutshell, that's one of the things the grid does for you.</p>
-            <p>So, you can think of webpages in these frameworks as being organized in 12 columns. If one wanted something to take up 6 of those columns (so half of the page), one would just have to specify that this is a 6 column element, however one does that in the framework he or she is using. In Bootstrap, this is done by adding the class "col-xs-6" to the element. In Materialize, however, this is done by adding two classes "col" and "s6".</p>
-            <p>At this point, you might be wondering what the "s" and the "xs" are all about. Well, sometimes you want your site to be arranged differently depeneding on the screen size. With that in mind, these frameworks come with a responsive grid. You can specify that on a very small screen, the element should be considered a 6 column element, but on a medium screen (or larger), it should be a 2 column element. This is done (in Materialize) by having three classes "col s6 m2". Similarly if an element has classes "col s6 m4 l2", then on a small screen it would be 6 columns, medium it would be 4 columns and on a large screen it would be 2 columns.</p>
-            <p>This may have been a lot to absorb in such a short while. With that in mind, we have a whole project to help these things soak in! So let's get started!</p>
-          </div>
-        </div>
-      </div>
-      <div class='section'
-           id='step5'>
-        <div class='row'>
-          <div class='col-sm-8 col-sm-offset-2'>
-            <h3>Step 5: Getting on to the grid</h3>
-            <p>Let's make that first row of blue and green rectangles. In your HTML <code>body</code> add the following code:</p>
-            <pre>&#60;div class='row'>
+      <p>Okay, so that was only one rule. Did you really want more though?</p>
+    </project-step>
+    <project-step title="Understanding the grid">
+      <p>Whether you're using <a href='http://getbootstrap.com'>Bootstrap</a>, <a href='http://foundation.zurb.com/'>Foundation</a>, or <a href='http://materializecss.com'>Materialize</a> as we are, you are probably going to need to understand the grid. What do we mean when we say "the grid"? Well, if you check out the final version of this project, you'll notice that the boxes stay the same width relative to the screen regardless of how big or small you make the window. Well, in a nutshell, that's one of the things the grid does for you.</p>
+      <p>So, you can think of webpages in these frameworks as being organized in 12 columns. If one wanted something to take up 6 of those columns (so half of the page), one would just have to specify that this is a 6 column element, however one does that in the framework he or she is using. In Bootstrap, this is done by adding the class "col-xs-6" to the element. In Materialize, however, this is done by adding two classes "col" and "s6".</p>
+      <p>At this point, you might be wondering what the "s" and the "xs" are all about. Well, sometimes you want your site to be arranged differently depeneding on the screen size. With that in mind, these frameworks come with a responsive grid. You can specify that on a very small screen, the element should be considered a 6 column element, but on a medium screen (or larger), it should be a 2 column element. This is done (in Materialize) by having three classes "col s6 m2". Similarly if an element has classes "col s6 m4 l2", then on a small screen it would be 6 columns, medium it would be 4 columns and on a large screen it would be 2 columns.</p>
+      <p>This may have been a lot to absorb in such a short while. With that in mind, we have a whole project to help these things soak in! So let's get started!</p>
+    </project-step>
+    <project-step title="Getting on to the grid">
+      <p>Let's make that first row of blue and green rectangles. In your HTML <code>body</code> add the following code:</p>
+      <pre>&#60;div class='row'>
   &#60;div class='col s3 blue box'>&#60;/div>
   &#60;div class='col s3 green box'>&#60;/div>
   &#60;div class='col s3 blue box'>&#60;/div>
   &#60;div class='col s3 green box'>&#60;/div>
 &#60;/div></pre>
-            <p>Let's check out what this code does and then we'll analyze it. Firstly, you should notice that each of these elements is about 225 pixels high. That's because they all have the <code>box</code> class. Furthermore, you probably noticed that the box with class <code>blue</code> is blue, and the box with class <code>green</code> is green. There's not too much to say about that.</p>
-            <p>You should notice that there are four columns of equal width on the screen. This is because they all have the classes <code>col</code> and <code>s3</code>. Since 3*4=12, we know that four columns of 3 will be the entire width of the page. Hence, these are all 1/4 of the page each.</p>
-            <p>Now you might have noticed that we put a div with class <code>row</code> as the parent of all of our columns. This is actually important for our rows to act properly. The moral of the story, make sure you have all of your rows in side of a div with class <code>row</code>.</p>
-            <p>Now you try it out... Make a row of four equal width columns (that fills up the width of the screen). To do this, you have to figure out how many columns each element has to take up to make the total equal to 12.</p>
-            <p>Hint: <span class='hint blur'>4 * 3 = 12, so if we want 3 columns, each has to have a width of 4.</span></p>
-            <pre class='hint blur'>&#60;div class='row'>
+      <p>Let's check out what this code does and then we'll analyze it. Firstly, you should notice that each of these elements is about 225 pixels high. That's because they all have the <code>box</code> class. Furthermore, you probably noticed that the box with class <code>blue</code> is blue, and the box with class <code>green</code> is green. There's not too much to say about that.</p>
+      <p>You should notice that there are four columns of equal width on the screen. This is because they all have the classes <code>col</code> and <code>s3</code>. Since 3*4=12, we know that four columns of 3 will be the entire width of the page. Hence, these are all 1/4 of the page each.</p>
+      <p>Now you might have noticed that we put a div with class <code>row</code> as the parent of all of our columns. This is actually important for our rows to act properly. The moral of the story, make sure you have all of your rows in side of a div with class <code>row</code>.</p>
+      <p>Now you try it out... Make a row of four equal width columns (that fills up the width of the screen). To do this, you have to figure out how many columns each element has to take up to make the total equal to 12.</p>
+      <p>Hint: <span class='hint blur'>4 * 3 = 12, so if we want 3 columns, each has to have a width of 4.</span></p>
+      <pre class='hint blur'>&#60;div class='row'>
   &#60;div class='col s3 blue box'>&#60;/div>
   &#60;div class='col s3 green box'>&#60;/div>
   &#60;div class='col s3 blue box'>&#60;/div>
   &#60;div class='col s3 green box'>&#60;/div>
 &#60;/div></pre>
-          </div>
-        </div>
-      </div>
-      <div class='section'
-           id='step6'>
-        <div class='row'>
-          <div class='col-sm-8 col-sm-offset-2'>
-            <h3>Step 6: Contain yourself, bROW!</h3>
-            <p>Sometimes you don't really want page to be full width, but rather you want it to have some sort of a gutter on the sides. These frameworks generally make it pretty easy to do that from within the grid system! All you have to do is have your row (the div with class <code>row</code>) inside of a div with class <code>container</code>. Let's go ahead and make a row with three equal width columns inside of a container.</p>
-            <pre class='hint blur'>&#60;div class='container'>
+    </project-step>
+    <project-step title="Contain yourself, bROW!">
+      <p>Sometimes you don't really want page to be full width, but rather you want it to have some sort of a gutter on the sides. These frameworks generally make it pretty easy to do that from within the grid system! All you have to do is have your row (the div with class <code>row</code>) inside of a div with class <code>container</code>. Let's go ahead and make a row with three equal width columns inside of a container.</p>
+      <pre class='hint blur'>&#60;div class='container'>
   &#60;div class='row'>
     &#60;div class='col s4 green box'>&#60;/div>
     &#60;div class='col s4 blue box'>&#60;/div>
     &#60;div class='col s4 green box'>&#60;/div>
   &#60;/div>
 &#60;/div></pre>
-            <p>From now on in this project everything will be within this <code>container</code> element even if it is not specified.</p>
-          </div>
-        </div>
-      </div>
-      <div class='section'
-           id='step7'>
-        <div class='row'>
-          <div class='col-sm-8 col-sm-offset-2'>
-            <h3>Step 7: Sections</h3>
-            <p>Sometimes you want to have parts of your website sectioned off. As in, you might have one part dedicated to your company's excellent customer service record and some of the other perks of your company over others, and another section for your pricing. You probably want to have a bit of vertical space between these sections. To achieve this, all you have to do is place each section inside of a div with class <code>section</code>. Easy, right? That's kind of why we use these frameworks.</p>
-            <p>Go ahead and put three more rows in a section. Each row should have a different arrangement of columns. Try to get inventive, but remember, the total number of columns on the screen is 12! What happens if the total inside the <code>row</code> is greater than 12? Less than 12? Figure this out!</p>
-            <pre class='hint blur'>&#60;div class='section'>
+      <p>From now on in this project everything will be within this <code>container</code> element even if it is not specified.</p>
+    </project-step>
+    <project-step title="Sections">
+      <p>Sometimes you want to have parts of your website sectioned off. As in, you might have one part dedicated to your company's excellent customer service record and some of the other perks of your company over others, and another section for your pricing. You probably want to have a bit of vertical space between these sections. To achieve this, all you have to do is place each section inside of a div with class <code>section</code>. Easy, right? That's kind of why we use these frameworks.</p>
+      <p>Go ahead and put three more rows in a section. Each row should have a different arrangement of columns. Try to get inventive, but remember, the total number of columns on the screen is 12! What happens if the total inside the <code>row</code> is greater than 12? Less than 12? Figure this out!</p>
+      <pre class='hint blur'>&#60;div class='section'>
   &#60;div class='row'>
     &#60;div class='col s3 green box'>&#60;/div>
     &#60;div class='col s2 blue box'>&#60;/div>
@@ -232,18 +123,9 @@
     &#60;div class='col s4 blue box'>&#60;/div>
   &#60;/div>
 &#60;/div></pre>
-          </div>
-        </div>
-      </div>
-      <div class='section'
-           id='step8'>
-        <div class='row'>
-          <div class='col-sm-8 col-sm-offset-2'>
-            <h3>Step 8: Let's show it off!</h3>
-            <p>You're done. Go away. Go outside. Play some basketball. 
-          </div>
-        </div>
-      </div>
-    </div>
+    </project-step>
+    <project-step title="Let's show it off!">
+      <p>You're done. Go away. Go outside. Play some basketball. 
+    </project-step>
   </body>
 </html>
