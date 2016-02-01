@@ -66,6 +66,9 @@ var headerSize = "h3",
 function addNavStep(e) {
   $('nav #nav-list .dropdown-menu').append('<li><a href=#' + e[0] + '>' + e[1] + '</a></li>');
 }
+function addNavDivider() {
+  $('nav #nav-list .dropdown-menu').append("<li role='separator' class='divider'></li>");
+}
 
 
 var projectHeader = Object.create(HTMLElement.prototype);
@@ -123,12 +126,16 @@ document.registerElement('project-prereqs', {prototype: prereqs});
 var step = Object.create(basic);
 step.createdCallback = function() {
   numSteps++;
-  var id='step' + numSteps;
-  var text = 'Step ' + numSteps;
-  addNavStep([id, text]);
+  var id    ='step' + numSteps,
+      text  = 'Step ' + numSteps,
+      title = numSteps + ": " + $(this).attr('title');
+  addNavStep([id, title]);
   $(this).prepend("<" + headerSize + ">" + text + ": " + $(this).attr("title") + "</" + headerSize + ">");
   basic.createdCallback.call(this);
   $(this).attr('id', id);
+  if($(this).attr("last")) {
+    addNavDivider();
+  }
 }
 document.registerElement('project-step', {prototype: step});
 </script>
