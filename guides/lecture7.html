@@ -81,7 +81,29 @@ response.end();</pre>
       <p>Go ahead and submit your form and see what happens. Make sure the form action is not being impeeded by any JavaScript running on the page (e.g. any click handlers, etc).</p>
     </project-step>
     <project-step title="Let's give something back">
-      <p>Let's make our code a little bit more dynamic. Rather than just sending back the same thing to everybody, let's send something unique back to every person. Just for starters, let's send back the query string that the client sent us. In other words, our page should look a little bit like,</p>
+      <p>Let's make our code a little bit more dynamic. Rather than just sending back the same thing to everybody, let's send something unique back to every person. Just for starters, let's send back the query string that the client sent us just after we greet the world. Well, luckily, we have a way to get the URL pretty easily. Let's get the request's <code>url</code> attribute and store it in a variable (just in case we want to use it later).</p>
+      <pre class='hint blur'>var url = request.url;</pre>
+      <p>Now, in our <code>response.write</code> call, let's add a newline character after we greet our clients and concatinate it with the url string.</p>
+      <pre class='hint blur'>response.write("Hello, world!\n" + url);</pre>
+      <p>Our page should look a little bit like,</p>
+      <img class='img-responsive' src='/img/l7-basicUrl.png' alt="screenshot of what the page should look like">
+      <p>If you did the extra-credit part of the Pretty functional project, then you can use the function we wrote to turn the query string into a JavaScript object and do even more amazing things with it as in the "Try it out" link on this project.</p>
+    </project-step>
+    <project-step title="Go away, or..." last="true">
+      <p>You can go away now. Or...</p>
+      <p>Or...</p>
+      <p>Or...</p>
+      <p>Or you can stick around and learn a bit more!</p>
+    </project-step>
+    <project-step title="Map it out">
+      <p>
+      </p>
+      <p>Now that we've learned how to get the url string, let's split it up and add some seriously dynamic content! The </p>
+      <pre>str.substring(2, str.length).split("&").map(function(e) {
+  return e.split("=")
+}).map(function(e){
+  obj[e[0]] = e[1]
+});</pre>
     </project-step>
   </body>
 </html>
