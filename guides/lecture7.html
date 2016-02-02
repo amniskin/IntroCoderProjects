@@ -95,15 +95,13 @@ response.end();</pre>
       <p>Or...</p>
       <p>Or you can stick around and learn a bit more!</p>
     </project-step>
-    <project-step title="Map it out">
-      <p>
-      </p>
-      <p>Now that we've learned how to get the url string, let's split it up and add some seriously dynamic content! The </p>
-      <pre>str.substring(2, str.length).split("&").map(function(e) {
-  return e.split("=")
-}).map(function(e){
-  obj[e[0]] = e[1]
-});</pre>
+    <project-step title="Objectifying strings">
+    <p>Now that we've learned how to get the url string, let's split it up and add some seriously dynamic content! The query string probably looks a little something like "/?fname=Aaron&lname=Niskin&...&lifter=true" or something similar. Basically, we see that the string is a string of pairs: keys and their corresponding values. The pairs are organized as key=val, e.g. fname=Aaron, etc. Then the pairs are separated by ampersands. We would like to have a JavaScript object that looks like <code>{fname: "Aaron", lname: "Niskin", ..., lifter: "true"}</code>. The structure tells us that we are going to want to split up the string into an array of pairs, then split each pair and associate the pairs into a JavaScript object. This is the plan we will follow.</p>
+    </project-step>
+    <project-step title="Splitting up">
+      <p>Let's start by splitting the string at each ampersand to get our array of pairs. To do this, we're going to want to use the string <code>split</code> method. If you are unsure of how it works search the bottomless abyss that is the internet for some guidance. Don't cheat yourself. Also, don't check reddit. It's not on there. I assure you. I've checked.</p>
+      <pre class='hint blur'>url.split("&");</pre>
+      <p>Now, normally we'd save that in a variable and work with that, but we're trying to learn a bit further, so let's not save it... Let's use chaining instead.</p>
     </project-step>
   </body>
 </html>
