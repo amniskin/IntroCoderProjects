@@ -23,7 +23,7 @@ http.createServer(function(request, response) {
     respString = dat.lname + "! You need to get in that gym, bro! How are people gonna know about your gains if you don't post pictures all the time on Instagram?!";
   }
   response.writeHead(200, {"Content-Type": "text/plain"});
-  response.write("Hello world (AKA, my gym)\n" + respString);
+  response.write("Hello world (AKA, my gym)\n" + url);
   response.end();
 }).listen(port);
 console.log('Server listening on port ' + port);
