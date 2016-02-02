@@ -73,8 +73,14 @@
 response.end();</pre>
       <p>The last line is pretty self explanatory. It puts the end in send response.</p>
     </project-step>
-    <project-step title="Start listening!" last="true">
-      <p>So now our code looks pretty good, but we still haven't told the application to start listening. We know this because we haven't even specified a port yet!</p>
+    <project-step title="Start listening!">
+      <p>So now our code looks pretty good, but we still haven't told the application to start listening. We know this because we haven't even specified a port yet! To do this, we're going to want to add <code>.listen(port-number);</code> to the end our our <code>createServer</code> method call. Go ahead and do that.</p>
+      <pre>http.createServer(function(request, response) {
+  ...
+}).listen(port-number);</pre>
+    </project-step>
+    <project-step title="Check it out!" last="true">
+      <p>Go ahead and submit your form and see what happens. Make sure the form action is not being impeeded by any JavaScript running on the page (e.g. any click handlers, etc).</p>
     </project-step>
   </body>
 </html>
