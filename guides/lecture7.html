@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>
+      Pretty functional too
+    </title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel='import' id='templates-import' href='/templates.html'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel='stylesheet' href='/style/style.css' type='text/css'>
+    <script src='/js/coder.js'></script>
+  </head>
+  <body data-spy="scroll" data-target="#nav-container" data-offset="70">
+    <project-header tag="Making the the pretty functional" author="Aaron Niskin"></project-header>
+    <project-intro>
+      <p>In this project, we'll be learning how to make a custom back-end for a website. This back-end will be able to dynamically create webpages to show clients using the power of JavaScript. In particular, we'll be using a framework called NodeJS.</p>
+    </project-intro>
+    <project-objectives>
+      <ul>
+        <li>Get comfortable running services in Linux</li>
+        <li>Get familiar with some basic NodeJS syntax</li>
+        <li>Be able to execute some basic NodeJS functionality</li>
+      </ul>
+      <h4>For the A students:</h4>
+      <ul>
+        <li>Learn a bit of functional programming</li>
+        <li>In particular, be able to use the <code>map</code> function</li>
+      </ul>
+    </project-objectives>
+    <project-prereqs>
+      <ul>
+        <li>A front end website with a form that has the following name fields:
+          <ul>
+            <li><code>fname</code></li>
+            <li><code>lname</code></li>
+            <li><code>email</code></li>
+            <li><code>supa</code></li>
+            <li><code>checker</code></li>
+            <li><code>lifter</code></li>
+          </ul>
+        </li>
+        <li>Understanding of HTML forms and form submissions</li>
+        <li>Basic JavaScript</li>
+        <li>A port all of your own that nobody else will be using.</li>
+      </ul>
+      <p>That last one is very important. You don't want to be messing with a site's functionality! Be sure to check with your network administrator before you commandeer your favorite port.</p>
+    </project-prereqs>
+    <project-step title="Requiring packages">
+      <p>Let's create a file called "NodeProject.js", or something descriptive. This is the file where we will be writing our back-end code that will hopefully run on our server for our site. Remember, at this point you should already have the front-end of your site already made.</p>
+      <p>In this file, let's go ahead and <code>require</code> a package called "http" and store that in a variable called <code>http</code> or something similar. The syntax for requiring packages in Node is:</p>
+      <pre>require(package-name-as-a-string);</pre>
+      <p>So, in our case, our code should look like,</p>
+      <pre>var http = require('http');</pre>
+    </project-step>
+    <project-step title="Create a server!">
+      <p>Our <code>http</code> package has a method called <code>createServer</code>. It is that method we will be using to create our server today. Go ahead and call that method now.</p>
+      <pre class='hint blur'>http.createServer();</pre>
+      <p>Next, we're going to want to pass a function to the <code>createServer</code> method. This function takes two variables: the request and the response objects. So let's go ahead and pass that function now.</p>
+      <pre class='hint blur'>http.createServer(function(request, response) {
+  ---- Our code will go here ----
+});</pre>
+      <p>Now we're ready to start serving!</p>
+    </project-step>
+    <project-step title='Hello World (again)'>
+      <p>First things first, let's send a code telling the client that the request was processed properly and without error. To do this, we need to edit the response object. In particular, we're going to want to execute</p>
+      <pre>response.writeHead(200, {"Content-Type": "text/plain"});</pre>
+      <p>If you wanted to write HTML code instead, you could just set the Content-Type value to <code>"text/html"</code>. For our project, we'll just be using plaintext because style is not an objective of this project.</p>
+      <p>Okay! Now that we've sent a 200 response code and told the browser what type of data to expect, let's get something to show up on the page when we submit the form. Let's get the page to say "Hello, world!" or whatever your favorite phrase is. To do this, we're going to want to execute:</p>
+      <pre>response.write("Hello, world!");
+response.end();</pre>
+      <p>The last line is pretty self explanatory. It puts the end in send response.</p>
+    </project-step>
+    <project-step title="Start listening!" last="true">
+      <p>So now our code looks pretty good, but we still haven't told the application to start listening. We know this because we haven't even specified a port yet!</p>
+    </project-step>
+  </body>
+</html>
