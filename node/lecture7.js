@@ -10,7 +10,7 @@ http.createServer(function(request, response) {
 //  var tempArray = tempStr.split("&");
 //  var tempArray2 = tempArray.map(function(thing) {return thing.split("=");});
   var dat = {};
-  url.substring(2, url.length).split("&").map( e => e.split("=")).map(function(e) { dat[e[0]] = e[1]});
+  url.substring(2, url.length).split("&").map(function(e) { return e.split("=")}).map(function(e) { dat[e[0]] = e[1]});
 //  for (var i = 0; i<tempArray2.length; i++) {
 //    dat[tempArray2[i][0]] = tempArray2[i][1];
 //  }
