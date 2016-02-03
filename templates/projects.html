@@ -54,6 +54,11 @@
 </template>
 
 
+<template id='img'>
+  <img class='img-responsive'>
+</template>
+
+
 <script src='http://code.jquery.com/jquery-2.2.0.min.js'></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 <script>
@@ -138,4 +143,18 @@ step.createdCallback = function() {
   }
 }
 document.registerElement('project-step', {prototype: step});
+
+
+var projectImg = Object.create(HTMLElement.prototype);
+projectImg.createdCallback = function() {
+  var template      = importDoc.getElementById('img'),
+      templateClone = document.importNode(template.content, true);
+  var src = $(this).attr('src'),
+      alt = $(this).attr('alt');
+  $(templateClone).attr('class', 'img-responsive');
+  $(this).html($(templateClone));
+  $(this).find('img').attr('src', src);
+  $(this).find('img').attr('alt', alt);
+}
+document.registerElement('project-img', {prototype: projectImg});
 </script>

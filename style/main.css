@@ -1,0 +1,42 @@
+      body, html {
+        height: 100%;
+        width: 100%;
+        overflow-x:hidden;
+      }
+      canvas {
+        position: fixed;
+        top:0;
+        left:0;
+        z-index: -1;
+      }
+      section {
+        margin: 40px 0;
+      }
+      .faded {
+        opacity: 0;
+      }
+      .project.well {
+        padding: 0px;
+      }
+      .project .description {
+        position:absolute;
+        top:50%;
+        left:50%;
+        transform:translate(-50%,-50%);
+        -webkit-transform:translate(-50%,-50%);
+        -moz-transform:translate(-50%,-50%);
+      }
+      .project * {
+        transition: opacity 0.5s linear;
+        border-radius: 20%;
+      }
+      .well {
+        background: white; /* For browsers that do not support gradients */
+        background: -webkit-radial-gradient(white 10%, #028DEA 70%); /* Safari 5.1 to 6.0 */
+        background: -o-radial-gradient(white 10%, #028DEA 70%); /* For Opera 11.6 to 12.0 */
+        background: -moz-radial-gradient(white 10%, #028DEA 70%); /* For Firefox 3.6 to 15 */
+        background: radial-gradient(white 10%, transparent 80%); /* Standard syntax */
+        border:none;
+        border-radius:20%;
+        overflow:hidden;
+      }

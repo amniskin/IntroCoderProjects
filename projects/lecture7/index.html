@@ -8,7 +8,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel='import' id='templates-import' href='/templates.html'>
+    <link rel='import' id='templates-import' href='/templates/projects.html'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel='stylesheet' href='/style/style.css' type='text/css'>
     <script src='/js/coder.js'></script>
@@ -86,7 +86,7 @@ response.end();</pre>
       <p>Now, in our <code>response.write</code> call, let's add a newline character after we greet our clients and concatinate it with the url string.</p>
       <pre class='hint blur'>response.write("Hello, world!\n" + url);</pre>
       <p>Our page should look a little bit like,</p>
-      <img class='img-responsive' src='/img/l7-basicUrl.png' alt="screenshot of what the page should look like">
+      <project-img src='basicUrl.png' alt="screenshot of what the page should look like">
       <p>If you did the extra-credit part of the Pretty functional project, then you can use the function we wrote to turn the query string into a JavaScript object and do even more amazing things with it as in the "Try it out" link on this project.</p>
     </project-step>
     <project-step title="Go away, or..." last="true">

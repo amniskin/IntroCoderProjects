@@ -5,242 +5,44 @@
 		<title>
 			FVI's Community Code Projects Project
 		</title>
+    <link rel='import' id='main-templates-import' href='/templates/main.html'>
+    <link rel='stylesheet' href='/style/main.css'>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"                integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 		<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-    <style>
-      body, html {
-        height: 100%;
-        width: 100%;
-        overflow-x:hidden;
-      }
-      canvas {
-        position: fixed;
-        top:0;
-        left:0;
-        z-index: -1;
-      }
-      section {
-        margin: 40px 0;
-      }
-      .faded {
-        opacity: 0;
-      }
-      .project.well {
-        padding: 0px;
-      }
-      .project .description {
-        position:absolute;
-        top:50%;
-        left:50%;
-        transform:translate(-50%,-50%);
-        -webkit-transform:translate(-50%,-50%);
-        -moz-transform:translate(-50%,-50%);
-      }
-      .project * {
-        transition: opacity 0.5s linear;
-        border-radius: 20%;
-      }
-      .well {
-        background: white; /* For browsers that do not support gradients */
-        background: -webkit-radial-gradient(white 10%, #028DEA 70%); /* Safari 5.1 to 6.0 */
-        background: -o-radial-gradient(white 10%, #028DEA 70%); /* For Opera 11.6 to 12.0 */
-        background: -moz-radial-gradient(white 10%, #028DEA 70%); /* For Firefox 3.6 to 15 */
-        background: radial-gradient(white 10%, transparent 80%); /* Standard syntax */
-        border:none;
-        border-radius:20%;
-        overflow:hidden;
-      }
-    </style>
 	</head>
+  <style>
+    body {
+      background-color:#008FEB;
+    }
+  </style>
 	<body>
+    <div style='background-color:white;height:100px;width:100%;overflow:hidden;'>
+      <img src='/img/fvi-logo.png' class='img-responsive' alt='FVI Logo'>
+    </div>
     <h1 class='hidden'>Code Projects</h1>
-    <canvas id='bg-canvas'></canvas>
-    <section class='section'>
-      <div class='row'>
-        <div class='col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3'>
-          <div class='well project' id='lecture1'>
-            <img src='/img/l1-banner.png' class='img-responsive'>
-            <div class='description faded'>
-              <h2>Learn some HTML basics.</h2>
-              <div class='row'>
-                <div class='col-xs-12 col-sm-4 col-sm-offset-1'>
-                  <button class='btn btn-default try'>
-                    Try it out
-                  </button>
-                </div>
-                <div class='col-xs-12 col-sm-4 col-sm-offset-2'>
-                  <button class='btn btn-default do'>
-                    Do it yourself
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+    <!--canvas id='bg-canvas'></canvas-->
+    <div class='showcase' style="overflow-y:scroll;">
+      <div class='innerShow container'>
+        <project-showcase name="lecture1" tag="HTML Basics"></project-showcase>
+        <project-showcase name="lecture2" tag="CSS Styling"></project-showcase>
+        <project-showcase name="lecture3" tag="CSS Frameworks"></project-showcase>
+        <project-showcase name="lecture4" tag="JavaScript Basics"></project-showcase>
+        <project-showcase name="lecture5" tag="Odds or Evens"></project-showcase>
+        <project-showcase name="lecture6" tag="Functional and Pretty"></project-showcase>
+        <project-showcase name="lecture7" tag="Pretty functional too"></project-showcase>
       </div>
-    </section>
-    <section class='section'>
-      <div class='row'>
-        <div class='col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3'>
-          <div class='well project' id='lecture2'>
-            <img src='/img/l2-banner.png' class='img-responsive'>
-            <div class='description faded'>
-              <h2>Learn about CSS styling.</h2>
-              <div class='row'>
-                <div class='col-xs-12 col-sm-4 col-sm-offset-1'>
-                  <button class='btn btn-default try'>
-                    Try it out
-                  </button>
-                </div>
-                <div class='col-xs-12 col-sm-4 col-sm-offset-2'>
-                  <button class='btn btn-default do'>
-                    Do it yourself
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class='section'>
-      <div class='row'>
-        <div class='col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3'>
-          <div class='well project' id='lecture3'>
-            <img src='/img/l3-banner.png' class='img-responsive'>
-            <div class='description faded'>
-              <h2>Learn to use CSS frameworks.</h2>
-              <div class='row'>
-                <div class='col-xs-12 col-sm-4 col-sm-offset-1'>
-                  <button class='btn btn-default try'>
-                    Try it out
-                  </button>
-                </div>
-                <div class='col-xs-12 col-sm-4 col-sm-offset-2'>
-                  <button class='btn btn-default do'>
-                    Do it yourself
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class='section'>
-      <div class='row'>
-        <div class='col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3'>
-          <div class='well project' id='lecture4'>
-            <img src='/img/l4-banner.png' class='img-responsive'>
-            <div class='description faded'>
-              <h2>JavaScript basics with a little string concatination program.</h2>
-              <div class='row'>
-                <div class='col-xs-12 col-sm-4 col-sm-offset-1'>
-                  <button class='btn btn-default try'>
-                    Try it out
-                  </button>
-                </div>
-                <div class='col-xs-12 col-sm-4 col-sm-offset-2'>
-                  <button class='btn btn-default do'>
-                    Do it yourself
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class='section'>
-      <div class='row'>
-        <div class='col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3'>
-          <div class='well project' id='lecture5'>
-            <img src='/img/l5-banner.png' class='img-responsive'>
-            <div class='description faded'>
-              <h2>Learn some more JavaScript with our Odds or Evens game!</h2>
-              <div class='row'>
-                <div class='col-xs-12 col-sm-4 col-sm-offset-1'>
-                  <button class='btn btn-default try'>
-                    Try it out
-                  </button>
-                </div>
-                <div class='col-xs-12 col-sm-4 col-sm-offset-2'>
-                  <button class='btn btn-default do'>
-                    Do it yourself
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class='section'>
-      <div class='row'>
-        <div class='col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3'>
-          <div class='well project' id='lecture6'>
-            <img src='/img/l6-banner.png' class='img-responsive'>
-            <div class='description faded'>
-              <h2>Make something functional and pretty.</h2>
-              <div class='row'>
-                <div class='col-xs-12 col-sm-4 col-sm-offset-1'>
-                  <button class='btn btn-default try'>
-                    Try it out
-                  </button>
-                </div>
-                <div class='col-xs-12 col-sm-4 col-sm-offset-2'>
-                  <button class='btn btn-default do'>
-                    Do it yourself
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class='section'>
-      <div class='row'>
-        <div class='col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3'>
-          <div class='well project' id='lecture7'>
-            <img src='/img/l7-banner.png' class='img-responsive'>
-            <div class='description faded'>
-              <h2>Make pretty functional.</h2>
-              <div class='row'>
-                <div class='col-xs-12 col-sm-4 col-sm-offset-1'>
-                  <button class='btn btn-default try'>
-                    Try it out
-                  </button>
-                </div>
-                <div class='col-xs-12 col-sm-4 col-sm-offset-2'>
-                  <button class='btn btn-default do'>
-                    Do it yourself
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    </div>
 	</body>
 </html>
 
-<script src='/js/fractals.js' id='background'>
-</script>
 <script>
+$('.showcase').height(window.innerHeight - 100);
+</script>
+<!--script src='/js/fractals.js' id='background'>
+</script-->
+<!--script src="/js/main.js"></script-->
+<!--script>
 init('bg-canvas');
 window.onresize = resizeCanvas;
-$('.project').on("mouseenter mouseleave", function() {
-  $(this).children().toggleClass('faded');
-});
-$('.project').on('click', '.try', function() {
-  var id = $(this).closest('.project').attr('id');
-  window.location.href = '/assessments/'+id+'.html';
-})
-$('.project').on('click', '.do', function() {
-  var id = $(this).closest('.project').attr('id');
-  window.location.href = '/guides/'+id+'.html';
-})
-</script>
+</script-->

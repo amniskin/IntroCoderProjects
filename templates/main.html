@@ -1,0 +1,58 @@
+<template id='project'>
+  <link rel="stylesheet" href="/style/main.css">
+  <section class='section'>
+    <div class='row'>
+      <div class='col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3'>
+        <div class='well project'>
+          <img class='img-responsive'>
+          <div class='description faded'>
+            <h2 class='tagline'></h2>
+            <div class='row'>
+              <div class='col-xs-12 col-sm-4 col-sm-offset-1'>
+                <button class='btn btn-default try'>
+                  Try it out
+                </button>
+              </div>
+              <div class='col-xs-12 col-sm-4 col-sm-offset-2'>
+                <button class='btn btn-default do'>
+                  Do it yourself
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</template>
+
+
+<script src='http://code.jquery.com/jquery-2.2.0.min.js'></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+<script>
+var importDoc  = document.currentScript.ownerDocument;
+
+
+var projectShowcase = Object.create(HTMLElement.prototype);
+projectShowcase.createdCallback = function() {
+  var template      = importDoc.getElementById('project'),
+      templateClone = document.importNode(template.content, true);
+  var projectName = $(this).attr('name');
+  $(templateClone).find('.tagline').text($(this).attr('tag'));
+  $(this).html($(templateClone));
+  $(this).find('img').attr('src', "/projects/" + projectName + "/banner.png");
+  $(this).find('.project').attr('id', projectName);
+  $(this).find('.project').on("mouseenter mouseleave", function() {
+    $(this).children().toggleClass('faded');
+  });
+  $(this).find('.project').on('click', '.try', function() {
+    var id = $(this).closest('.project').attr('id');
+    window.location.href = '/projects/'+id+'/trial.html';
+  })
+  $(this).find('.project').on('click', '.do', function() {
+    var id = $(this).closest('.project').attr('id');
+    window.location.href = '/projects/'+id+'/index.html';
+  })
+}
+document.registerElement('project-showcase', {prototype: projectShowcase});
+</script>

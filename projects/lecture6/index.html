@@ -8,7 +8,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel='import' id='templates-import' href='/templates.html'>
+    <link rel='import' id='templates-import' href='/templates/projects.html'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel='stylesheet' href='/style/style.css' type='text/css'>
     <script src='/js/coder.js'></script>
@@ -71,7 +71,7 @@
     </project-step>
     <project-step title="Let's get us a JUMBOTRON!">
       <p>We want our page to really pop. Besides, pages just look weird without a header, right? Let's go ahead and put in a Jumbotron on the top of our page. It should look like the picture below. If you're unsure of how to do this, go to <a href='http://getbootstrap.com'>getbootstrap.com</a> and check out their documentation. This is actually the point of this exercise. So head on over there and let's get a jumbotron on our page!</p>
-      <img class='img-responsive' src='/img/l6-banner.png'>
+      <project-img src='banner.png'>
       <p class='hint blur'>If you're having trouble, check out Bootstrap's <a href='http://getbootstrap.com/components/'>components</a> section.</p>
       <br>
       <p class='hint blur'>We're looking for a jumbotron, so we probably want to check out the jumbotron section of the components page.</p>
@@ -115,7 +115,7 @@
     <project-step title="Do you even grid, bro?!">
       <p>So, you may have noticed that your forms are taking up the whole width of the page. That doesn't look too good, right? Why don't we use the illustrious grid system that comes standard with Bootstrap's CSS file. For now, let's put everything in full width columns, within a <code>container</code> div. Remember that whenever we use column elements, we have to put them within <code>row</code> elements.</p>
       <p>Things should probalby look considerably better now. Next we're going to make a submit button and specify what the form should do on submit.</p>
-      <img class='img-responsive' src='/img/l6-grid.png'>
+      <project-img src='grid.png'>
     </project-step>
     <project-step title="The magical submit button">
       <p>At the end of our form but still within the form, let's add a <code>button</code> tag. This element should have <code>type="submit"</code> included. This type being set to submit is what tells the program that this button is the submit button. So let's go ahead and put a submit button at the bottom of the form (make sure it's within our form though!). To get the button to look stylish rather than like a joke from 1993, let's consult Bootstrap's documentation and see how to add their button style.</p>
