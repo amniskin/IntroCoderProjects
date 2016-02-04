@@ -5,43 +5,66 @@
 		<title>
 			FVI's Community Code Projects Project
 		</title>
+    <link rel="shortcut icon" type="image/ico" href="http://www.fvi.edu/wp-content/themes/fvi/images/fav.ico">
     <link rel='import' id='main-templates-import' href='/templates/main.html'>
-    <link rel='stylesheet' href='/style/main.css'>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"                integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel='stylesheet' href='/style/main.css'>
 		<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 	</head>
-  <style>
-    body {
-      background-color:#008FEB;
-    }
-  </style>
 	<body>
-    <div style='background-color:white;height:100px;width:100%;overflow:hidden;'>
-      <img src='/img/fvi-logo.png' class='img-responsive' alt='FVI Logo'>
-    </div>
     <h1 class='hidden'>Code Projects</h1>
     <!--canvas id='bg-canvas'></canvas-->
-    <div class='showcase' style="overflow-y:scroll;">
-      <div class='innerShow container'>
-        <project-showcase name="lecture1" tag="HTML Basics"></project-showcase>
-        <project-showcase name="lecture2" tag="CSS Styling"></project-showcase>
-        <project-showcase name="lecture3" tag="CSS Frameworks"></project-showcase>
-        <project-showcase name="lecture4" tag="JavaScript Basics"></project-showcase>
-        <project-showcase name="lecture5" tag="Odds or Evens"></project-showcase>
-        <project-showcase name="lecture6" tag="Functional and Pretty"></project-showcase>
-        <project-showcase name="lecture7" tag="Pretty functional too"></project-showcase>
+    <div class='showcase'>
+      <div class='innerShow row'>
+        <project-showcase name="lecture1" tag="Jump into HTML">
+          <li>100 cat videos seen on YouTube</li>
+          <li>Desire to learn HTML</li>
+        </project-showcase>
+        <project-showcase name="lecture2" tag="Style is key">
+          <li>Basic HTML understanding</li>
+          <li>120 cat videos seen on YouTube</li>
+        </project-showcase>
+        <project-showcase name="lecture3" tag="Framework libraries">
+          <li>Basic HTML and CSS understanding</li>
+          <li>140 cat videos seen on YouTube</li>
+        </project-showcase>
+        <project-showcase name="lecture4" tag="Dive into JavaScript">
+          <li>Basic HTML, CSS, and CSS Framework understanding</li>
+          <li>160 cat videos seen on YouTube</li>
+        </project-showcase>
+        <project-showcase name="lecture5" tag="Get even with JavaScript">
+          <li>Basic HTML, CSS, and CSS Framework understanding</li>
+          <li>Basic JavaScript understanding
+            <ul>
+              <li>Variable declaration</li>
+              <li>Function declaration</li>
+              <li>string concatination</li>
+              <li>Prompt user for input</li>
+              <li>Display HTML via JavaScript</li>
+            </ul>
+          </li>
+          <li>180 cat videos seen on YouTube</li>
+        </project-showcase>
+        <project-showcase name="lecture6" tag="Functional and elegant">
+          <li>Basic HTML, CSS, CSS Framework, and JavaScript understanding</li>
+          <li>185 cat videos seen on YouTube</li>
+        </project-showcase>
+        <project-showcase name="lecture7" tag="Destroy the mold">
+          <li>Basic HTML, CSS, and CSS Framework understanding</li>
+          <li>Understanding forms and form submissions</li>
+          <li>Basic JavaScript and jQuery understanding</li>
+          <li>200 cat videos seen on YouTube</li>
+        </project-showcase>
+        <project-advert></project-advert>
       </div>
     </div>
 	</body>
 </html>
 
-<script>
-$('.showcase').height(window.innerHeight - 100);
-</script>
 <!--script src='/js/fractals.js' id='background'>
 </script-->
-<!--script src="/js/main.js"></script-->
+<script src="/js/main.js"></script>
 <!--script>
 init('bg-canvas');
 window.onresize = resizeCanvas;

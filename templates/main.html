@@ -1,29 +1,51 @@
 <template id='project'>
-  <link rel="stylesheet" href="/style/main.css">
-  <section class='section'>
-    <div class='row'>
-      <div class='col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3'>
-        <div class='well project'>
-          <img class='img-responsive'>
-          <div class='description faded'>
-            <h2 class='tagline'></h2>
-            <div class='row'>
-              <div class='col-xs-12 col-sm-4 col-sm-offset-1'>
-                <button class='btn btn-default try'>
-                  Try it out
-                </button>
-              </div>
-              <div class='col-xs-12 col-sm-4 col-sm-offset-2'>
-                <button class='btn btn-default do'>
-                  Do it yourself
-                </button>
-              </div>
-            </div>
-          </div>
+  <div class='col-xs-12 col-sm-6 project'>
+    <div class='picture'><img class='img-responsive'></div>
+    <div class='description faded'>
+      <h2 class='tagline'></h2>
+      <br>
+      <h3>Prerequisites:</h3>
+      <ul class='prereqs'>
+      </ul>
+      <div class='row'>
+        <div class='col-xs-12 col-sm-4 col-sm-offset-1'>
+          <button class='btn btn-default try text-center'>
+            Try it out
+          </button>
+        </div>
+        <div class='col-xs-12 col-sm-4 col-sm-offset-2 text-center'>
+          <button class='btn btn-default do'>
+            Do it yourself
+          </button>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</template>
+
+
+<template id='advert'>
+  <div class='col-xs-12 col-sm-6 project'>
+    <div class='picture'><img class='img-responsive'></div>
+    <div class='description faded'>
+      <h2 class='tagline'>Have an idea for a code project?</h2>
+      <h3>Send us an email!</h3>
+      <br>
+      <h4>Things to have ready:</h4>
+      <ul class='prereqs'>
+        <li>A working version of your project</li>
+        <li>A working description of how to build your project</li>
+        <li>An awesome personality (which you clearly already have)</li>
+      </ul>
+      <div class='row'>
+        <div class='col-xs-12 col-sm-4 col-sm-offset-2 text-center'>
+          <button class='btn btn-default do'>
+            How to use our framework
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 
@@ -38,13 +60,21 @@ projectShowcase.createdCallback = function() {
   var template      = importDoc.getElementById('project'),
       templateClone = document.importNode(template.content, true);
   var projectName = $(this).attr('name');
+  $(templateClone).find('.prereqs').html($(this).children());
   $(templateClone).find('.tagline').text($(this).attr('tag'));
   $(this).html($(templateClone));
-  $(this).find('img').attr('src', "/projects/" + projectName + "/banner.png");
   $(this).find('.project').attr('id', projectName);
+
+  //background image
+  var temp = "/projects/" + projectName + "/banner.jpg";
+  $(this).find('.picture img').attr('src', temp);
+
+  // Hover functionality
   $(this).find('.project').on("mouseenter mouseleave", function() {
     $(this).children().toggleClass('faded');
   });
+
+  // To get the buttons working
   $(this).find('.project').on('click', '.try', function() {
     var id = $(this).closest('.project').attr('id');
     window.location.href = '/projects/'+id+'/trial.html';
@@ -55,4 +85,25 @@ projectShowcase.createdCallback = function() {
   })
 }
 document.registerElement('project-showcase', {prototype: projectShowcase});
+
+
+var projectAdvert = Object.create(HTMLElement.prototype);
+projectAdvert.createdCallback = function() {
+  var template      = importDoc.getElementById('advert'),
+      templateClone = document.importNode(template.content, true);
+  $(this).html($(templateClone));
+  //background image
+  $(this).find('.picture img').attr('src', "/projects/howto/banner.jpg");
+
+  // Hover functionality
+  $(this).find('.project').on("mouseenter mouseleave", function() {
+    $(this).children().toggleClass('faded');
+  });
+
+  // To get the buttons working
+  $(this).find('.project').on('click', '.do', function() {
+    window.location.href = '/projects/howto/index.html';
+  })
+}
+document.registerElement('project-advert', {prototype: projectAdvert});
 </script>
