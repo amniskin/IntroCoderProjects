@@ -9,15 +9,15 @@
         <ul class='prereqs'>
         </ul>
         <div class='row'>
-          <div class='col-xs-12 col-sm-4 col-sm-offset-1'>
-            <button class='btn btn-default try text-center'>
+          <div class='col-xs-12 col-sm-6 text-center btn try'>
+            <h3>
               Try it out
-            </button>
+            </h3>
           </div>
-          <div class='col-xs-12 col-sm-4 col-sm-offset-2 text-center'>
-            <button class='btn btn-default do'>
+          <div class='col-xs-12 col-sm-6 text-center btn do'>
+            <h3>
               Do it yourself
-            </button>
+            </h3>
           </div>
         </div>
       </div>
@@ -41,10 +41,10 @@
           <li>An awesome personality (which you clearly already have)</li>
         </ul>
         <div class='row'>
-          <div class='col-xs-12 col-sm-4 col-sm-offset-2 text-center'>
-            <button class='btn btn-default do'>
+          <div class='col-xs-12 col-sm-4 text-center btn do'>
+            <h3>
               How to use our framework
-            </button>
+            </h3>
           </div>
         </div>
       </div>
@@ -75,17 +75,23 @@ projectShowcase.createdCallback = function() {
 
   // Hover functionality
   $(this).find('.project').on("mouseenter mouseleave", function() {
-    $(this).find('.description-container').toggleClass('faded');
+    setTimeout(function() {
+      $('#' + projectName).find('.description-container').toggleClass('faded');
+    }, 1);
   });
 
   // To get the buttons working
-  $(this).find('.project').on('click', '.try', function() {
-    var id = $(this).closest('.project').attr('id');
-    window.location.href = '/projects/'+id+'/trial.html';
+  $(this).find('.try').click(function() {
+    if(! $(this).parents('.description-container').hasClass('faded')) {
+      var id = $(this).closest('.project').attr('id');
+      window.location.href = '/projects/'+id+'/trial.html';
+    } else return false;
   })
-  $(this).find('.project').on('click', '.do', function() {
-    var id = $(this).closest('.project').attr('id');
-    window.location.href = '/projects/'+id+'/index.html';
+  $(this).find('.do').click(function() {
+    if(! $(this).parents('.description-container').hasClass('faded')) {
+      var id = $(this).closest('.project').attr('id');
+      window.location.href = '/projects/'+id+'/index.html';
+    }
   })
 }
 document.registerElement('project-showcase', {prototype: projectShowcase});
@@ -96,17 +102,24 @@ projectAdvert.createdCallback = function() {
   var template      = importDoc.getElementById('advert'),
       templateClone = document.importNode(template.content, true);
   $(this).html($(templateClone));
+  $(this).find('.project').attr('id', 'howto');
+
+
   //background image
   $(this).find('.picture img').attr('src', "/projects/howto/banner.jpg");
 
   // Hover functionality
   $(this).find('.project').on("mouseenter mouseleave", function() {
-    $(this).find('.description-container').toggleClass('faded');
+    setTimeout(function() {
+      $('#howto').find('.description-container').toggleClass('faded');
+    }, 1);
   });
 
   // To get the buttons working
-  $(this).find('.project').on('click', '.do', function() {
-    window.location.href = '/projects/howto/index.html';
+  $(this).find('.do').click(function() {
+    if(! $(this).parents('.description-container').hasClass('faded')) {
+      window.location.href = '/projects/howto/index.html';
+    }
   })
 }
 document.registerElement('project-advert', {prototype: projectAdvert});

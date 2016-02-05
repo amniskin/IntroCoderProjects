@@ -8,7 +8,7 @@ body {
   background-color: black;
 }
 ::-webkit-scrollbar { 
-      display: none;
+  display: none;
 }
 .project {
   padding: 0px;
@@ -23,7 +23,6 @@ body {
   height:100%;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.7);
-  z-index:120;
 }
 .project .description {
   color: white;
@@ -44,7 +43,9 @@ body {
   height: 100%;
   width: 100%;
   overflow: hidden;
-  z-index: -2;
+}
+.hidden {
+  display: none;
 }
 /*.project.well {
   padding: 0px;
