@@ -1,9 +1,15 @@
 <template id='project'>
+  <style>
+    .do, .try {
+      border: 3px solid white;
+      border-radius: 5%;
+    }
+  </style>
   <div class='col-xs-12 col-sm-6 col-md-4 project'>
     <div class='picture'><img class='img-responsive'></div>
     <div class='description-container faded'>
       <div class='description'>
-        <h2 class='tagline'></h2>
+        <h2 class='tagline text-center'></h2>
         <br>
         <h3>Prerequisites:</h3>
         <ul class='prereqs'>
@@ -11,12 +17,12 @@
         <div class='row'>
           <div class='col-xs-12 col-sm-6 text-center btn try'>
             <h3>
-              Try it out
+              Try it
             </h3>
           </div>
           <div class='col-xs-12 col-sm-6 text-center btn do'>
             <h3>
-              Do it yourself
+              Do it
             </h3>
           </div>
         </div>
@@ -27,23 +33,35 @@
 
 
 <template id='advert'>
+  <style>
+    .do {
+      border: 3px solid white;
+      border-radius: 5%;
+    }
+  </style>
   <div class='col-xs-12 col-sm-6 col-md-4 project'>
     <div class='picture'><img class='img-responsive'></div>
     <div class='description-container faded'>
       <div class='description'>
-        <h2 class='tagline'>Have an idea for a code project?</h2>
-        <h3>Send us an email!</h3>
+        <h2 class='tagline text-center'>Have an idea for a code project?</h2>
+        <h3>See your project here!</h3>
         <br>
         <h4>Things to have ready:</h4>
         <ul class='prereqs'>
           <li>A working version of your project</li>
-          <li>A working description of how to build your project</li>
+          <li>A description of how to build your project complete with:
+            <ul>
+              <li>A list of desired learning objectives</li>
+              <li>A list of prerequisites</li>
+              <li>Descriptions and explanations</li>
+            </ul>
+          </li>
           <li>An awesome personality (which you clearly already have)</li>
         </ul>
         <div class='row'>
-          <div class='col-xs-12 col-sm-4 text-center btn do'>
+          <div class='col-xs-12 col-sm-12 text-center btn do'>
             <h3>
-              How to use our framework
+              Submit project
             </h3>
           </div>
         </div>
