@@ -83,7 +83,7 @@
             </ul>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-primary">Okay!</button>
+            <button type="button" class="btn btn-primary btn-lg">Okay!</button>
           </div>
         </div>
       </div>
@@ -93,7 +93,10 @@
 
 <script>
 $(document).ready(function() {
-  $('#welcome').modal('show');
+  if(!localStorage.getItem('visited_FVICodeProjects')) {
+    $('#welcome').modal('show');
+    localStorage.setItem('visited_FVICodeProjects', true);
+  }
   $(document).keydown(function() {
     if (event.keyCode == 74 || event.keyCode == 83 || event.keyCode == 40) { // J or S or DownArrow
       $('body').scrollTop($('body').scrollTop() + 40);
