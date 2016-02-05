@@ -39,7 +39,7 @@
             <ul>
               <li>Variable declaration</li>
               <li>Function declaration</li>
-              <li>string concatination</li>
+              <li>string concatenation</li>
               <li>Prompt user for input</li>
               <li>Display HTML via JavaScript</li>
             </ul>
@@ -78,7 +78,7 @@
                   <li>Since there is no associated grade, there's really no reason to cheat. That doesn't mean that you should never look at the solutions to help yourself out when you're stuck though... My suggestion is if you feel like you're going in circles and can't find a solution, take a 5 minute break. Drink some tea, do some pushups, do something to get your mind completely off of coding, then come back with a fresh mindset. If you still can't figure it out after 15 minutes, check out our solution.</li>
                 </ul>
               </li>
-              <li>If you do check out our solution, be sure to truely understand the solution. Don't just copy/paste. Mess around with it a bit. Understand each aspect of it.</li>
+              <li>If you do check out our solution, be sure to truly understand the solution. Don't just copy/paste. Mess around with it a bit. Understand each aspect of it.</li>
               <li>Have fun!</li>
             </ul>
           </div>
@@ -91,17 +91,16 @@
 	</body>
 </html>
 
-<!--script src='/js/fractals.js' id='background'>
-</script-->
 <script>
 $(document).ready(function() {
   $('#welcome').modal('show');
+  $(document).keydown(function() {
+    if (event.keyCode == 74 || event.keyCode == 83 || event.keyCode == 40) {
+      console.log("test");
+    }
+  });
 });
 $('.modal button').click(function() {
   $('#welcome').modal('hide');
 });
 </script>
-<!--script>
-init('bg-canvas');
-window.onresize = resizeCanvas;
-</script-->

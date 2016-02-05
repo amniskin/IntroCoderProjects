@@ -1,22 +1,24 @@
 <template id='project'>
-  <div class='col-xs-12 col-sm-6 project'>
+  <div class='col-xs-12 col-sm-6 col-md-4 project'>
     <div class='picture'><img class='img-responsive'></div>
-    <div class='description faded'>
-      <h2 class='tagline'></h2>
-      <br>
-      <h3>Prerequisites:</h3>
-      <ul class='prereqs'>
-      </ul>
-      <div class='row'>
-        <div class='col-xs-12 col-sm-4 col-sm-offset-1'>
-          <button class='btn btn-default try text-center'>
-            Try it out
-          </button>
-        </div>
-        <div class='col-xs-12 col-sm-4 col-sm-offset-2 text-center'>
-          <button class='btn btn-default do'>
-            Do it yourself
-          </button>
+    <div class='description-container faded'>
+      <div class='description'>
+        <h2 class='tagline'></h2>
+        <br>
+        <h3>Prerequisites:</h3>
+        <ul class='prereqs'>
+        </ul>
+        <div class='row'>
+          <div class='col-xs-12 col-sm-4 col-sm-offset-1'>
+            <button class='btn btn-default try text-center'>
+              Try it out
+            </button>
+          </div>
+          <div class='col-xs-12 col-sm-4 col-sm-offset-2 text-center'>
+            <button class='btn btn-default do'>
+              Do it yourself
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -25,23 +27,25 @@
 
 
 <template id='advert'>
-  <div class='col-xs-12 col-sm-6 project'>
+  <div class='col-xs-12 col-sm-6 col-md-4 project'>
     <div class='picture'><img class='img-responsive'></div>
-    <div class='description faded'>
-      <h2 class='tagline'>Have an idea for a code project?</h2>
-      <h3>Send us an email!</h3>
-      <br>
-      <h4>Things to have ready:</h4>
-      <ul class='prereqs'>
-        <li>A working version of your project</li>
-        <li>A working description of how to build your project</li>
-        <li>An awesome personality (which you clearly already have)</li>
-      </ul>
-      <div class='row'>
-        <div class='col-xs-12 col-sm-4 col-sm-offset-2 text-center'>
-          <button class='btn btn-default do'>
-            How to use our framework
-          </button>
+    <div class='description-container faded'>
+      <div class='description'>
+        <h2 class='tagline'>Have an idea for a code project?</h2>
+        <h3>Send us an email!</h3>
+        <br>
+        <h4>Things to have ready:</h4>
+        <ul class='prereqs'>
+          <li>A working version of your project</li>
+          <li>A working description of how to build your project</li>
+          <li>An awesome personality (which you clearly already have)</li>
+        </ul>
+        <div class='row'>
+          <div class='col-xs-12 col-sm-4 col-sm-offset-2 text-center'>
+            <button class='btn btn-default do'>
+              How to use our framework
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -71,7 +75,7 @@ projectShowcase.createdCallback = function() {
 
   // Hover functionality
   $(this).find('.project').on("mouseenter mouseleave", function() {
-    $(this).children().toggleClass('faded');
+    $(this).find('.description-container').toggleClass('faded');
   });
 
   // To get the buttons working
@@ -97,7 +101,7 @@ projectAdvert.createdCallback = function() {
 
   // Hover functionality
   $(this).find('.project').on("mouseenter mouseleave", function() {
-    $(this).children().toggleClass('faded');
+    $(this).find('.description-container').toggleClass('faded');
   });
 
   // To get the buttons working

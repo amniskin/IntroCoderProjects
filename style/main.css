@@ -4,27 +4,37 @@ body, html {
   overflow-x: hidden;
 }
 body {
-  background-color:#008FEB;
+  background-color: black;
 }
 ::-webkit-scrollbar { 
       display: none;
-    }
-.nav {
-  background-color: white;
-  height: 100px;
-  width: 100%;
-  overflow:hidden;
 }
 .project {
   padding: 0px;
 }
-.project .description {
+.description-container {
   position:absolute;
   top:50%;
   left:50%;
   transform:translate(-50%,-50%);
   -webkit-transform:translate(-50%,-50%);
   -moz-transform:translate(-50%,-50%);
+  height:100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index:120;
+}
+.project .description {
+  color: white;
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  -webkit-transform:translate(-50%,-50%);
+  -moz-transform:translate(-50%,-50%);
+}
+.faded {
+  opacity: 0;
 }
 .project * {
   transition: opacity 0.5s linear;
@@ -33,21 +43,7 @@ body {
   height: 100%;
   width: 100%;
   overflow: hidden;
-}
-/*.showcase {
-  overflow-y: scroll;
-}
-canvas {
-  position: fixed;
-  top:80;
-  left:0;
-  z-index: -1;
-}
-section {
-  margin: 40px 0;
-}*/
-.faded {
-  opacity: 0;
+  z-index: -2;
 }
 /*.project.well {
   padding: 0px;
