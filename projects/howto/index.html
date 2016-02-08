@@ -3,38 +3,129 @@
 <html>
   <head>
     <title>
-      How to make a Coder Project
+      Make a Coder Project
     </title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/ico" href="http://www.fvi.edu/wp-content/themes/fvi/images/fav.ico">
-    <link rel='import' id='templates-import' href='/templates/projects.html'>
+    <link rel='import' id='templates-import' href='/templates/addProject.html'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel='stylesheet' href='/style/style.css' type='text/css'>
   </head>
   <body data-spy="scroll" data-target="#nav-container">
-    <project-header tag="So you wanna play with projects" author="Aaron Niskin"></project-header>
-    <project-intro>
-      <p>This coder project is dedicated to being very meta. In this project, we'll go over how to use our project framework to make your own coder project. Isn't that cool? Don't you just want to try it out?!</p>
-    </project-intro>
-    <project-objectives>
-      <ul>
-        <li>How to use our framework to make your own code project.</li>
-        <li></li>
-        <li></li>
-      </ul>
-      <h4>For the A students:</h4>
-      <ul>
-      </ul>
-    </project-objectives>
-    <project-prereqs>
-      <ul>
-      </ul>
-    </project-prereqs>
-    <project-step title="">
-    </project-step>
-    <project-step title="" last="">
-    </project-step>
+    <div id='header'>
+      <project-header tag="So you wanna play with projects" author="Aaron Niskin"></project-header>
+    </div>
+    <div id='intro'>
+      <project-intro>
+      </project-intro>
+    </div>
+    <div id='objectives'>
+      <project-objectives>
+        <h4>For the A students:</h4>
+      </project-objectives>
+    </div>
+    <div id='prereqs'>
+      <project-prereqs>
+        <ul>
+        </ul>
+      </project-prereqs>
+    </div>
+    <div id='steps'>
+    </div>
+
+
+    <div class="modal fade" tabindex="-1" role="dialog"  id='input-modal'>
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="modal-title"></h4>
+          </div>
+          <div class='modal-body'>
+            <form id='header-form'>
+              <div class='row'>
+                <div class="col-xs-12 col-md-4">
+                  <div class='form-group'>
+                    <label for='fname'>First Name</label>
+                    <input type='text' class='form-control' id='fname' name='fname' placeholder='First Name'>
+                  </div>
+                </div>
+                <div class="col-xs-12 col-md-4">
+                  <div class='form-group'>
+                    <label for='lname'>Last Name</label>
+                    <input type='text' class='form-control' id='lname' name='lname' placeholder='Last Name'>
+                  </div>
+                </div>
+                <div class="col-xs-12 col-md-4">
+                  <div class='form-group'>
+                    <label for='email'>Email Address (will not be public)</label>
+                    <input type='email' class='form-control' id='email' name='email' placeholder='Email Address'>
+                  </div>
+                </div>
+              </div>
+              <div class='row'>
+                <div class="col-xs-12">
+                  <div class='form-group'>
+                    <label for='title'>Project Title</label>
+                    <input type='text' class='form-control' id='project-title' name='title' placeholder='Project Title'>
+                  </div>
+                </div>
+              </div>
+              <div class='row'>
+                <div class="col-xs-12">
+                  <div class='form-group'>
+                    <label for='tag'>Project Tagline</label>
+                    <input type='text' class='form-control' id='tag' name='tag' placeholder='Project Tagline'>
+                  </div>
+                </div>
+              </div>
+            </form>
+            <form id='step-form' class='hidden'>
+              <div class='row'>
+                <div class="col-xs-12">
+                  <div class='form-group'>
+                    <label for='title'>Step Title</label>
+                    <input type='text' class='form-control' id='step-title' name='title' placeholder='Step Title'>
+                  </div>
+                </div>
+                <div class="col-xs-12">
+                  <div class='form-group'>
+                    <label for='step-text'>Step Text</label>
+                    <textarea rows='6' type='text' class='form-control' id='step-text' name='text' placeholder='Step Text'></textarea>
+                  </div>
+                </div>
+              </div>
+            </form>
+            <!--form id='intro-form'>
+            </form>
+            <form id='prereqs-form'>
+            </form>
+            <form id='objectives-form'>
+            </form>
+            <form id='header-form'>
+            </form-->
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default cancel" data-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-primary submit">Add <span id='submit-type'></span></button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
   </body>
 </html>
+
+<script>
+$(document).ready(function() {
+  console.log('ready');
+  $('#input-modal').find('form').addClass('hidden').removeClass('active');
+  $('#input-modal').find('form#header-form').removeClass('hidden').addClass('active');
+  $('#input-modal').find('button.submit #submit-type').text('your info');
+  $('#input-modal').find('button.submit').click(function(event) {
+    $('#input-modal').find('form.active').submit();
+  });
+  $('#input-modal').modal('show');
+});
+</script>
