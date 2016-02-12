@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>
+      Electronic Life
+    </title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/ico" href="http://www.fvi.edu/wp-content/themes/fvi/images/fav.ico">
+    <link rel='import' id='templates-import' href='/templates/projects.html'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel='stylesheet' href='/style/style.css' type='text/css'>
+    <script src='/js/coder.js'></script>
+  </head>
+  <body data-spy="scroll" data-target="#nav-container">
+    <project-header tag="Let's make a game!" author="Aaron Niskin"></project-header>
+    <project-intro>
+    <p>In this project we'll be continuing the game from <a href='http://eloquentjavascript.net/07_elife.html'>Eloquent JavaScipt</a> called Electronic Life. If you have not yet checked out Elequent JavaScript, start <a href='http://eloquentjavascript.net/06_object.html'>here</a>. Read that section and then do the project in the next section. I cannot stress the benefits of reading the section before starting the project enough: firstly, his explanations are excellent; secondly, he inspires a love for programming that I only wish I could inspire; and thirdly, his explanations are more in depth than I will be getting into in these projects. I realize some apparent redundancy in that last list, but I don't think it's actually redundant.</p>
+    </project-intro>
+    <project-objectives>
+      <ul>
+        <li>A little more on Object Oriented programming</li>
+        <li>Separation of concerns</li>
+        <li>Make a decent looking UI for our game</li>
+      </ul>
+      <h4>For the A students:</h4>
+      <ul>
+        <li>More practice with functional programming</li>
+      </ul>
+    </project-objectives>
+    <project-prereqs>
+      <ul>
+        <li><a href='http://eloquentjavascript.net/07_elife.html'>Electronic Life Project</a> completed</li>
+        <li>Basic HTML, CSS</li>
+        <li>Knowledge of Bootstrap's CSS framework</li>
+        <li>Basic JavaScript</li>
+      </ul>
+    </project-prereqs>
+    <project-step title="">
+    </project-step>
+    <project-step title="">
+    </project-step>
+    <project-step title="" last="">
+    </project-step>
+  </body>
+</html>
+<script>
+var plan = [
+  "############################",
+  "#      #    #      o      ##",
+  "#                          #",
+  "#          #####           #",
+  "##         #   #    ##     #",
+  "###           ##     #     #",
+  "#           ###      #     #",
+  "#   ####                   #",
+  "#   ##       o             #",
+  "# o  #         o       ### #",
+  "#    #                     #",
+  "############################"];
+
+function Vector(x, y) {
+  this.x = x;
+  this.y = y;
+}
+Vector.prototype.plus = function(v) {
+  return new Vector(this.x + v.x, this.y + v.y);
+};
+
+function Grid(width, height) {
+  this.space = new Array(width * height);
+  this.width = width;
+  this.height = height;
+}
+
+Grid.prototype.isInside = function(vec) {
+  return vec.x >= 0 && vec.x < this.width &&
+         vec.y >= 0 && vec.y < this.height;
+};
+Grid.prototype.get = function(vec) {
+  return this.space[vec.x + this.width * vec.y];
+};
+Grid.prototype.set = function(vec, value) {
+  return this.space[vec.x + this.width * vec.y] = value;
+};
+
+
+var directions = {
+  "n":  new Vector( 0, -1),
+  "ne": new Vector( 1, -1),
+  "e":  new Vector( 1,  0),
+  "se": new Vector( 1,  1),
+  "s":  new Vector( 0,  1),
+  "sw": new Vector(-1,  1),
+  "w":  new Vector(-1,  0),
+  "nw": new Vector(-1, -1)
+};
+
+function randomElement(arr) {
+  return arr[Math.floor(Math.random() * arr.length)];
+}
+
+var directionNames = "n ne e se s sw w nw".split(" ");
+
+function BouncingCritter() {
+  this.direction = randomElement(directionNames);
+};
+
+BouncingCritter.prototype.act = function(view) {
+  if (view.look(this.direction) != " ")
+    this.direction = view.find(" ") || "s";
+  return {type: "move", direction: this.direction};
+};
+
+function elementFromChar(legend, ch) {
+  if (ch == " ")
+    return null;
+  var element = new legend[ch]();
+  element.originChar = ch;
+  return element;
+}
+
+function World(map, legend) {
+  var grid = new Grid(map[0].length, map.length);
+  this.grid = grid;
+  this.legend = legend;
+
+  map.forEach(function(line, y) {
+    for (var x = 0; x < line.length; x++)
+      grid.set(new Vector(x, y), elementFromChar(legend, line[x]));
+  });
+}
+
+
+function charFromElement(element) {
+  if (element == null)
+    return " ";
+  else
+    return element.originChar;
+}
+
+World.prototype.toString = function() {
+  var output = "";
+  for (var y = 0; y < this.grid.height; y++) {
+    for (var x = 0; x < this.grid.width; x++) {
+      var element = this.grid.get (new Vector(x, y));
+      output += charFromElement(element);
+    }
+    output += "\n";
+  }
+  return output;
+};
+
+function Wall() {}
+
+var world = new World(plan, {
+  "#": Wall,
+  "o": BouncingCritter});
+console.log(world.toString());
+
+</script>
