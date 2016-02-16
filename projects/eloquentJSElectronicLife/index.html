@@ -9,10 +9,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/ico" href="http://www.fvi.edu/wp-content/themes/fvi/images/fav.ico">
-    <link rel='import' id='templates-import' href='/templates/projects.html'>
+    <link rel='import' id='templates-import' href='../../templates/projects.html'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <link rel='stylesheet' href='/style/style.css' type='text/css'>
-    <script src='/js/coder.js'></script>
+    <link rel='stylesheet' href='../../style/style.css' type='text/css'>
+    <script src='../../js/coder.js'></script>
+    <script src='../../templates/projects.js'></script>
   </head>
   <body data-spy="scroll" data-target="#nav-container">
     <project-header tag="Let's make a game!" author="Aaron Niskin"></project-header>
@@ -38,6 +39,71 @@
         <li>Basic JavaScript</li>
       </ul>
     </project-prereqs>
+    <project-step title="Vectorificationable">
+      <p>Since in our game, we're going to need to allow our pieces to look around, we're going to need a sense of direction. By that I mean, a way of describing the squares around each piece (e.g. the square up one and one to the left of the piece). One natural way to do this, is to have a grid and use vectors with vector addition. If you're not too familiar with these last two terms, don't worry about it too much: we'll go over everything you need to know in this project. Let's get to it, yeah?</p>
+      <p>Let's make our first Vector object! To define a JavaScript object, we make a function that returns a JavaScript object that has the properties we expect vectors to have (namely x and y coordinates, in this case). So for this case, our code should look like:</p>
+      <pre>function Vector(x, y) {
+  this.x = x;
+  this.y = y;
+  this.plus = function(other) {
+    return new Vector(this.x + other.x,this.y + other.y);
+  }
+}</pre>
+      <p>Note the lack of camel-case in our function name. This is intentional and important! We capitalize the first letter of the name so as to tell the reader (and maintainer of this code) that this is an object constructor. Now, if we want to instantiate this object (make a specific vector), we can do so by calling the function with the word <code>new</code> beforehand like so:</p>
+      <pre>var vec = new Vector(1, 2);
+vec.x; ==> 1
+vec.y; ==> 2</pre>
+      <p>Now <code>vec</code> will be one of our Vector objects, and as we can tell, it has the specified x and y coordinates. An equivalent way of defining properties. For instance, we could have written our Vector constructor as follows:</p>
+      <pre>function Vector(x, y) {
+  this.x = x;
+  this.y = y;
+}
+Vector.prototype.plus = function(other) {
+  return new Vector(this.x + other.x, this.y + other.y);
+}</pre>
+      <p>Either way you do it should be fine. So go ahead and set up the vector constructor in your code whichever way you'd like. Next, we want to get a few specific vectors that we want pieces to be able to "see". We should probably store these in another object so that we can get the values without having to think about the order in which we stored it. So, let's make an object named <code>directions</code> with keys being the cardinal directions and values the directions as vectors. For instance, <code>directions["n"]</code> should be <code>new Vector(0, -1)</code> and <code>directions["ne"]</code> should be <code>new Vector(1, -1)</code>. Note that we have what people normally consider "up" as a negaitve. This is consistent with the standard view with the top of the page's Y coordinate set to 0 and increasing as the position is lowered.</p>
+      <pre class='hint blur'>var directions = {
+  "n":  new Vector( 0, -1),
+  "ne": new Vector( 1, -1),
+  "e":  new Vector( 1,  0),
+  "se": new Vector( 1,  1),
+  "s":  new Vector( 0,  1),
+  "sw": new Vector(-1,  1),
+  "w":  new Vector(-1,  0),
+  "nw": new Vector(-1, -1)
+};</pre>
+      <p>Great! Now we're about ready to make our first creature of our game!</p>
+    </project-step>
+    <project-step title="Testing our inner creature">
+      <p>Our first creature is going to be kind of a useless one, but a good start for our purposes. Besides, that's how Eloquent JavaScript introduces it, so far be it from me to reinvent the wheel on this one. So, we're going to make a "bouncing critter" which really just bounces around. It doesn't do much else other than that, but that's why it's such a great starting point. Let's get to it!</p>
+      <p>Let's collect our thoughts on this one... We want our critter to move around in a random direction every turn. So let's get it to do that!</p>
+    </project-step>
+    <project-step title="">
+    </project-step>
+    <project-step title="">
+    </project-step>
+    <project-step title="">
+    </project-step>
+    <project-step title="">
+    </project-step>
+    <project-step title="">
+    </project-step>
+    <project-step title="">
+    </project-step>
+    <project-step title="">
+    </project-step>
+    <project-step title="">
+    </project-step>
+    <project-step title="">
+    </project-step>
+    <project-step title="">
+    </project-step>
+    <project-step title="">
+    </project-step>
+    <project-step title="">
+    </project-step>
+    <project-step title="">
+    </project-step>
     <project-step title="">
     </project-step>
     <project-step title="">

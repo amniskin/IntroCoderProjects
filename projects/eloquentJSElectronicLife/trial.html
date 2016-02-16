@@ -169,7 +169,7 @@ SmartPlantEater.prototype.act = function(view) {
 
 // Predators! -------
 function Tiger() {
-  this.energy = 150;
+  this.energy = 350;
   this.direction = randomElement(directionNames);
   this.lastEdible = 0;
 }
@@ -184,13 +184,13 @@ Tiger.prototype.act = function(view) {
     space = view.find(" ");
     this.direction = space || "s";
   }
-  if (this.energy > 350 && space ) {
+  if (this.energy > 750 && space ) {
     this.numKids++;
     return {type: "reproduce", direction: space};
   }
   var herbivore = view.find("O");
   if (herbivore) {
-    this.lastEdible += 4;
+    this.lastEdible += 2;
     if (this.lastEdible > 5) {
       this.lastEdible = 0;
       return {type: "eat", direction: herbivore};
