@@ -49,14 +49,8 @@
         <h4>Things to have ready:</h4>
         <ul class='prereqs'>
           <li>A working version of your project</li>
-          <li>A description of how to build your project complete with:
-            <ul>
-              <li>A list of desired learning objectives</li>
-              <li>A list of prerequisites</li>
-              <li>Descriptions and explanations</li>
-            </ul>
-          </li>
-          <li>An awesome personality (which you clearly already have)</li>
+          <li>A description of how to build your project</li>
+          <li>An awesome personality</li>
         </ul>
         <div class='row'>
           <div class='col-xs-12 col-sm-12 text-center btn do'>
@@ -88,7 +82,7 @@ projectShowcase.createdCallback = function() {
   $(this).find('.project').attr('id', projectName);
 
   //background image
-  var temp = "/projects/" + projectName + "/banner.jpg";
+  var temp = "projects/" + projectName + "/banner.jpg";
   $(this).find('.picture img').attr('src', temp);
 
   // Hover functionality
@@ -102,13 +96,13 @@ projectShowcase.createdCallback = function() {
   $(this).find('.try').click(function() {
     if(! $(this).parents('.description-container').hasClass('faded')) {
       var id = $(this).closest('.project').attr('id');
-      window.location.href = '/projects/'+id+'/trial.html';
+      window.location.href = 'projects/'+id+'/trial.html';
     } else return false;
   })
   $(this).find('.do').click(function() {
     if(! $(this).parents('.description-container').hasClass('faded')) {
       var id = $(this).closest('.project').attr('id');
-      window.location.href = '/projects/'+id+'/index.html';
+      window.location.href = 'projects/'+id+'/index.html';
     }
   })
 }
@@ -124,7 +118,7 @@ projectAdvert.createdCallback = function() {
 
 
   //background image
-  $(this).find('.picture img').attr('src', "/projects/howto/banner.jpg");
+  $(this).find('.picture img').attr('src', "projects/howto/banner.jpg");
 
   // Hover functionality
   $(this).find('.project').on("mouseenter mouseleave", function() {
@@ -136,7 +130,7 @@ projectAdvert.createdCallback = function() {
   // To get the buttons working
   $(this).find('.do').click(function() {
     if(! $(this).parents('.description-container').hasClass('faded')) {
-      window.location.href = '/projects/howto/coming-soon.html';
+      window.location.href = 'projects/howto/coming-soon.html';
     }
   })
 }

@@ -18,7 +18,7 @@
   <body data-spy="scroll" data-target="#nav-container">
     <project-header tag="Let's make a game!" author="Aaron Niskin"></project-header>
     <project-intro>
-    <p>In this project we'll be continuing the game from <a href='http://eloquentjavascript.net/07_elife.html'>Eloquent JavaScipt</a> called Electronic Life. If you have not yet checked out Elequent JavaScript, start <a href='http://eloquentjavascript.net/06_object.html'>here</a>. Read that section and then do the project in the next section. I cannot stress the benefits of reading the section before starting the project enough: firstly, his explanations are excellent; secondly, he inspires a love for programming that I only wish I could inspire; and thirdly, his explanations are more in depth than I will be getting into in these projects. I realize some apparent redundancy in that last list, but I don't think it's actually redundant.</p>
+    <p>In this project we'll be continuing the game from <a href='http://eloquentjavascript.net/07_elife.html'>Eloquent JavaScipt</a> called Electronic Life. If you have not yet checked out Elequent JavaScript, start <a href='http://eloquentjavascript.net/06_object.html'>here</a>. Read that section and then do the project in the next section. I cannot stress the benefits of reading the section before starting the project enough as his explanations are excellent. Once you've finished that project, come here and we'll make a decent looking GUI (Graphical User Interface) for our program.</p>
     </project-intro>
     <project-objectives>
       <ul>
@@ -39,48 +39,121 @@
         <li>Basic JavaScript</li>
       </ul>
     </project-prereqs>
-    <project-step title="Vectorificationable">
-      <p>Since in our game, we're going to need to allow our pieces to look around, we're going to need a sense of direction. By that I mean, a way of describing the squares around each piece (e.g. the square up one and one to the left of the piece). One natural way to do this, is to have a grid and use vectors with vector addition. If you're not too familiar with these last two terms, don't worry about it too much: we'll go over everything you need to know in this project. Let's get to it, yeah?</p>
-      <p>Let's make our first Vector object! To define a JavaScript object, we make a function that returns a JavaScript object that has the properties we expect vectors to have (namely x and y coordinates, in this case). So for this case, our code should look like:</p>
-      <pre>function Vector(x, y) {
-  this.x = x;
-  this.y = y;
-  this.plus = function(other) {
-    return new Vector(this.x + other.x,this.y + other.y);
+    <project-step title="Animating the world">
+      <p>When writing the project on the Eloquent JavaScript website, we didn't really have to worry about the animation part of things; that is because the author wrote the <code>animateWorld</code> for us. Well, since we're no longer working with his version, we're going to have to write this function ourselves. Luckily, this is not a very difficult task. The key thing is a JavaScript function called <code>setTimeout</code>.</p>
+      <p>The <code>setTimeout</code> function takes two arguments, a function to run and a duration of how long to wait before running it. What function do you think we should run? Try to figure out how to use <code>setTimeout</code> to write our <code>animateWorld</code> function. Remember, <code>animateWorld</code> needs to take a "world" as an argument, make the world "take a turn" (whatever that may mean for this world), and display the result of this turn (for which we have been using <code>console.log(world.toString())</code> so far).</p>
+      <pre class='hint blur'>function animateWorld(world) {
+  setTimeout(function() {
+    world.turn();
+    console.log(world.toString());
+    animateWorld(world);
+  }, 500);
+}</pre>
+      <p>You may notice that we call the <code>animateWorld</code> function from within its very own definition. This is called "recursion" and it is a very useful tool in a programmer's toolbox. The basic idea here is that when the function is called, it will call itself again. That is why the turns keep on happening. Let's walk through this evaluation once...</p>
+      <ul>The function is called, and evaluates to
+        <li>
+          <pre>wait 500 miliseconds then, 
+  world.turn();
+  console.log(world.toString());
+  animateWorld(world);</pre>
+        </li>
+        <li style= "list-style:none;">==></li>
+        <li>
+          <pre>wait 500 miliseconds then, 
+  world.turn();
+  console.log(world.toString());
+  wait 500 miliseconds then, 
+    world.turn();
+    console.log(world.toString());
+    animateWorld(world);
+          </pre>
+        </li>
+        <li style= "list-style:none;">==></li>
+        <li>
+          <pre>wait 500 miliseconds then, 
+  world.turn();
+  console.log(world.toString());
+  wait 500 miliseconds then, 
+    world.turn();
+    console.log(world.toString());
+    wait 500 miliseconds then, 
+      world.turn();
+      console.log(world.toString());
+      animateWorld(world);
+          </pre>
+        </li>
+      </ul>
+      <p>and so on... But we see that the recursive call really just makes the program call the function every 500 miliseconds, which is exactly what we want!</p>
+    </project-step>
+    <project-step title="Gettin griddy with it">
+      <p>Let's use our trusty friends over at <a href='http://getbootstrap.com'>bootstrap</a> to help us with our grid. Their grid system is a 12 column grid system, but does it have to be? I mean, it would behove us to have a much larger grid system. Granted, we could use columns within columns to achieve our goal, but it would be so much nicer if the grid system had as many columns as our game grid does. First, let's find out how many columns are in our game (this project will be using the tigers and herbavores version from one of the exercises at the end of the project). So go ahead and find out the grid width now.</p>
+      <pre class='hint blur'>worldName.gird.width
+==> 52</pre>
+      <p>Now that we know how many columns we would like our grid to have, let's get a version of bootstrap with that number of columns. Try and figure out how to do that on the bootstrap webpage. Remember that we only want the grid from them. Nothing more. And don't forget to link the file in our HTML.</p>
+      <div class='hint blur'><a href='http://getbootstrap.com/customize/'>http://getbootstrap.com/customize/</a>
+        <p>In the checklist on the top (where it says "less files" and the second one that says "jQuery plugins"), make sure you uncheck all except the grid system.</p>
+        <p>Next, go down to the grid system section <a href='http://getbootstrap.com/customize/#grid-system'>here</a>, and set the number of columns to 52 and the grid-gutter-width to 0px (so it looks good on mobile devices). Then click "compile and download" on the bottom of the page.</p>
+        <p>Once you've done that, move the bootstrap.min.css file to within your project's directory and make sure to link css file in your HTML</p>
+      </div>
+    </project-step>
+    <project-step title="Making our grid">
+      <p>Now, we could hand-code this game board. We could go through, row by row, cell by cell, making each piece and giving each piece the correct class names and everything, but I don't know if you realized... There are over 500 cells and 12 rows. That's a whole lot of cells that I don't really feel like coding by hand. Luckily, we can use javascript and jQuery to help us with this (yes, it can be done without jQuery, but why would I want to do that?).</p>
+      <p>First, let's make a div for us to put the gameboard in. We could just append the gameboard to the <code>body</code>, but I think it's nicer if we do it this way. that way we can have multiple games later on and not have to refactor any code. So, we are probably going to want to give this div some sort of identifying attribute. In my case, I know I'm only going to want one thing on this page, so I am just using the div with class "container-fluid" as my board container. I can call it by using <code>$(".container-fluid")</code>.</p>
+      <p>Next, let's make a function named "makeBoard" that takes a "world" object as its argument. This function will eventually return the gameBoard jQuery DOM element.</p>
+      <pre class='hint blur'>function makeBoard(world) {
+}</pre>
+      <p>Next, let's store some useful values as variables like, the world's width and height, and the jQuery DOM element that we want to put the grid in and return.</p>
+      <pre class='hint blur'>var width  = world.grid.width,
+    height = world.grid.height,
+    board  = $("&#60;div class='gameBoard'>");</pre>
+      <p>Now let's make a function that given two numbers, i and j, returns a jQuery DOM element that is a cell at row i and column j. This cell should have an ID that is descriptive of which cell it is (row and column are good cell identifiers). In my version, a cell in row 2 and column 5 would have id "2-5". I suggest doing that.</p>
+      <pre class='hint blur'>function makeCell(i, j) {
+  return $("&#60;div class='col-xs-1' id='" + i + "-" + "'>");
+}</pre>
+      <p>Great! Now let's make a function that given a number, i, returns the ith row! I think it would be nice if the rows had IDs too. Remember, the rows contain cells, so you'll have to call the <code>makeCell</code> function from within this function definition, but how?</p>
+      <pre class='hint blur'>function makeRow(i) {
+  var row = $("&#60;div class='row' id='" + i + "'>");
+  for (var j = 0; j &#60; width; j++) {
+    row.append(makeCell(i, j));
   }
+  return row;
 }</pre>
-      <p>Note the lack of camel-case in our function name. This is intentional and important! We capitalize the first letter of the name so as to tell the reader (and maintainer of this code) that this is an object constructor. Now, if we want to instantiate this object (make a specific vector), we can do so by calling the function with the word <code>new</code> beforehand like so:</p>
-      <pre>var vec = new Vector(1, 2);
-vec.x; ==> 1
-vec.y; ==> 2</pre>
-      <p>Now <code>vec</code> will be one of our Vector objects, and as we can tell, it has the specified x and y coordinates. An equivalent way of defining properties. For instance, we could have written our Vector constructor as follows:</p>
-      <pre>function Vector(x, y) {
-  this.x = x;
-  this.y = y;
+      <p>Great! Now that function returns complete rows! All that's left to do is fill in all the rows in our game board before we return it!</p>
+      <pre class='hint blur'>for (var i = 0; i &#60; height; i++) {
+  board.append(makeRow(i));
 }
-Vector.prototype.plus = function(other) {
-  return new Vector(this.x + other.x, this.y + other.y);
+
+return board;</pre>
+      <p>Now if we want to make a grid, we can just call:</p>
+      <pre>$('boardContainerIdentifier').html(makeBoard(worldName));</pre>
+      <div class='hint blur'>
+        <p>It's good form to have the <code>makeRow</code> and <code>makeCell</code> functions within the scope of the larger <code>makeBoard</code> function like so:</p>
+        <pre>function makeBoard(world) {
+  var board  = $("&#60;div class='gameBoard'>"),
+      width  = world.grid.width,
+      height = world.grid.height;
+  function makeCell(i, j) {
+    return $("&#60;div class='col-xs-1' id='" + i + "-" + j + "'>");
+  }
+  function makeRow(i) {
+    var row = $("&#60;div class='row' id='" + i + "'>");
+    for (var j = 0; j &#60; width; j++) {
+      row.append(makeCell(i, j));
+    }
+    return row;
+  }
+  for (var i = 0; i &#60; height; i++) {
+    board.append(makeRow(i));
+  }
+  return board;
 }</pre>
-      <p>Either way you do it should be fine. So go ahead and set up the vector constructor in your code whichever way you'd like. Next, we want to get a few specific vectors that we want pieces to be able to "see". We should probably store these in another object so that we can get the values without having to think about the order in which we stored it. So, let's make an object named <code>directions</code> with keys being the cardinal directions and values the directions as vectors. For instance, <code>directions["n"]</code> should be <code>new Vector(0, -1)</code> and <code>directions["ne"]</code> should be <code>new Vector(1, -1)</code>. Note that we have what people normally consider "up" as a negaitve. This is consistent with the standard view with the top of the page's Y coordinate set to 0 and increasing as the position is lowered.</p>
-      <pre class='hint blur'>var directions = {
-  "n":  new Vector( 0, -1),
-  "ne": new Vector( 1, -1),
-  "e":  new Vector( 1,  0),
-  "se": new Vector( 1,  1),
-  "s":  new Vector( 0,  1),
-  "sw": new Vector(-1,  1),
-  "w":  new Vector(-1,  0),
-  "nw": new Vector(-1, -1)
-};</pre>
-      <p>Great! Now we're about ready to make our first creature of our game!</p>
+      </div>
     </project-step>
-    <project-step title="Testing our inner creature">
-      <p>Our first creature is going to be kind of a useless one, but a good start for our purposes. Besides, that's how Eloquent JavaScript introduces it, so far be it from me to reinvent the wheel on this one. So, we're going to make a "bouncing critter" which really just bounces around. It doesn't do much else other than that, but that's why it's such a great starting point. Let's get to it!</p>
-      <p>Let's collect our thoughts on this one... We want our critter to move around in a random direction every turn. So let's get it to do that!</p>
-    </project-step>
-    <project-step title="">
-    </project-step>
-    <project-step title="">
+    <project-step title="Portraits">
+      <p>Now that we've got our grid in place, let's start drawing out the board! To do this, we're probably going to want a method for our world that will edit the game board according to the current state of the world. So, let's make a new method for our World object called "draw". Since we want this method to edit the game board, we should probably have the method take the game board as a parameter.</p>
+      <pre class='hint blur'>World.prototype.draw = function(gameBoard) {
+  }</pre>
+      <p>Now, </p>
     </project-step>
     <project-step title="">
     </project-step>
