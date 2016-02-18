@@ -149,19 +149,87 @@ return board;</pre>
 }</pre>
       </div>
     </project-step>
+    <project-step title="Show your hand">
+      <p>Now that we've got our world made, let's decide how we're going to make the cells have their corresponding colors. We know all about style by class and style by ID, but those two are not ideal for this purpose. Style by ID is not ideal because the IDs for these cells should not change depending on what element is currently occupying it. Style by class is not ideal because these cells have some classes that we would like them to keep throughout (like <code>col-xs-1</code>), and sorting through them might be a bit of a pain. There are other solutions, however. One solution would be to apply the style inline right there in the draw function. Yet another approach, the one we will be using today, is style by attribute.</p>
+      <p>We are going to define a new attribute for these cells that will describe what occupies it, and then we will apply the style depending on the value of that attribute. So, for this example, let's call this attribute "occupied".</p>
+      <p>For organizational purposes, let's agree on a convention for how to assign values for this attribute. For reasons to be seen later (as part of the A students portion), let's agree that the value of the attribute will be the same as the value in the legend. So for example, if there is a strudel ("@") at this location in the grid, the "occupied" attribute for this position in our game board would be "Tiger" because that is the value associated with the strudel in our legend. Let's further agree that if the cell is empty, the "occupied" value will be "none".</p>
+      <p>Great! So now that we've agreed on a convention, let's get the CSS in place. To style by an arbitrary attribute (like "occupied"), the general schema is</p>
+      <pre>[attribute='value'] {
+  style-property: desired-property-value;
+  ...
+}</pre>
+      <p>So, in our particular case, the attribute we're trying to set is "occupied", and the first value we're going to set is, for instance, "Wall". Let's make all the walls black. You can test your code by entering the console, adding a gameboard grid to the document, then setting the "occupied" property for a specific cell in the grid. If you've set your CSS and "occupied" property correctly, you should see the desired effect.</p>
+      <pre class='hint blur'>[occupied='Wall'] {
+  background-color: black;
+}
+
+And to test your code, you can use
+$('body').append(makeBoard(nameOfWorld));
+$('#1-1').attr('occupied', 'Wall');</pre>
+      <p>Great! Now let's set all the values. Be sure to include the empty spaces!</p>
+    </project-step>
     <project-step title="Portraits">
-      <p>Now that we've got our grid in place, let's start drawing out the board! To do this, we're probably going to want a method for our world that will edit the game board according to the current state of the world. So, let's make a new method for our World object called "draw". Since we want this method to edit the game board, we should probably have the method take the game board as a parameter.</p>
+    <p>Now that we've got our naming schema, let's start drawing out the board! To do this, we're probably going to want a method for our world that will edit the game board according to the current state of the world. So, let's make a new method for our World object called "draw" that takes a gameboard as its argument. It's important that the method takes the board as an argument rather than just editing it in place. The idea being that we know exactly what things are messing with what other things.</p>
       <pre class='hint blur'>World.prototype.draw = function(gameBoard) {
-  }</pre>
-      <p>Now, </p>
+}</pre>
+      <p>Now, much like the <code>toString</code> method in our World object, our <code>draw</code> method should probalby go one by one through our grid and update each element with the corresponding value from the World object according to our previously defined schema (in the last step). Be careful though. For reasons we'll go into later we can't just set it to be the value of the legend. So we're going to have to hand code each of these symbols with <code>if</code> statements. Go ahead and set up that loop now.</p>
+      <pre class='hint blur'>for (var y = 0; y &#60; this.grid.height; y++) {
+  for (var x = 0; x &#60; this.grid.width; x++) {
+    var cell = gameBoard.find("#" + y + "-" + x);
+    var element = this.grid.get(new Vector(x, y));
+    var elemChar = charFromElement(element);
+    if (elemChar == "@") {
+      cell.attr("occupied", "Tiger");
+    } else if (elemChar == "*") {
+    ...
+    }... {
+    } else 
+      cell.attr("occupied", "none");
+  }
+}</pre>
     </project-step>
-    <project-step title="">
+    <project-step title="Animate Part II: The Revenge of the Scope" last="true">
+      <p>Now we'd like to get rolling with it, but our <code>draw</code> method requires the game board to be given as an argument and our game board is not within the scope of our <code>animateWorld</code> function. Basically, we can't call our <code>draw</code> method from within the <code>animateWorld</code> function as we currently have it! To amend this, let's add the game board as a second argument and call the <code>draw</code> function while we're at it.</p>
+      <pre class='hint blur'>function animateWorld(world, gameBoard) {
+  setTimeout( function() {
+    world.turn();
+    world.draw(gameBoard);
+    console.log(world.toString());
+    animateWorld(world, gameBoard);
+  }, 500);
+}</pre>
+      <p>Great! Now let's bring it all together! Let's write a function that runs our world. It should take as arguments a world and a container in which to put the world. It should then build the board, display that board in the container, draw the world onto the board, and animate the world.</p>
+      <pre class='hint blur'>function bootUp(world, container) {
+  var gameBoard = makeBoard(world);
+  container.html(gameBoard);
+  world.draw(gameBoard);
+  animateWorld(world, gameBoard);
+}</pre>
+      <p>We're done! All that's left is to call this last function and the game runs! If you want to make it a little cooler, you might want to add a click handler and some logic under the hood to pause and unpause the game on clicks. You can check out the rest of this project for some more cool stuff we can do with this.</p>
     </project-step>
-    <project-step title="">
+    <project-step title="Splitting our strings">
+      <p>Firstly, I don't much like the way our <code>draw</code> function assigns the "occupied" value. If we want to add more things to our legend, we have to edit this function too? How are we supposed to remember that 6 years from now when we're editing this code? It would be much better if we could somehow get just the name for these things without everything else.</p>
+      <p>If we simply assign the element as the value, we're going to end up with the value being a function, which is not acceptable. We could convert the element to a string, and then assign that as the value; but then the value would be</p>
+      <pre>"function Tiger() {
+  this.energy = ...
+  ...
+}"</pre>
+      <p>which is obviously not what we want. We want just the name (in this case, "Tiger"), which we can extract from this string. To do this, we note that the next non-space character after the name we want is "(". So, let's take that string and split it at all "(" and take only the first one. For purposes of clarity, let's assume that we've stored the above string in a variable named <code>longString</code>.</p>
+      <pre>longString.split("(");
+==> ["function Tiger", ") {......"]</pre>
+      <p>We can see that we're going to want only the first one there, so let's take just the first one. So far we've got, <code>longString.split('(')[0]</code> which evaluates to <code>"function Tiger"</code> or <code>"function Tiger "</code> depending on whether or not we had a space before the parens.</p>
+      <p>Next, let's split this at each space. Remember, when we split at spaces, it also removes all spaces (convenient in this case)...</p>
+      <pre>longString.split('(')[0].split(' ');
+==> ["function", "Tiger"]</pre>
+      <p>And we want the second one there. Let's go ahead and write this as a function now. We're going to need our function to take a character and a legend, look up the constructor associated with this character, convert it to a string and take only the name part as we did above. Let's write that code now.</p>
+      <pre class='hint blur'>function attrFromChar(legend, char) {
+  return legend[char].toString().split('(')[0].split(' ')[1];
+}</pre>
+      <p>so instead of hand coding all of that redundant nonsense we had earlier, we can simply use</p>
+      <pre>cell.attr("occupied", attrFromChar(this.legend, charFromElement(element)));</pre>
     </project-step>
-    <project-step title="">
-    </project-step>
-    <project-step title="">
+    <project-step title="Play/Pause on click!">
+      <p>Let's make this thing pausible. To do this, </p>
     </project-step>
     <project-step title="">
     </project-step>
@@ -185,118 +253,3 @@ return board;</pre>
     </project-step>
   </body>
 </html>
-<script>
-var plan = [
-  "############################",
-  "#      #    #      o      ##",
-  "#                          #",
-  "#          #####           #",
-  "##         #   #    ##     #",
-  "###           ##     #     #",
-  "#           ###      #     #",
-  "#   ####                   #",
-  "#   ##       o             #",
-  "# o  #         o       ### #",
-  "#    #                     #",
-  "############################"];
-
-function Vector(x, y) {
-  this.x = x;
-  this.y = y;
-}
-Vector.prototype.plus = function(v) {
-  return new Vector(this.x + v.x, this.y + v.y);
-};
-
-function Grid(width, height) {
-  this.space = new Array(width * height);
-  this.width = width;
-  this.height = height;
-}
-
-Grid.prototype.isInside = function(vec) {
-  return vec.x >= 0 && vec.x < this.width &&
-         vec.y >= 0 && vec.y < this.height;
-};
-Grid.prototype.get = function(vec) {
-  return this.space[vec.x + this.width * vec.y];
-};
-Grid.prototype.set = function(vec, value) {
-  return this.space[vec.x + this.width * vec.y] = value;
-};
-
-
-var directions = {
-  "n":  new Vector( 0, -1),
-  "ne": new Vector( 1, -1),
-  "e":  new Vector( 1,  0),
-  "se": new Vector( 1,  1),
-  "s":  new Vector( 0,  1),
-  "sw": new Vector(-1,  1),
-  "w":  new Vector(-1,  0),
-  "nw": new Vector(-1, -1)
-};
-
-function randomElement(arr) {
-  return arr[Math.floor(Math.random() * arr.length)];
-}
-
-var directionNames = "n ne e se s sw w nw".split(" ");
-
-function BouncingCritter() {
-  this.direction = randomElement(directionNames);
-};
-
-BouncingCritter.prototype.act = function(view) {
-  if (view.look(this.direction) != " ")
-    this.direction = view.find(" ") || "s";
-  return {type: "move", direction: this.direction};
-};
-
-function elementFromChar(legend, ch) {
-  if (ch == " ")
-    return null;
-  var element = new legend[ch]();
-  element.originChar = ch;
-  return element;
-}
-
-function World(map, legend) {
-  var grid = new Grid(map[0].length, map.length);
-  this.grid = grid;
-  this.legend = legend;
-
-  map.forEach(function(line, y) {
-    for (var x = 0; x < line.length; x++)
-      grid.set(new Vector(x, y), elementFromChar(legend, line[x]));
-  });
-}
-
-
-function charFromElement(element) {
-  if (element == null)
-    return " ";
-  else
-    return element.originChar;
-}
-
-World.prototype.toString = function() {
-  var output = "";
-  for (var y = 0; y < this.grid.height; y++) {
-    for (var x = 0; x < this.grid.width; x++) {
-      var element = this.grid.get (new Vector(x, y));
-      output += charFromElement(element);
-    }
-    output += "\n";
-  }
-  return output;
-};
-
-function Wall() {}
-
-var world = new World(plan, {
-  "#": Wall,
-  "o": BouncingCritter});
-console.log(world.toString());
-
-</script>

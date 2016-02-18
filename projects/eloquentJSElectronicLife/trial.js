@@ -191,7 +191,7 @@ function World(map, legend) {
 World.prototype.draw = function(gameBoard) {
   for (var y = 0; y < this.grid.height; y++) {
     for (var x = 0; x < this.grid.width; x++) {
-      element = this.grid.get (new Vector(x, y));
+      var element = this.grid.get (new Vector(x, y));
       if (element) 
         gameBoard.find("#" + y + "-" + x).attr("occupied", attrFromChar(this.legend, charFromElement(element)));
       else
@@ -414,18 +414,6 @@ var valley = new LifelikeWorld(
     lifeLikeLegend
     );
 
-function animateWorld(wrld, gameBoard) {
-  setTimeout(function() {
-    if (keepGoing) {
-      wrld.turn();
-      wrld.draw(gameBoard);
-      console.log(wrld.toString());
-      animateWorld(wrld, gameBoard);
-    }
-  }, 500);
-}
-
-
 var huntingGrounds = new LifelikeWorld(
       ["####################################################",
       "#                 ####         ****              ###",
@@ -450,6 +438,18 @@ var huntingGrounds = new LifelikeWorld(
         "O": SmartPlantEater, // from previous exercise
         "*": Plant}
         );
+
+function animateWorld(wrld, gameBoard) {
+  setTimeout(function() {
+    if (keepGoing) {
+      wrld.turn();
+      wrld.draw(gameBoard);
+      console.log(wrld.toString());
+      animateWorld(wrld, gameBoard);
+    }
+  }, 500);
+}
+
 
 function bootUp(world, container) {
   var gameBoard = makeBoard(world);
