@@ -370,7 +370,6 @@ var world = new World([
 });
 
 
-var keepGoing = false;
 var lifeLikeLegend = { 
   "#": Wall, 
   "O": SmartPlantEater, 
@@ -439,13 +438,13 @@ var huntingGrounds = new LifelikeWorld(
         "*": Plant}
         );
 
-function animateWorld(wrld, gameBoard) {
+function animateWorld(wrld, gameBoard, going) {
   setTimeout(function() {
-    if (keepGoing) {
+    if (going) {
       wrld.turn();
       wrld.draw(gameBoard);
       console.log(wrld.toString());
-      animateWorld(wrld, gameBoard);
+      animateWorld(wrld, gameBoard, going);
     }
   }, 500);
 }
@@ -453,11 +452,15 @@ function animateWorld(wrld, gameBoard) {
 
 function bootUp(world, container) {
   var gameBoard = makeBoard(world);
+  var keepGoing = false;
   container.html(gameBoard);
   world.draw(gameBoard);
-  $(document).click(function() {
-    keepGoing = ! keepGoing;
-    animateWorld(world, gameBoard);
+  $(document).ready(function() {
+    animateWorld(world, gameBoard, keepGoing);
+    $(document).click(function() {
+      keepGoing = ! keepGoing;
+      animateWorld(world, gameBoard, keepGoing);
+    });
   });
 }
 

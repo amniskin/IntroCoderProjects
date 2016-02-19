@@ -226,7 +226,9 @@ $('#1-1').attr('occupied', 'Wall');</pre>
   return legend[char].toString().split('(')[0].split(' ')[1];
 }</pre>
       <p>so instead of hand coding all of that redundant nonsense we had earlier, we can simply use</p>
-      <pre>cell.attr("occupied", attrFromChar(this.legend, charFromElement(element)));</pre>
+      <pre>cell.attr("occupied",
+          attrFromChar(this.legend,
+                       charFromElement(element)));</pre>
     </project-step>
     <project-step title="Play/Pause on click!">
       <p>Let's make this thing pausible. To do this, </p>
