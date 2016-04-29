@@ -3,129 +3,65 @@
 <html>
   <head>
     <title>
-      Make a Coder Project
+      DIY Project
     </title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/ico" href="http://www.fvi.edu/wp-content/themes/fvi/images/fav.ico">
-    <link rel='import' id='templates-import' href='../../templates/addProject.html'>
+    <link rel='import' id='templates-import' href='../../templates/projects.html'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <link rel='stylesheet' href='../../style/style.css' type='text/css'>
+    <link rel="stylesheet" href="../../style/style.css">
+    <script src="../../js/coder.js"></script>
   </head>
-  <body data-spy="scroll" data-target="#nav-container">
-    <div id='header'>
-      <project-header tag="So you wanna play with projects" author="Aaron Niskin"></project-header>
-    </div>
-    <div id='intro'>
-      <project-intro>
-      </project-intro>
-    </div>
-    <div id='objectives'>
-      <project-objectives>
-        <h4>For the A students:</h4>
-      </project-objectives>
-    </div>
-    <div id='prereqs'>
-      <project-prereqs>
-        <ul>
-        </ul>
-      </project-prereqs>
-    </div>
-    <div id='steps'>
-    </div>
-
-
-    <div class="modal fade" tabindex="-1" role="dialog"  id='input-modal'>
-      <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="modal-title"></h4>
-          </div>
-          <div class='modal-body'>
-            <form id='header-form'>
-              <div class='row'>
-                <div class="col-xs-12 col-md-4">
-                  <div class='form-group'>
-                    <label for='fname'>First Name</label>
-                    <input type='text' class='form-control' id='fname' name='fname' placeholder='First Name'>
-                  </div>
-                </div>
-                <div class="col-xs-12 col-md-4">
-                  <div class='form-group'>
-                    <label for='lname'>Last Name</label>
-                    <input type='text' class='form-control' id='lname' name='lname' placeholder='Last Name'>
-                  </div>
-                </div>
-                <div class="col-xs-12 col-md-4">
-                  <div class='form-group'>
-                    <label for='email'>Email Address (will not be public)</label>
-                    <input type='email' class='form-control' id='email' name='email' placeholder='Email Address'>
-                  </div>
-                </div>
-              </div>
-              <div class='row'>
-                <div class="col-xs-12">
-                  <div class='form-group'>
-                    <label for='title'>Project Title</label>
-                    <input type='text' class='form-control' id='project-title' name='title' placeholder='Project Title'>
-                  </div>
-                </div>
-              </div>
-              <div class='row'>
-                <div class="col-xs-12">
-                  <div class='form-group'>
-                    <label for='tag'>Project Tagline</label>
-                    <input type='text' class='form-control' id='tag' name='tag' placeholder='Project Tagline'>
-                  </div>
-                </div>
-              </div>
-            </form>
-            <form id='step-form' class='hidden'>
-              <div class='row'>
-                <div class="col-xs-12">
-                  <div class='form-group'>
-                    <label for='title'>Step Title</label>
-                    <input type='text' class='form-control' id='step-title' name='title' placeholder='Step Title'>
-                  </div>
-                </div>
-                <div class="col-xs-12">
-                  <div class='form-group'>
-                    <label for='step-text'>Step Text</label>
-                    <textarea rows='6' type='text' class='form-control' id='step-text' name='text' placeholder='Step Text'></textarea>
-                  </div>
-                </div>
-              </div>
-            </form>
-            <!--form id='intro-form'>
-            </form>
-            <form id='prereqs-form'>
-            </form>
-            <form id='objectives-form'>
-            </form>
-            <form id='header-form'>
-            </form-->
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default cancel" data-dismiss="modal">Cancel</button>
-            <button type="button" class="btn btn-primary submit">Add <span id='submit-type'></span></button>
-          </div>
-        </div><!-- /.modal-content -->
-      </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
+  <body data-spy='scroll' data-target='#nav-container' data-offset="70">
+    <project-header tag="Let's share the love!" author='Aaron Niskin'></project-header>
+    <project-intro>
+      <p>So you wanna play with projects? Then you should know what you're in for. That's what the purpose of this meta-project is. If you follow all the steps, you just might find your project among these glorious jewels! Don't worry... We give credit where credit is due. So if you want to see your name hailed among the legends of CoderProject Authors, go ahead and follow this guide!</p>
+    </project-intro>
+    <project-objectives>
+      <ul>
+        <li>Explain the standards for project acceptance.</li>
+        <li>Explain the format for project submission.</li>
+        <li>Explain the method for project submission.</li>
+      </ul>
+    </project-objectives>
+    <project-prereqs>
+      <ul>
+        <li>A computer to use for a bit.</li>
+        <li>Desire to be totes AWESOME!</li>
+        <li>A project idea.</li>
+        <li>A working version of said project.</li>
+      </ul>
+    </project-prereqs>
+    <project-step title='Out of clutter, find simplicity.'>
+      <p>Gather all your things, children, because we're going on a little ride! Before we can submit any projects, we're going to have to have a plan of what this project should entail, right? Next, let's fire up our private email servers (we're looking at you, Hillary) and start a message to <a href="mailto:coderProjects@fvi.edu">coderProjects@fvi.edu</a>. This will be how we submit our project.</p>
+    </project-step>
+    <project-step title="Put your money where you mouth is">
+      <p>So you say you've got a project? Let's see it in action! As you probably already know, we have working versions of all our projects so that students can see what they're getting into and what the finished products should look like. We'd really appreciate it if you'd have a working version of yous too.</p>
+      <p>Once you've got a version of your project working and looking as you'd like, take all the files and zip them up. Take that zip file (containing all the required files to get your project working) and set it aside.</p>
+      <p>Don't forget to include in your zip file any of the following that might be pertinent:
+      <ul>
+        <li>HTML files</li>
+        <li>CSS files</li>
+        <li>JS files</li>
+        <li>Any images or other static files you might be using</li>
+      </ul>
+      <p>Great! Now let's attach this to our ever improving email.</p>
+    </project-step>
+    <project-step title="Do you speak PreReqi?">
+      <p>Let's start out these travels with a short summary of what this project is. What will we be creating in this project? Why is your project awesome? (Please be as self gratifying as possible here. Brag about your project. We don't mind. Shoot, we encourage it!).</p>
+      <p>What are some things that users should know or be familiar with before embarking on the voyage that is your proud project? Let's get them all arranged in a list and write them down. Try to make your requirements reasonable and realistic. If you don't actually need something for the project, don't include that thing as a prerequisite. Once you have a working list of prerequisites, go ahead and append them to your email.</p>
+      <p>We also would like to have a list of Learning Objectives. What should the student learn from doing this project? Where does it fall in the grand scheme of computation pedagogy? Once you've got that list, go ahead and append that to the email to.</p>
+      <p>Note: You should label these lists so as to avoid confusion and help the moderator read your suggested project.</p>
+    </project-step>
+    <project-step title="The n step program" last="true">
+      <p>Now we've arrived at our steps. Break your project down into smaller, digestible steps. What should be the task for the student at each step? What should be the hint (if there should be one for this step)? What should the code look like at this point?</p>
+      <p>Be sure to label which step is the last one. Any steps after the last will be taken as "extra credit". Don't shy away from the extra credit though! It's a great way to have one project that works for many different skill levels.</p>
+      <p>Then append each step (along with the step number) to your email.</p>
+    </project-step>
+    <project-step title="Let's show it off!">
+      <p>Send off that email and you're done! Go away. Go outside. Play some basketball.</p>
+    </project-step>
   </body>
 </html>
-
-<script>
-$(document).ready(function() {
-  console.log('ready');
-  $('#input-modal').find('form').addClass('hidden').removeClass('active');
-  $('#input-modal').find('form#header-form').removeClass('hidden').addClass('active');
-  $('#input-modal').find('button.submit #submit-type').text('your info');
-  $('#input-modal').find('button.submit').click(function(event) {
-    $('#input-modal').find('form.active').submit();
-  });
-  $('#input-modal').modal('show');
-});
-</script>

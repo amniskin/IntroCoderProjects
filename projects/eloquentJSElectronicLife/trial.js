@@ -440,12 +440,12 @@ var huntingGrounds = new LifelikeWorld(
 
 function animateWorld(wrld, gameBoard, going) {
   setTimeout(function() {
-    if (going) {
+    if (going()) {
       wrld.turn();
       wrld.draw(gameBoard);
       console.log(wrld.toString());
-      animateWorld(wrld, gameBoard, going);
     }
+    animateWorld(wrld, gameBoard, going);
   }, 500);
 }
 
@@ -453,13 +453,15 @@ function animateWorld(wrld, gameBoard, going) {
 function bootUp(world, container) {
   var gameBoard = makeBoard(world);
   var keepGoing = false;
+  function going() {
+      return keepGoing;
+  }
   container.html(gameBoard);
   world.draw(gameBoard);
   $(document).ready(function() {
-    animateWorld(world, gameBoard, keepGoing);
+    animateWorld(world, gameBoard, going);
     $(document).click(function() {
       keepGoing = ! keepGoing;
-      animateWorld(world, gameBoard, keepGoing);
     });
   });
 }

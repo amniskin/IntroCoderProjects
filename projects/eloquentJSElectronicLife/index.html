@@ -40,7 +40,7 @@
       </ul>
     </project-prereqs>
     <project-step title="Animating the world">
-      <p>When writing the project on the Eloquent JavaScript website, we didn't really have to worry about the animation part of things; that is because the author wrote the <code>animateWorld</code> for us. Well, since we're no longer working with his version, we're going to have to write this function ourselves. Luckily, this is not a very difficult task. The key thing is a JavaScript function called <code>setTimeout</code>.</p>
+      <p>When writing the project on the Eloquent JavaScript website, we didn't really have to worry about the animation part of things; that is because the author wrote the <code>animateWorld</code> for us. Well, since we're no longer working with his framework, we're going to have to write this function ourselves. Luckily, this is not a very difficult task. The key tool we'll be using is a JavaScript function called <code>setTimeout</code>.</p>
       <p>The <code>setTimeout</code> function takes two arguments, a function to run and a duration of how long to wait before running it. What function do you think we should run? Try to figure out how to use <code>setTimeout</code> to write our <code>animateWorld</code> function. Remember, <code>animateWorld</code> needs to take a "world" as an argument, make the world "take a turn" (whatever that may mean for this world), and display the result of this turn (for which we have been using <code>console.log(world.toString())</code> so far).</p>
       <pre class='hint blur'>function animateWorld(world) {
   setTimeout(function() {
@@ -159,13 +159,15 @@ return board;</pre>
   ...
 }</pre>
       <p>So, in our particular case, the attribute we're trying to set is "occupied", and the first value we're going to set is, for instance, "Wall". Let's make all the walls black. You can test your code by entering the console, adding a gameboard grid to the document, then setting the "occupied" property for a specific cell in the grid. If you've set your CSS and "occupied" property correctly, you should see the desired effect.</p>
-      <pre class='hint blur'>[occupied='Wall'] {
+      <div class='hint blur'>
+        <pre>[occupied='Wall'] {
   background-color: black;
-}
+}</pre>
 
-And to test your code, you can use
-$('body').append(makeBoard(nameOfWorld));
+        <p>And to test your code, you can use</p>
+        <pre>$('body').append(makeBoard(nameOfWorld));
 $('#1-1').attr('occupied', 'Wall');</pre>
+      </div>
       <p>Great! Now let's set all the values. Be sure to include the empty spaces!</p>
     </project-step>
     <project-step title="Portraits">
@@ -214,7 +216,7 @@ $('#1-1').attr('occupied', 'Wall');</pre>
   this.energy = ...
   ...
 }"</pre>
-      <p>which is obviously not what we want. We want just the name (in this case, "Tiger"), which we can extract from this string. To do this, we note that the next non-space character after the name we want is "(". So, let's take that string and split it at all "(" and take only the first one. For purposes of clarity, let's assume that we've stored the above string in a variable named <code>longString</code>.</p>
+      <p>which is obviously not what we want. We want just the name (in this case, "Tiger"), which we can extract from this string. To do this, we note that the next non-space character after the name we want is "(". So, let's take that string and split it at all "(" and take only the first one. For purposes of brevity and a little bit of clarity, let's assume that we've stored the above string in a variable named <code>longString</code>.</p>
       <pre>longString.split("(");
 ==> ["function Tiger", ") {......"]</pre>
       <p>We can see that we're going to want only the first one there, so let's take just the first one. So far we've got, <code>longString.split('(')[0]</code> which evaluates to <code>"function Tiger"</code> or <code>"function Tiger "</code> depending on whether or not we had a space before the parens.</p>
@@ -225,33 +227,15 @@ $('#1-1').attr('occupied', 'Wall');</pre>
       <pre class='hint blur'>function attrFromChar(legend, char) {
   return legend[char].toString().split('(')[0].split(' ')[1];
 }</pre>
-      <p>so instead of hand coding all of that redundant nonsense we had earlier, we can simply use</p>
+      <p>Note: The more advanced coders might want to try using regular expressions here instead of the string splitting and whatnot we're doing here.</p>
+      <p>So instead of hand coding all of that redundant nonsense we had earlier, we can simply use</p>
       <pre>cell.attr("occupied",
           attrFromChar(this.legend,
                        charFromElement(element)));</pre>
     </project-step>
-    <project-step title="Play/Pause on click!">
-      <p>Let's make this thing pausible. To do this, </p>
-    </project-step>
-    <project-step title="">
-    </project-step>
-    <project-step title="">
-    </project-step>
-    <project-step title="">
-    </project-step>
-    <project-step title="">
-    </project-step>
-    <project-step title="">
-    </project-step>
-    <project-step title="">
-    </project-step>
-    <project-step title="">
-    </project-step>
-    <project-step title="">
-    </project-step>
-    <project-step title="">
-    </project-step>
-    <project-step title="" last="">
-    </project-step>
+    <!--project-step title="Play/Pause on click!">
+    <p>Let's make this thing pausible. To do this, we're going to want to set some logic behind the <code>animateWorld</code> code.</p>
+    <p>Let's start out by adding another argument to our lovely <code>animateWorld</code>. This argument is going the be the boolean that determines whether or not to update our world. The problem is that this 
+    </project-step-->
   </body>
 </html>
